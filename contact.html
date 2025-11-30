@@ -242,8 +242,8 @@
            TELEGRAM BOT SETUP
         ═══════════════════════════════════════════════════════════════ */
         
-        const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
-        const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
+        const TELEGRAM_BOT_TOKEN = '7987145419:AAEUPayAfPikjsGIqpUvdywohF_db1bPhx4';
+        const TELEGRAM_CHAT_ID = '2137539856';
         
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -256,32 +256,18 @@
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            const telegramMessage = `
-🔔 <b>Новое сообщение с портфолио!</b>
-
-👤 <b>Имя:</b> ${name}
-📧 <b>Email:</b> ${email}
-${phone ? `📱 <b>Телефон:</b> ${phone}` : ''}
-
-💬 <b>Сообщение:</b>
-${message}
-            `.trim();
-            
             submitButton.disabled = true;
             submitButton.innerHTML = '<span>Отправка...</span>';
             formStatus.style.display = 'none';
             
             try {
-                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                // Отправляем данные на Cloudflare Worker
+                const response = await fetch('https://telegram-form-worker.kinameri20.workers.dev', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: telegramMessage,
-                        parse_mode: 'HTML'
-                    })
+                    body: JSON.stringify({ name, email, phone, message })
                 });
                 
                 const data = await response.json();
@@ -308,6 +294,7 @@ ${message}
                 submitButton.innerHTML = '<span>Отправить</span><span>→</span>';
             }
         });
+
     </script>
 </body>
 </html>
