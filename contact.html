@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связаться | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body class="page-contact">
+    <!-- Header -->
+    <header class="animated-header">
+        <a href="portfolio.html" class="logo" style="text-decoration: none; color: inherit;">Имя Ф.</a>
+        <nav>
+            <a href="portfolio.html">Главная</a>
+            <a href="projects.html">Проекты</a>
+            <a href="contact.html">Связаться</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- 3D Model Background -->
+        <div id="model-container" class="full-size"></div>
+
+        <!-- Left Side - Title -->
+        <div class="left-side">
+            <div class="left-content">
+                <h2 class="contact-title">
+                    LET'S<br>
+                    GET IN<br>
+                    TOUCH
+                </h2>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:your.email@example.com">your.email@example.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Telegram</div>
+                        <div class="info-value">
+                            <a href="https://t.me/yourusername" target="_blank">@yourusername</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">WhatsApp</div>
+                        <div class="info-value">
+                            <a href="https://wa.me/yourphone" target="_blank">+7 (XXX) XXX-XX-XX</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="right-side">
+            <div class="right-content">
+                <div class="form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    class="form-input" 
+                                    placeholder="Full Name *"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="Email *"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    class="form-input" 
+                                    placeholder="Phone"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                class="form-textarea" 
+                                placeholder="Message *"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="submit-wrapper">
+                            <button type="submit" class="submit-button">
+                                <span>Отправить</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="portfolio.html" class="back-button">← Назад</a>
+
+    <script>
+        /* ═══════════════════════════════════════════════════════════════
+           3D MODEL SETUP
+        ═══════════════════════════════════════════════════════════════ */
+        
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        const modelContainer = document.getElementById('model-container');
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.0;
+        modelContainer.appendChild(renderer.domElement);
+        
+        // Освещение
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+        
+        const directionalLight1 = new THREE.DirectionalLight(0x00ffff, 1.5);
+        directionalLight1.position.set(2, 2, 2);
+        scene.add(directionalLight1);
+        
+        const directionalLight2 = new THREE.DirectionalLight(0x0088ff, 0.8);
+        directionalLight2.position.set(-2, -1, -1);
+        scene.add(directionalLight2);
+        
+        camera.position.z = 4;
+        
+        let model;
+        const MODEL_FILE = 'star.glb';
+        
+        // Загрузка модели
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            MODEL_FILE,
+            function (gltf) {
+                model = gltf.scene;
+                
+                model.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        child.material.transparent = true;
+                        child.material.opacity = 0.3;
+                    }
+                });
+                
+                const box = new THREE.Box3().setFromObject(model);
+                const center = box.getCenter(new THREE.Vector3());
+                model.position.sub(center);
+                
+                const size = box.getSize(new THREE.Vector3());
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const scale = 6.0 / maxDim;
+                model.scale.multiplyScalar(scale);
+                
+                scene.add(model);
+            },
+            function (xhr) {
+                if (xhr.total > 0) {
+                    console.log(Math.round((xhr.loaded / xhr.total * 100)) + '% загружено');
+                }
+            },
+            function (error) {
+                console.log('Модель не найдена, показываю запасную фигуру...');
+                
+                const size = 2;
+                const segments = 50;
+                const geometry = new THREE.ParametricGeometry(function(u, v, target) {
+                    u = u * 2 - 1;
+                    v = v * 2 - 1;
+                    
+                    const x = u * size;
+                    const y = (u * u - v * v) * size * 0.5;
+                    const z = v * size;
+                    
+                    target.set(x, y, z);
+                }, segments, segments);
+                
+                const material = new THREE.MeshStandardMaterial({
+                    color: 0x00ffff,
+                    emissive: 0x00ffff,
+                    emissiveIntensity: 0.2,
+                    metalness: 0.8,
+                    roughness: 0.2,
+                    side: THREE.DoubleSide,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                model = new THREE.Mesh(geometry, material);
+                scene.add(model);
+            }
+        );
+        
+        // Анимация
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (model) {
+                const time = Date.now() * 0.0005;
+                model.rotation.x = Math.sin(time) * 0.1;
+                model.rotation.y += 0.005;
+            }
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+        
+        // Адаптация при изменении размера окна
+        window.addEventListener('resize', function() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        /* ═══════════════════════════════════════════════════════════════
+           TELEGRAM BOT SETUP
+        ═══════════════════════════════════════════════════════════════ */
+        
+        const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
+        const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
+        
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formStatus = document.getElementById('formStatus');
+            const submitButton = this.querySelector('.submit-button');
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const telegramMessage = `
+🔔 <b>Новое сообщение с портфолио!</b>
+
+👤 <b>Имя:</b> ${name}
+📧 <b>Email:</b> ${email}
+${phone ? `📱 <b>Телефон:</b> ${phone}` : ''}
+
+💬 <b>Сообщение:</b>
+${message}
+            `.trim();
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span>Отправка...</span>';
+            formStatus.style.display = 'none';
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: telegramMessage,
+                        parse_mode: 'HTML'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.ok) {
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = 'Сообщение отправлено!';
+                    formStatus.style.display = 'block';
+                    this.reset();
+                    
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Ошибка отправки');
+                }
+            } catch (error) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Ошибка отправки. Попробуйте позже.';
+                formStatus.style.display = 'block';
+                console.error('Ошибка:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<span>Отправить</span><span>→</span>';
+            }
+        });
+    </script>
+</body>
+</html>
