@@ -1,304 +1,360 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Связаться | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- Логика -->
+  <script src="js/theme-lang.js" defer></script>
+  <script src="js/three-setup.js" defer></script>
+  <script src="js/contact-form.js" defer></script>
 </head>
 <body class="page-contact">
-    <!-- Header -->
-    <header class="animated-header">
-        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Имя Ф.</a>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="projects.html">Проекты</a>
-            <a href="contact.html">Связаться</a>
-        </nav>
-    </header>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- 3D Model Background -->
-        <div id="model-container" class="full-size"></div>
+<!-- Header -->
+<header class="animated-header">
+  <div class="header-left">
+    <a href="portfolio.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
 
-        <!-- Left Side - Title -->
-        <div class="left-side">
-            <div class="left-content">
-                <h2 class="contact-title">
-                    LET'S<br>
-                    GET IN<br>
-                    TOUCH
-                </h2>
+    <div class="header-controls">
+      <!-- Theme Switcher -->
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
+          <span class="theme-icon-display moon">
+            <i class="fa-solid fa-moon"></i>
+          </span>
+          <span class="theme-slider"></span>
+          <span class="theme-icon-display sun">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+        </button>
+      </div>
 
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-label">Email</div>
-                        <div class="info-value">
-                            <a href="mailto:your.email@example.com">your.email@example.com</a>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Telegram</div>
-                        <div class="info-value">
-                            <a href="https://t.me/yourusername" target="_blank">@yourusername</a>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">WhatsApp</div>
-                        <div class="info-value">
-                            <a href="https://wa.me/yourphone" target="_blank">+7 (XXX) XXX-XX-XX</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button class="language-button" id="languageButton">
+          <span id="currentLanguage">FR</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <div class="language-option selected" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="en">English</div>
         </div>
-
-        <!-- Right Side - Form -->
-        <div class="right-side">
-            <div class="right-content">
-                <div class="form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    class="form-input" 
-                                    placeholder="Full Name *"
-                                    required
-                                >
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    class="form-input" 
-                                    placeholder="Email *"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group">
-                                <input 
-                                    type="tel" 
-                                    id="phone" 
-                                    name="phone" 
-                                    class="form-input" 
-                                    placeholder="Phone"
-                                >
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea 
-                                id="message" 
-                                name="message" 
-                                class="form-textarea" 
-                                placeholder="Message *"
-                                required
-                            ></textarea>
-                        </div>
-
-                        <div class="submit-wrapper">
-                            <button type="submit" class="submit-button">
-                                <span>Отправить</span>
-                                <span>→</span>
-                            </button>
-                        </div>
-
-                        <div class="form-status" id="formStatus"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Back Button -->
-    <a href="portfolio.html" class="back-button">← Назад</a>
+  <nav>
+    <a href="projects.html">
+      <span data-lang="fr">Projets</span>
+      <span data-lang="en" style="display: none;">Projects</span>
+    </a>
+    <a href="#about">
+      <span data-lang="fr">À propos</span>
+      <span data-lang="en" style="display: none;">About</span>
+    </a>
+    <a href="contact.html">
+      <span data-lang="fr">Contact</span>
+      <span data-lang="en" style="display: none;">Contact</span>
+    </a>
+  </nav>
+</header>
 
-    <script>
-        /* ═══════════════════════════════════════════════════════════════
-           3D MODEL SETUP
-        ═══════════════════════════════════════════════════════════════ */
-        
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
-        const modelContainer = document.getElementById('model-container');
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.0;
-        modelContainer.appendChild(renderer.domElement);
-        
-        // Освещение
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-        scene.add(ambientLight);
-        
-        const directionalLight1 = new THREE.DirectionalLight(0x00ffff, 1.5);
-        directionalLight1.position.set(2, 2, 2);
-        scene.add(directionalLight1);
-        
-        const directionalLight2 = new THREE.DirectionalLight(0x0088ff, 0.8);
-        directionalLight2.position.set(-2, -1, -1);
-        scene.add(directionalLight2);
-        
-        camera.position.z = 4;
-        
-        let model;
-        const MODEL_FILE = 'star.glb';
-        
-        // Загрузка модели
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-            MODEL_FILE,
-            function (gltf) {
-                model = gltf.scene;
-                
-                model.traverse((child) => {
-                    if (child.isMesh && child.material) {
-                        child.material.transparent = true;
-                        child.material.opacity = 0.3;
-                    }
-                });
-                
-                const box = new THREE.Box3().setFromObject(model);
-                const center = box.getCenter(new THREE.Vector3());
-                model.position.sub(center);
-                
-                const size = box.getSize(new THREE.Vector3());
-                const maxDim = Math.max(size.x, size.y, size.z);
-                const scale = 6.0 / maxDim;
-                model.scale.multiplyScalar(scale);
-                
-                scene.add(model);
-            },
-            function (xhr) {
-                if (xhr.total > 0) {
-                    console.log(Math.round((xhr.loaded / xhr.total * 100)) + '% загружено');
-                }
-            },
-            function (error) {
-                console.log('Модель не найдена, показываю запасную фигуру...');
-                
-                const size = 2;
-                const segments = 50;
-                const geometry = new THREE.ParametricGeometry(function(u, v, target) {
-                    u = u * 2 - 1;
-                    v = v * 2 - 1;
-                    
-                    const x = u * size;
-                    const y = (u * u - v * v) * size * 0.5;
-                    const z = v * size;
-                    
-                    target.set(x, y, z);
-                }, segments, segments);
-                
-                const material = new THREE.MeshStandardMaterial({
-                    color: 0x00ffff,
-                    emissive: 0x00ffff,
-                    emissiveIntensity: 0.2,
-                    metalness: 0.8,
-                    roughness: 0.2,
-                    side: THREE.DoubleSide,
-                    transparent: true,
-                    opacity: 0.3
-                });
-                model = new THREE.Mesh(geometry, material);
-                scene.add(model);
-            }
-        );
-        
-        // Анимация
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            if (model) {
-                const time = Date.now() * 0.0005;
-                model.rotation.x = Math.sin(time) * 0.1;
-                model.rotation.y += 0.005;
-            }
-            
-            renderer.render(scene, camera);
-        }
-        
-        animate();
-        
-        // Адаптация при изменении размера окна
-        window.addEventListener('resize', function() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+<!-- Main Container -->
+<div class="main-container">
+  <!-- 3D Model Background -->
+  <div id="model-container" class="full-size"></div>
 
-        /* ═══════════════════════════════════════════════════════════════
-           TELEGRAM BOT SETUP
-        ═══════════════════════════════════════════════════════════════ */
-        
-        const TELEGRAM_BOT_TOKEN = '7987145419:AAEUPayAfPikjsGIqpUvdywohF_db1bPhx4';
-        const TELEGRAM_CHAT_ID = '2137539856';
-        
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formStatus = document.getElementById('formStatus');
-            const submitButton = this.querySelector('.submit-button');
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<span>Отправка...</span>';
-            formStatus.style.display = 'none';
-            
-            try {
-                // Отправляем данные на Cloudflare Worker
-                const response = await fetch('https://telegram-form-worker.kinameri20.workers.dev', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, email, phone, message })
-                });
-                
-                const data = await response.json();
-                
-                if (data.ok) {
-                    formStatus.className = 'form-status success';
-                    formStatus.textContent = 'Сообщение отправлено!';
-                    formStatus.style.display = 'block';
-                    this.reset();
-                    
-                    setTimeout(() => {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                } else {
-                    throw new Error('Ошибка отправки');
-                }
-            } catch (error) {
-                formStatus.className = 'form-status error';
-                formStatus.textContent = 'Ошибка отправки. Попробуйте позже.';
-                formStatus.style.display = 'block';
-                console.error('Ошибка:', error);
-            } finally {
-                submitButton.disabled = false;
-                submitButton.innerHTML = '<span>Отправить</span><span>→</span>';
-            }
-        });
+  <!-- Left Side - Title -->
+  <div class="left-side">
+    <div class="left-content">
+      <h2 class="contact-title">
+        <span data-lang="fr">CONTACT</span>
+        <span data-lang="en" style="display: none;">CONTACT</span>
+      </h2>
 
-    </script>
-    <!-- Cloudflare Web Analytics -->
-     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'>
-     </script>
-    <!-- End Cloudflare Web Analytics -->
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-label">
+            <span data-lang="fr">Email</span>
+            <span data-lang="en" style="display: none;">Email</span>
+          </div>
+          <div class="info-value">
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">
+            <span data-lang="fr">Téléphone</span>
+            <span data-lang="en" style="display: none;">Phone</span>
+          </div>
+          <div class="info-value">
+            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">
+            <span data-lang="fr">Telegram</span>
+            <span data-lang="en" style="display: none;">Telegram</span>
+          </div>
+          <div class="info-value">
+            <a href="https://t.me/yourusername" target="_blank">@yourusername</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">
+            <span data-lang="fr">WhatsApp</span>
+            <span data-lang="en" style="display: none;">WhatsApp</span>
+          </div>
+          <div class="info-value">
+            <a href="https://wa.me/79991234567" target="_blank">+7 (999) 123-45-67</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side - Form -->
+  <div class="right-side">
+    <div class="right-content">
+      <div class="form-container">
+        <form class="contact-form" id="contactForm">
+          <!-- Name -->
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Nom complet *"
+                data-lang-placeholder="fr"
+                required
+              >
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Full name *"
+                data-lang-placeholder="en"
+                style="display: none;"
+                required
+              >
+            </div>
+          </div>
+
+          <!-- Email + Phone with editable country code -->
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="Email *"
+                data-lang-placeholder="fr"
+                required
+              >
+              <input
+                type="email"
+                class="form-input"
+                placeholder="Email *"
+                data-lang-placeholder="en"
+                style="display: none;"
+                required
+              >
+            </div>
+
+            <div class="form-group phone-group">
+            <span class="phone-code-prefix" aria-hidden="true">+</span>
+            <input
+                type="tel"
+                id="countryCode"
+                name="countryCode"
+                class="form-input phone-code-input"
+                value="33"
+                aria-label="Country code"
+            >
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input phone-input"
+                placeholder="Téléphone"
+                data-lang-placeholder="fr"
+            >
+            <input
+                type="tel"
+                class="form-input phone-input"
+                placeholder="Phone"
+                data-lang-placeholder="en"
+                style="display: none;"
+            >
+            </div>
+
+          </div>
+
+          <!-- Message с ограничением -->
+          <div class="form-group">
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea js-autogrow-textarea"
+              placeholder="Message *"
+              data-lang-placeholder="fr"
+              rows="1"
+              maxlength="600"
+              required
+            ></textarea>
+            <textarea
+              class="form-textarea js-autogrow-textarea"
+              placeholder="Message *"
+              data-lang-placeholder="en"
+              style="display: none;"
+              rows="1"
+              maxlength="600"
+              required
+            ></textarea>
+
+            <div class="char-counter" data-for="message">
+              <span class="char-counter-current">0</span>/<span class="char-counter-max">600</span>
+            </div>
+          </div>
+
+          <div class="form-note">
+            <span data-lang="fr">En envoyant ce formulaire, vous acceptez que vos données soient traitées uniquement pour vous répondre.</span>
+            <span data-lang="en" style="display: none;">By sending this form, you agree that your data will be processed only to reply to you.</span>
+            <a href="privacy.html">
+              <span data-lang="fr">Politique de confidentialité</span>
+              <span data-lang="en" style="display: none;">Privacy Policy</span>
+            </a>
+          </div>
+
+          <!-- Submit -->
+          <div class="submit-wrapper">
+            <button type="submit" class="submit-button submit-button-accent">
+              <span data-lang="fr">Envoyer</span>
+              <span data-lang="en" style="display: none;">Send</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Back Button -->
+<a href="portfolio.html" class="back-button">
+  <span data-lang="fr">← Retour</span>
+  <span data-lang="en" style="display: none;">← Back</span>
+</a>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+
+<!-- Авто-высота textarea + счётчик символов + код страны с фиксированным "+" -->
+<script>
+  (function() {
+    // Авто-высота и счётчик символов для textarea
+    const textareas = document.querySelectorAll('.js-autogrow-textarea');
+
+    textareas.forEach((ta) => {
+      ta.style.overflow = 'hidden';
+      ta.style.resize = 'none';
+
+      const resize = () => {
+        ta.style.height = 'auto';
+        ta.style.height = ta.scrollHeight + 'px';
+      };
+
+      const updateCounter = () => {
+        const max = parseInt(ta.getAttribute('maxlength'), 10) || 0;
+        const current = ta.value.length;
+        const wrapper = ta.closest('.form-group');
+        if (!wrapper) return;
+        const counter = wrapper.querySelector('.char-counter');
+        if (!counter) return;
+        const currentSpan = counter.querySelector('.char-counter-current');
+        const maxSpan = counter.querySelector('.char-counter-max');
+        if (currentSpan) currentSpan.textContent = current;
+        if (maxSpan && max) maxSpan.textContent = max;
+      };
+
+      const onInput = () => {
+        resize();
+        updateCounter();
+      };
+
+      ['input', 'change'].forEach(evt => {
+        ta.addEventListener(evt, onInput);
+      });
+
+      resize();
+      updateCounter();
+    });
+
+    // Код страны: плюс не стирается
+    // const codeInput = document.getElementById('countryCode');
+    // if (codeInput) {
+    //   // Стартовое значение всегда с плюсом
+    //   if (!codeInput.value || codeInput.value.charAt(0) !== '+') {
+    //     codeInput.value = '+' + (codeInput.value || '');
+    //   }
+
+    //   const normalizeCode = () => {
+    //     let val = codeInput.value;
+
+    //     // Если пользователь полностью стёр, возвращаем "+"
+    //     if (!val) {
+    //       codeInput.value = '+';
+    //       return;
+    //     }
+
+    //     // Гарантируем, что первый символ "+"
+    //     if (val.charAt(0) !== '+') {
+    //       val = '+' + val.replace(/\+/g, '');
+    //     }
+
+    //     // Разрешаем только цифры после "+"
+    //     const digits = val.slice(1).replace(/\D/g, '');
+    //     codeInput.value = '+' + digits;
+    //   };
+
+    //   codeInput.addEventListener('input', normalizeCode);
+
+    //   // Не даём поставить курсор перед "+"
+    //   codeInput.addEventListener('keydown', function(e) {
+    //     const pos = codeInput.selectionStart;
+    //     if (pos === 0 && (e.key === 'Backspace' || e.key === 'ArrowLeft')) {
+    //       e.preventDefault();
+    //       codeInput.setSelectionRange(1, 1);
+    //     }
+    //   });
+
+    //   codeInput.addEventListener('click', function() {
+    //     if (codeInput.selectionStart === 0) {
+    //       codeInput.setSelectionRange(1, 1);
+    //     }
+    //   });
+
+    //   codeInput.addEventListener('focus', function() {
+    //     if (codeInput.selectionStart === 0) {
+    //       codeInput.setSelectionRange(1, 1);
+    //     }
+    //   });
+    // }
+  })();
+</script>
+
+
 </body>
 </html>
