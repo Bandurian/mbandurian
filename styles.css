@@ -1,32 +1,21 @@
-/* ═══════════════════════════════════════════════════════════════
-   CSS ПЕРЕМЕННЫЕ (ROOT VARIABLES)
-═══════════════════════════════════════════════════════════════ */
+/*    CSS ПЕРЕМЕННЫЕ (ROOT VARIABLES) */
 :root {
-    /* ═══════════════════════════════════════════════════════════════
-       🎨 БАЗОВЫЕ ЦВЕТА - изменяйте ТОЛЬКО эти 3 значения!
-       Все остальные цвета обновятся АВТОМАТИЧЕСКИ
-    ═══════════════════════════════════════════════════════════════ */
+    /* БАЗОВЫЕ ЦВЕТА - изменяйте ТОЛЬКО эти 3 значения! */
     --color-bg: #0a0a0a;
     --color-text: #ffffff;
     --color-accent: #d9ff00;
     
-    /* ═══════════════════════════════════════════════════════════════
-       🎯 ДОПОЛНИТЕЛЬНЫЕ БАЗОВЫЕ ЦВЕТА
-    ═══════════════════════════════════════════════════════════════ */
+    /* ДОПОЛНИТЕЛЬНЫЕ БАЗОВЫЕ ЦВЕТА */
     --color-black: #000000;
     --color-success: #00ff64;
     --color-error: #ff3232;
     
-    /* ═══════════════════════════════════════════════════════════════
-       🌑 ВАРИАЦИИ ФОНА (автоматически на основе --color-bg)
-    ═══════════════════════════════════════════════════════════════ */
+    /* ВАРИАЦИИ ФОНА */
     --bg-overlay-light: color-mix(in srgb, var(--color-bg) 30%, transparent);
     --bg-overlay-medium: color-mix(in srgb, var(--color-bg) 70%, transparent);
     --bg-overlay-heavy: color-mix(in srgb, var(--color-bg) 95%, transparent);
     
-    /* ═══════════════════════════════════════════════════════════════
-       📝 ВАРИАЦИИ ТЕКСТА (автоматически на основе --color-text)
-    ═══════════════════════════════════════════════════════════════ */
+    /* ВАРИАЦИИ ТЕКСТА */
     --text-primary: var(--color-text);
     --text-secondary: color-mix(in srgb, var(--color-text) 70%, transparent);
     --text-tertiary: color-mix(in srgb, var(--color-text) 30%, transparent);
@@ -34,9 +23,7 @@
     --text-border-subtle: color-mix(in srgb, var(--color-text) 8%, transparent);
     --text-surface: color-mix(in srgb, var(--color-text) 3%, transparent);
     
-    /* ═══════════════════════════════════════════════════════════════
-       ✨ ВАРИАЦИИ АКЦЕНТА (автоматически на основе --color-accent)
-    ═══════════════════════════════════════════════════════════════ */
+    /* ✨ ВАРИАЦИИ АКЦЕНТА */
     --accent-primary: var(--color-accent);
     --accent-hover-border: color-mix(in srgb, var(--color-accent) 70%, transparent);
     --accent-bright: color-mix(in srgb, var(--color-accent) 60%, transparent);
@@ -46,21 +33,14 @@
     --accent-lighter: color-mix(in srgb, var(--color-accent) 10%, transparent);
     --accent-subtle: color-mix(in srgb, var(--color-accent) 5%, transparent);
     
-    /* ═══════════════════════════════════════════════════════════════
-       🌈 ГРАДИЕНТЫ (автоматически из вариаций)
-    ═══════════════════════════════════════════════════════════════ */
+    /* ГРАДИЕНТЫ */
     --gradient-overlay: linear-gradient(to top, var(--bg-overlay-heavy) 0%, var(--bg-overlay-medium) 50%, var(--bg-overlay-light) 100%);
     
-    /* ═══════════════════════════════════════════════════════════════
-       💫 ТЕНИ (автоматически на основе --color-bg и --color-accent)
-    ═══════════════════════════════════════════════════════════════ */
+    /* ТЕНИ */
     --shadow-heavy: color-mix(in srgb, var(--color-black) 95%, transparent);
     --shadow-accent: color-mix(in srgb, var(--color-accent) 20%, transparent);
     
-    /* ═══════════════════════════════════════════════════════════════
-       🎯 СИСТЕМНЫЕ ЦВЕТА (автоматически на основе базовых цветов)
-       Success = зелёный оттенок, Error = красный оттенок
-    ═══════════════════════════════════════════════════════════════ */
+    /* СИСТЕМНЫЕ ЦВЕТА */
     --status-success-bg: color-mix(in srgb, var(--color-success) 10%, transparent);
     --status-success-border: color-mix(in srgb, var(--color-success) 30%, transparent);
     --status-success-text: var(--color-success);
@@ -105,9 +85,7 @@
     --transition-custom: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   БАЗОВЫЕ СТИЛИ
-═══════════════════════════════════════════════════════════════ */
+/*    БАЗОВЫЕ СТИЛИ */
 * {
     margin: 0;
     padding: 0;
@@ -144,9 +122,7 @@ body.page-overflow-hidden {
     height: 100vh;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   АНИМАЦИИ
-═══════════════════════════════════════════════════════════════ */
+/* АНИМАЦИИ */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -314,9 +290,7 @@ body.page-overflow-hidden {
     }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   HEADER
-═══════════════════════════════════════════════════════════════ */
+/* HEADER */
 header {
     padding: var(--spacing-lg) var(--spacing-xl);
     display: flex;
@@ -366,7 +340,7 @@ nav {
     gap: var(--spacing-xl);
 }
 
-.page-portfolio nav a {
+/* .page-portfolio nav a {
     font-size: var(--font-size-base);
 }
 
@@ -376,7 +350,7 @@ nav {
 
 .page-projects nav a {
     font-size: var(--font-size-lg);
-}
+} */
 
 nav a {
     color: var(--color-text);
@@ -386,6 +360,7 @@ nav a {
     text-transform: uppercase;
     position: relative;
     transition: color var(--transition-fast);
+    font-size: var(--font-size-lg);
 }
 
 nav a:hover {
@@ -407,9 +382,7 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════════════════════ */
+/* FOOTER */
 footer {
     padding: var(--spacing-lg) var(--spacing-xl);
     display: flex;
@@ -485,9 +458,7 @@ footer.shadow-footer {
     animation: scrollUp 0.4s ease forwards;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO PAGE - GRID CONTAINER
-═══════════════════════════════════════════════════════════════ */
+/* PORTFOLIO PAGE - GRID CONTAINER */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -576,9 +547,7 @@ footer.shadow-footer {
     right: 0;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO PAGE - GRID CONTAINER (ОБНОВЛЕННАЯ ВЕРСИЯ)
-═══════════════════════════════════════════════════════════════ */
+/* PORTFOLIO PAGE - GRID CONTAINER (ОБНОВЛЕННАЯ ВЕРСИЯ) */
 
 /* Базовые стили для всех контентных блоков */
 .grid-item.content {
@@ -617,9 +586,7 @@ footer.shadow-footer {
     font-weight: 300; /* Менее жирный шрифт */
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO PAGE - MAIN HEADING
-═══════════════════════════════════════════════════════════════ */
+/* PORTFOLIO PAGE - MAIN HEADING */
 .page-portfolio .main-heading {
     position: fixed;
     top: 50%;
@@ -636,9 +603,7 @@ footer.shadow-footer {
     animation: fadeInHeading 1s ease 1.5s forwards;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO PAGE - TRANSITION OVERLAY
-═══════════════════════════════════════════════════════════════ */
+/* PORTFOLIO PAGE - TRANSITION OVERLAY */
 .transition-overlay {
     position: fixed;
     border-radius: 50%;
@@ -659,9 +624,7 @@ body.page-transitioning {
     overflow: hidden;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   3D MODEL CONTAINER
-═══════════════════════════════════════════════════════════════ */
+/* 3D MODEL CONTAINER */
 #model-container {
     position: fixed;
     top: 50%;
@@ -687,9 +650,7 @@ body.page-transitioning {
     transform: none;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   CONTACT PAGE - MAIN CONTAINER
-═══════════════════════════════════════════════════════════════ */
+/* CONTACT PAGE - MAIN CONTAINER */
 .main-container {
     flex: 1;
     display: flex;
@@ -699,9 +660,7 @@ body.page-transitioning {
     align-items: stretch;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   CONTACT PAGE - LEFT SIDE
-═══════════════════════════════════════════════════════════════ */
+/* CONTACT PAGE - LEFT SIDE */
 .left-side {
     flex: 1;
     display: flex;
@@ -782,9 +741,7 @@ body.page-transitioning {
     color: var(--color-accent);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   CONTACT PAGE - RIGHT SIDE
-═══════════════════════════════════════════════════════════════ */
+/* CONTACT PAGE - RIGHT SIDE */
 .right-side {
     flex: 1;
     display: flex;
@@ -872,7 +829,7 @@ body.page-transitioning {
 
 .form-textarea {
     resize: none;
-    min-height: 7.5rem;
+    min-height: 2rem;
     padding-top: var(--spacing-md);
 }
 
@@ -957,12 +914,10 @@ body.page-transitioning {
     color: var(--status-error-text);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   BACK BUTTON
-═══════════════════════════════════════════════════════════════ */
+/* BACK BUTTON */
 .back-button {
     position: fixed;
-    bottom: var(--spacing-xl);
+    /* bottom: var(--spacing-xl); */
     left: var(--spacing-xl);
     background: var(--text-surface);
     border: 0.0625rem solid var(--text-border-subtle);
@@ -1007,18 +962,14 @@ body.page-transitioning {
     transform: translateX(0);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECTS PAGE - CONTAINER
-═══════════════════════════════════════════════════════════════ */
+/* PROJECTS PAGE - CONTAINER */
 .container {
     display: flex;
     flex: 1;
     overflow: hidden;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECTS PAGE - CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* PROJECTS PAGE - CONTENT */
 .content {
     flex: 1;
     padding: var(--spacing-2xl) var(--spacing-3xl) var(--spacing-2xl) var(--spacing-xl);
@@ -1031,9 +982,7 @@ body.page-transitioning {
     width: 0;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECTS PAGE - HEADING
-═══════════════════════════════════════════════════════════════ */
+/* PROJECTS PAGE - HEADING */
 .page-projects h1 {
     position: fixed;
     left: 12.5rem;
@@ -1050,9 +999,7 @@ body.page-transitioning {
     animation: fadeInScale var(--transition-slow) 1.8s forwards;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECTS PAGE - ARC IMAGE & SCROLL INDICATOR
-═══════════════════════════════════════════════════════════════ */
+/* PROJECTS PAGE - ARC IMAGE & SCROLL INDICATOR */
 .arc-image,
 .scroll-indicator-container {
     position: fixed;
@@ -1113,9 +1060,7 @@ body.page-transitioning {
     object-position: center;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECTS PAGE - CATEGORIES MENU
-═══════════════════════════════════════════════════════════════ */
+/* PROJECTS PAGE - CATEGORIES MENU */
 .categories-menu {
     position: fixed;
     left: 12.5rem;
@@ -1179,9 +1124,7 @@ body.page-transitioning {
     box-shadow: 0 0 0.625rem var(--accent-bright);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECTS PAGE - PROJECTS GRID
-═══════════════════════════════════════════════════════════════ */
+/* PROJECTS PAGE - PROJECTS GRID */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1338,9 +1281,7 @@ body.page-transitioning {
     border-color: var(--accent-bright);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   АДАПТИВНОСТЬ
-═══════════════════════════════════════════════════════════════ */
+/* АДАПТИВНОСТЬ */
 
 /* Portfolio page */
 @media (max-width: 87.5em) { /* 1400px */
@@ -1611,9 +1552,7 @@ body.page-transitioning {
 
 
 
-/* ═══════════════════════════════════════════════════════════════
-   LANGUAGE SWITCHER
-═══════════════════════════════════════════════════════════════ */
+/* LANGUAGE SWITCHER */
 .header-left {
     display: flex;
     align-items: center;
@@ -1709,22 +1648,7 @@ body.page-transitioning {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ═══════════════════════════════════════════════════════════════
-   THEME VARIABLES
-═══════════════════════════════════════════════════════════════ */
+/* THEME VARIABLES */
 
 /* Темная тема (по умолчанию) */
 :root {
@@ -1740,9 +1664,7 @@ body.page-transitioning {
     --color-accent: #6b00ff;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   THEME SWITCHER
-═══════════════════════════════════════════════════════════════ */
+/* THEME SWITCHER */
 
 .theme-switcher {
     position: relative;
@@ -1819,9 +1741,7 @@ body.page-transitioning {
     opacity: 1;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   LANGUAGE SWITCHER
-═══════════════════════════════════════════════════════════════ */
+/* LANGUAGE SWITCHER */
 .header-left {
     display: flex;
     align-items: center;
@@ -1925,4 +1845,253 @@ body.page-transitioning {
     .header-controls {
         flex-direction: row;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    margin-top: var(--spacing-md);
+    line-height: 1.4;
+}
+
+.form-note a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+
+
+
+
+body.page-privacy {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Выравниваем layout политики: текстовый блок + кнопка */
+body.page-privacy .privacy-layout {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+}
+
+/* Меньший главный заголовок */
+body.page-privacy .contact-title {
+  font-size: var(--font-size-3xl);
+  letter-spacing: 0.12rem;
+}
+
+/* Подзаголовки акцентным цветом */
+body.page-privacy .info-label {
+  font-size: var(--font-size-lg);
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+body.page-privacy .info-value {
+  font-size: var(--font-size-md);
+}
+
+/* Кнопка "Назад" сверху слева от блока */
+body.page-privacy .back-button-inline {
+  position: relative;
+  top: 0;
+  left: 0;
+  align-self: flex-start;
+  margin-top: 0;
+  margin-right: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-small);
+  background: var(--text-surface);
+  border: 1px solid var(--text-border-subtle);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+body.page-privacy .back-button-inline:hover {
+  background: var(--accent-hover-surface);
+  border-color: var(--accent-hover-border);
+  transform: translateY(-0.125rem);
+}
+
+/* На мобильных: кнопка над блоком по центру */
+@media (max-width: 768px) {
+  body.page-privacy .privacy-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.page-privacy .back-button-inline {
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+
+
+/* Телефон с кодом страны */
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Префикс кода страны визуально как часть инпута */
+.phone-prefix {
+  padding: var(--spacing-sm) 0.75rem;
+  border-bottom: 0.0625rem solid var(--text-border);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* Сам инпут должен занимать оставшееся место */
+.phone-input {
+  flex: 1;
+}
+
+
+/* Телефон: селект кода + инпут */
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phone-country-select {
+  background: transparent;
+  border: none;
+  border-bottom: 0.0625rem solid var(--text-border);
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  outline: none;
+  min-width: 4.5rem;
+  cursor: pointer;
+}
+
+.phone-country-select:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* Счётчик символов под textarea */
+.char-counter {
+  margin-top: 0.25rem;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-align: right;
+}
+
+/* Кнопка отправки — акцентным цветом */
+.submit-button-accent {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}
+
+.submit-button-accent:hover {
+  background: var(--accent-hover-surface);
+  border-color: var(--accent-hover-border);
+  color: var(--color-accent);
+}
+
+/* Телефон: код страны + номер в одной строке */
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Код страны: более компактный, но как часть инпутов */
+.phone-code-input {
+  max-width: 4.5rem;
+}
+
+/* Номер занимает остальное место */
+.phone-input {
+  flex: 1;
+}
+
+/* Счётчик символов под textarea */
+.char-counter {
+  margin-top: 0.25rem;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-align: right;
+}
+
+/* Кнопка отправки — акцентным цветом */
+.submit-button-accent {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}
+
+.submit-button-accent:hover {
+  background: var(--accent-hover-surface);
+  border-color: var(--accent-hover-border);
+  color: var(--color-accent);
+}
+
+
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Нередактируемый плюс */
+.phone-code-prefix {
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  user-select: none;
+}
+
+/* Цифры кода страны */
+.phone-code-input {
+  max-width: 3.5rem;
+}
+
+/* Номер телефона занимает оставшееся место */
+.phone-input {
+  flex: 1;
 }
