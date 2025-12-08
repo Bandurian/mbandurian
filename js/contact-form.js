@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
+        const countryCode = document.getElementById('countryCode').value;
+        const phoneRaw = document.getElementById('phone').value.trim();
+        const phone = `+${countryCode}${phoneRaw}`;
+
         const message = document.getElementById('message').value;
 
         submitButton.disabled = true;
