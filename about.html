@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>À propos | Bandurian M. — Creative Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="À propos de Bandurian M. — UX/UI designer et creative developer. Front-end, 3D et expériences interactives.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="À propos | Bandurian M. — UX/UI Designer & Creative Developer">
+  <meta property="og:description" content="Parcours, compétences et expériences de Bandurian M.">
+  <meta property="og:url" content="https://example.com/about-fr">
+  <meta property="og:image" content="https://example.com/assets/preview-about.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="À propos | Bandurian M.">
+  <meta name="twitter:description" content="UX/UI design, front-end et 3D expérimental.">
+  <meta name="twitter:image" content="https://example.com/assets/preview-about.jpg">
+  <link rel="canonical" href="https://example.com/about-fr">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="alternate" hreflang="fr" href="https://example.com/about-fr">
+  <link rel="alternate" hreflang="en" href="https://example.com/about-en">
+  <link rel="alternate" hreflang="x-default" href="https://example.com/about-en">
+
+  <!-- Matter.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
+
+  <!-- Общая логика темы и языка -->
+  <script src="js/theme-lang.js" defer></script>
+  <!-- Логика навыков для about -->
+  <script src="js/about-matter.js" defer></script>
+</head>
+<body class="page-about">
+
+<header class="animated-header">
+  <div class="header-left">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+    <div class="header-controls">
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
+          <span class="theme-icon-display moon">
+            <i class="fa-solid fa-moon"></i>
+          </span>
+          <span class="theme-slider"></span>
+          <span class="theme-icon-display sun">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+        </button>
+      </div>
+
+      <div class="language-switcher">
+        <button class="language-button" id="languageButton">
+          <span id="currentLanguage">FR</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <div class="language-option selected" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="en">English</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="projects.html">
+      <span>Projets</span>
+    </a>
+    <a href="about.html" class="active">
+      <span>À propos</span>
+    </a>
+    <a href="contact.html">
+      <span>Contact</span>
+    </a>
+  </nav>
+</header>
+
+<main class="about-main">
+  <section class="about-section">
+    <div class="about-left">
+      <h1 class="about-title">À propos</h1>
+      <p class="about-text">
+        Front-end / creative developer, который любит чистые интерфейсы,
+        микровзаимодействия и физику на вебе.
+      </p>
+      <p class="about-text">
+        Экспериментирую на стыке дизайна, анимации и кода: Three.js, Matter.js,
+        кастомные шейдеры и нестандартные UI-паттерны.
+      </p>
+
+      <!-- Кнопка скачать CV -->
+      <a href="assets/cv-bandurian-fr.pdf" class="submit-button submit-button-accent" download style="margin-top: 1.5rem; align-self: flex-start; text-decoration: none;">
+        <span>Télécharger CV</span>
+        <i class="fa-solid fa-download" style="font-size: 0.85rem;"></i>
+      </a>
+      <!-- конец кнопки -->
+    </div>
+
+    <div class="about-right">
+      <div class="skills-tabs" id="skillsTabs">
+        <button class="skills-tab active" data-group="frontend">Front-end</button>
+        <button class="skills-tab" data-group="design">Design</button>
+        <button class="skills-tab" data-group="tools">Tools</button>
+      </div>
+      <div class="skills-stage" id="skillsStage"></div>
+    </div>
+  </section>
+</main>
+
+<!-- EXPÉRIENCE -->
+<section class="experience-section">
+  <h2 class="about-title">Expérience</h2>
+  <p class="experience-subtitle">
+    Короткая шкала времени с ключевыми проектами и ролями.
+  </p>
+
+  <div class="timeline-wrapper">
+    <div class="timeline-track">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-role">Creative Developer</div>
+          <div class="timeline-company">Freelance · Paris</div>
+          <div class="timeline-description">
+            Разработка экспериментальных концептов, интерактивных лендингов и 3D‑сцен для агентств и культурных проектов.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-role">Front-end Developer</div>
+          <div class="timeline-company">Studio XYZ</div>
+          <div class="timeline-description">
+            Вёл дизайн‑систему, внедрял анимации и микровзаимодействия, собирал компоненты на React и Three.js.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-role">UI Engineer</div>
+          <div class="timeline-company">Product Company</div>
+          <div class="timeline-description">
+            Отвечал за интерфейс дашборда, оптимизировал перформанс, внедрял тёмную тему и адаптивную сетку.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-role">Front-end Developer</div>
+          <div class="timeline-company">Digital Agency</div>
+          <div class="timeline-description">
+            Собирал промо‑сайты для брендов, много работал с анимацией скролла, видео‑фонами и нестандартной навигацией.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-role">Web Developer</div>
+          <div class="timeline-company">Studio Noir</div>
+          <div class="timeline-description">
+            Верстал лендинги и бренд‑страницы, настраивал сборку, внедрял дизайн из Figma пиксель‑перфектом.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-role">Junior Front-end</div>
+          <div class="timeline-company">Start-up</div>
+          <div class="timeline-description">
+            Работал над MVP, подключал API, настраивал форму онбординга и простые анимации без тяжёлых библиотек.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-role">Intern · Web</div>
+          <div class="timeline-company">Interactive Studio</div>
+          <div class="timeline-description">
+            Знакомство с продакшеном: верстка модулей, мелкие правки по UI и первая интеграция анимаций в боевые проекты.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉDUCATION -->
+<section class="education-section">
+  <h2 class="about-title">Éducation</h2>
+  <p class="education-subtitle">
+    Формальное образование и курсы, которые повлияли на подход к интерфейсам.
+  </p>
+
+  <div class="timeline-wrapper">
+    <div class="timeline-track">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-role">Advanced Creative Coding</div>
+          <div class="timeline-company">Онлайн‑курс · Three.js / GLSL</div>
+          <div class="timeline-description">
+            Углубился в шейдеры, работу с WebGL и построение интерактивных сцен с performant‑архитектурой.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-role">UX & Motion Design</div>
+          <div class="timeline-company">Design School · Paris</div>
+          <div class="timeline-description">
+            Изучал сценарии поведения пользователя, паттерны навигации и принципы осмысленной анимации.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2021 — 2022</div>
+          <div class="timeline-role">Front-end Développement</div>
+          <div class="timeline-company">Bootcamp intensif</div>
+          <div class="timeline-description">
+            Практика верстки, JavaScript, SPA, командная работа над учебными проектами и код‑ревью.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2018 — 2021</div>
+          <div class="timeline-role">Licence · Informatique</div>
+          <div class="timeline-company">Université</div>
+          <div class="timeline-description">
+            Базовые алгоритмы, структуры данных, сетевые протоколы и основы программной инженерии.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2016 — 2018</div>
+          <div class="timeline-role">Formation Graphisme</div>
+          <div class="timeline-company">École de design</div>
+          <div class="timeline-description">
+            Композиция, типографика, сетки и работа с брендингом, что позже легло в основу UI‑подхода.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-role">Self‑learning · Web</div>
+          <div class="timeline-company">Онлайн‑ресурсы</div>
+          <div class="timeline-description">
+            Первые эксперименты с HTML/CSS, небольшими сайтами и интерактивными экспериментами в браузере.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="animated-footer">
+  <div class="footer-left">
+    <div class="email">your.email@example.com</div>
+    <a href="privacy-fr.html" class="privacy-link">
+      Politique de confidentialité
+    </a>
+  </div>
+  <div class="social-links">
+    <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp">
+      <span>W</span>
+    </a>
+    <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn">
+      <span>in</span>
+    </a>
+    <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram">
+      <span>T</span>
+    </a>
+  </div>
+</footer>
+
+<!-- Cloudflare beacon, если нужен -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+
+</body>
+</html>

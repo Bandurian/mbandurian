@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Bandurian M.</title>
+
+    <meta name="description" content="Projets de web design, développement front-end et expériences 3D par Bandurian M.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projets | Bandurian M. — UX/UI Designer & Creative Developer">
+    <meta property="og:description" content="Sélection de projets pour des marques et startups : sites modernes, interfaces et expériences interactives.">
+    <meta property="og:url" content="https://example.com/projects-fr">
+    <meta property="og:image" content="https://example.com/assets/preview-projects.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projets | Bandurian M.">
+    <meta name="twitter:description" content="UX/UI, front-end et expériences 3D. Projets sélectionnés de Bandurian M.">
+    <meta name="twitter:image" content="https://example.com/assets/preview-projects.jpg">
+    <link rel="canonical" href="https://example.com/projects-fr">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="alternate" hreflang="fr" href="https://example.com/projects-fr">
+    <link rel="alternate" hreflang="en" href="https://example.com/projects-en">
+    <link rel="alternate" hreflang="x-default" href="https://example.com/projects-en">
+</head>
+<body class="page-projects">
+    <!-- Header -->
+    <header class="animated-header">
+        <div class="header-left">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+            <div class="header-controls">
+                <div class="theme-switcher">
+                    <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
+                        <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+                        <span class="theme-slider"></span>
+                        <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+                    </button>
+                </div>
+                <div class="language-switcher">
+                    <button class="language-button" id="languageButton">
+                        <span id="currentLanguage">FR</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option selected" data-lang="fr">Français</div>
+                        <div class="language-option" data-lang="en">English</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <a href="projects.html" class="active"><span>Projets</span></a>
+            <a href="about.html"><span>À propos</span></a>
+            <a href="contact.html"><span>Contact</span></a>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        <!-- Кнопка назад и заголовок -->
+        
+        <h1>Mes<br>Projets</h1>
+
+        <!-- Картинка слева -->
+        <div class="arc-image">
+            <img src="/1-01.svg" alt="Design">
+        </div>
+
+        <!-- SVG индикатор скролла -->
+        <div class="scroll-indicator-container">
+            <div class="scroll-indicator-layers">
+                <div class="scroll-svg-base">
+                    <img src="/2-01.svg" alt="Scroll Base">
+                </div>
+                <div class="scroll-svg-progress">
+                    <img src="/2-02.svg" alt="Scroll Progress">
+                </div>
+            </div>
+        </div>
+
+        <!-- Меню категорий -->
+        <div class="categories-menu">
+            <div class="category-item active" data-category="web-design">Веб Дизайн</div>
+            <div class="category-item" data-category="branding">Брендинг</div>
+            <div class="category-item" data-category="mobile">Мобильные</div>
+            <div class="category-item" data-category="3d">3D Графика</div>
+        </div>
+
+        <!-- Контент -->
+        <div class="content">
+            <div class="projects-grid">
+                <!-- Веб Дизайн -->
+                <div class="project-card" data-category="web-design" style="background-image: url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop'); grid-column: 1; grid-row: 1;">
+                    <div class="project-number">01</div>
+                    <h3 class="project-title">Веб Платформа</h3>
+                    <div class="project-description">
+                        Комплексный проект по созданию современного веб-приложения с использованием передовых технологий и инновационного подхода к UX/UI дизайну.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Design</span>
+                        <span class="tag">Development</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web-design" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'); grid-column: 2; grid-row: 2;">
+                    <div class="project-number">02</div>
+                    <h3 class="project-title">Интерактивный Сайт</h3>
+                    <div class="project-description">
+                        Разработка интерактивной платформы с акцентом на пользовательский опыт и современные веб-технологии для максимальной производительности.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Web</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Animation</span>
+                    </div>
+                </div>
+
+                <!-- Брендинг -->
+                <div class="project-card" data-category="branding" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop'); grid-column: 1; grid-row: 3;">
+                    <div class="project-number">03</div>
+                    <h3 class="project-title">Визуальная Идентичность</h3>
+                    <div class="project-description">
+                        Создание уникальной визуальной идентичности бренда, включая логотип, фирменный стиль и полное руководство по использованию.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Logo</span>
+                        <span class="tag">Identity</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="branding" style="background-image: url('https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?w=800&h=600&fit=crop'); grid-column: 2; grid-row: 4;">
+                    <div class="project-number">04</div>
+                    <h3 class="project-title">Корпоративный Стиль</h3>
+                    <div class="project-description">
+                        Разработка полного набора брендинговых материалов для корпоративного клиента с акцентом на современность и узнаваемость.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Corporate</span>
+                        <span class="tag">Print</span>
+                    </div>
+                </div>
+
+                <!-- Мобильные -->
+                <div class="project-card" data-category="mobile" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop'); grid-column: 1; grid-row: 5;">
+                    <div class="project-number">05</div>
+                    <h3 class="project-title">Мобильное Приложение</h3>
+                    <div class="project-description">
+                        Мобильное приложение нового поколения, разработанное с учетом лучших практик iOS и Android для обеспечения нативного опыта.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Mobile</span>
+                        <span class="tag">iOS</span>
+                        <span class="tag">Android</span>
+                    </div>
+                </div>
+
+                <!-- 3D Графика -->
+                <div class="project-card" data-category="3d" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop'); grid-column: 2; grid-row: 6;">
+                    <div class="project-number">06</div>
+                    <h3 class="project-title">3D Визуализация</h3>
+                    <div class="project-description">
+                        Креативное решение для визуализации данных с использованием 3D графики и интерактивных элементов для создания незабываемого опыта.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">3D</span>
+                        <span class="tag">Blender</span>
+                        <span class="tag">WebGL</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="3d" style="background-image: url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=600&fit=crop'); grid-column: 1; grid-row: 7;">
+                    <div class="project-number">07</div>
+                    <h3 class="project-title">Интерактивная 3D Сцена</h3>
+                    <div class="project-description">
+                        Полностью интерактивная 3D сцена с реалистичным освещением и физикой для погружения пользователя в виртуальное пространство.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">3D</span>
+                        <span class="tag">Interactive</span>
+                        <span class="tag">Three.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="animated-footer">
+        <div class="footer-left">
+            <div class="email">your.email@example.com</div>
+            <a href="privacy-fr.html" class="privacy-link">
+                Politique de confidentialité
+            </a>
+        </div>
+        <div class="social-links">
+            <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp">
+                <span>W</span>
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn">
+                <span>in</span>
+            </a>
+            <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram">
+                <span>T</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        /* SCROLL PROGRESS INDICATOR */
+        function updateScrollProgress() {
+            const contentElement = document.querySelector('.content');
+            if (!contentElement) return;
+            const scrollTop = contentElement.scrollTop;
+            const scrollHeight = contentElement.scrollHeight - contentElement.clientHeight;
+            const scrollProgress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+            const clipValue = scrollProgress * 100;
+
+            const imageScrollProgress = document.querySelector('.scroll-indicator-layers .scroll-svg-progress');
+            if (imageScrollProgress) {
+                imageScrollProgress.style.clipPath = `inset(0 0 ${100 - clipValue}% 0)`;
+            }
+        }
+
+        /* ACTIVE CATEGORY UPDATE */
+        function updateActiveCategory() {
+            const cards = document.querySelectorAll('.project-card');
+            const categoryItems = document.querySelectorAll('.category-item');
+            const contentElement = document.querySelector('.content');
+            if (!contentElement || !cards.length) return;
+
+            let activeCategory = null;
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardMiddle = rect.top + rect.height / 2;
+
+                if (cardMiddle > 0 && cardMiddle < contentElement.clientHeight) {
+                    activeCategory = card.getAttribute('data-category');
+                }
+            });
+
+            if (activeCategory) {
+                categoryItems.forEach(item => {
+                    if (item.getAttribute('data-category') === activeCategory) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        /* CATEGORY CLICK HANDLER */
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                const firstCard = document.querySelector(`.project-card[data-category="${category}"]`);
+                const contentElement = document.querySelector('.content');
+
+                if (firstCard && contentElement) {
+                    const cardTop = firstCard.offsetTop;
+                    contentElement.scrollTo({
+                        top: cardTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /* EVENT LISTENERS */
+        const contentElement = document.querySelector('.content');
+        if (contentElement) {
+            contentElement.addEventListener('scroll', updateScrollProgress);
+            contentElement.addEventListener('scroll', updateActiveCategory);
+        }
+
+        // Инициализация
+        updateScrollProgress();
+        updateActiveCategory();
+    </script>
+
+    <!-- Логика темы, языка и общие эффекты -->
+    <script src="js/" defer></script>
+
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</body>
+</html>

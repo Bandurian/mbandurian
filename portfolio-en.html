@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Creative Designer</title>
+    <meta name="description" content="Portfolio Bandurian M. — UX/UI designer and creative developer. Modern websites, interfaces, and 3D experiences for brands and startups.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio | Bandurian M. — UX/UI Designer & Creative Developer">
+    <meta property="og:description" content="Projects in web design, frontend development, and 3D interactivity by Bandurian M.">
+    <meta property="og:url" content="https://example.com/portfolio-en">
+    <meta property="og:image" content="https://example.com/assets/preview-portfolio.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio | Bandurian M.">
+    <meta name="twitter:description" content="UX/UI design, frontend and 3D experiments. Portfolio by Bandurian M.">
+    <meta name="twitter:image" content="https://example.com/assets/preview-portfolio.jpg">
+    <link rel="canonical" href="https://example.com/portfolio-en">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body class="page-portfolio">
+    <header class="animated-header">
+        <div class="header-left">
+            <a href="portfolio-en.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+            <div class="header-controls">
+                <div class="theme-switcher">
+                    <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
+                        <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+                        <span class="theme-slider"></span>
+                        <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+                    </button>
+                </div>
+                <div class="language-switcher">
+                    <button class="language-button" id="languageButton">
+                        <span id="currentLanguage">EN</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="fr">Français</div>
+                        <div class="language-option selected" data-lang="en">English</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html"><span>Projects</span></a>
+            <a href="#about"><span>About</span></a>
+            <a href="contact-en.html"><span>Contact</span></a>
+        </nav>
+    </header>
+    <div class="main-heading"><h1>CREATIVE</h1></div>
+    <div id="model-container"></div>
+    <div class="grid-container">
+        <div class="grid-item content info"><div class="item-text top-left">DESIGNER<br>AND DEVELOPER</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text top-right">DEVELOPERS</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text top-right">✦</div></div>
+        <div class="grid-item content info"><div class="item-text top-left">I CREATE<br>PRODUCTS</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content interactive"><div class="item-text bottom-left">MY<br>PROJECTS</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text top-left">WHO</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text bottom-right">FUTURE</div></div>
+        <div class="grid-item content info"><div class="item-text top-right"><img src="star.svg" alt="star" class="icon-svg"></div></div>
+        <div class="grid-item content info"><div class="item-text bottom-left">IDEAS ARE<br>BORN HERE</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text bottom-left">✦</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content interactive"><div class="item-text bottom-right">GET IN<br>TOUCH</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text bottom-right">2025</div></div>
+    </div>
+    <footer class="animated-footer">
+        <div class="email">your.email@example.com</div>
+        <div class="social-links">
+            <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a>
+            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+            <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.grid-item').forEach((item, index) => {
+            item.style.animationDelay = (2.0 + index * 0.05) + 's';
+        });
+
+        document.querySelectorAll('.grid-item.content.interactive').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const text = this.querySelector('.item-text')?.textContent || '';
+                if (text.includes('PROJECT')) {
+                    transitionToPage(e, 'projects-en.html');
+                } else if (text.includes('TOUCH')) {
+                    transitionToPage(e, 'contact-en.html');
+                }
+            });
+        });
+
+        function transitionToPage(event, pageUrl) {
+            const circle = document.createElement('div');
+            circle.classList.add('transition-overlay');
+            circle.style.left = event.clientX + 'px';
+            circle.style.top = event.clientY + 'px';
+            const maxDistance = Math.sqrt(
+                Math.pow(Math.max(event.clientX, window.innerWidth - event.clientX), 2) +
+                Math.pow(Math.max(event.clientY, window.innerHeight - event.clientY), 2)
+            );
+            circle.style.width = maxDistance * 2 + 'px';
+            circle.style.height = maxDistance * 2 + 'px';
+            document.body.appendChild(circle);
+            document.body.classList.add('page-transitioning');
+            setTimeout(() => circle.classList.add('active'), 10);
+            setTimeout(() => window.location.href = pageUrl, 800);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            const heading = document.querySelector('.main-heading');
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            heading.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        });
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        const modelContainer = document.getElementById('model-container');
+        renderer.setSize(600, 600);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.0;
+        modelContainer.appendChild(renderer.domElement);
+        setTimeout(() => {
+            modelContainer.style.opacity = '1';
+            modelContainer.style.transform = 'translate(-50%, -50%)';
+        }, 100);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+        const directionalLight1 = new THREE.DirectionalLight(0x00ffff, 1.5);
+        directionalLight1.position.set(2, 2, 2);
+        scene.add(directionalLight1);
+        const directionalLight2 = new THREE.DirectionalLight(0x0088ff, 0.8);
+        directionalLight2.position.set(-2, -1, -1);
+        scene.add(directionalLight2);
+        camera.position.z = 4;
+        let model;
+        const MODEL_FILE = 'star.glb';
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            MODEL_FILE,
+            function (gltf) {
+                model = gltf.scene;
+                model.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        child.material.transparent = true;
+                        child.material.opacity = 0.7;
+                    }
+                });
+                const box = new THREE.Box3().setFromObject(model);
+                const center = box.getCenter(new THREE.Vector3());
+                model.position.sub(center);
+                const size = box.getSize(new THREE.Vector3());
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const scale = 6.0 / maxDim;
+                model.scale.multiplyScalar(scale);
+                scene.add(model);
+                console.log('✓ Модель загружена успешно!');
+            },
+            function (xhr) {
+                if (xhr.total > 0) {
+                    console.log(Math.round((xhr.loaded / xhr.total * 100)) + '% загружено');
+                }
+            },
+            function (error) {
+                console.log('⚠ Модель "' + MODEL_FILE + '" не найдена');
+                console.log('Показываю запасную фигуру...');
+                const size = 2;
+                const segments = 50;
+                const geometry = new THREE.ParametricGeometry(function(u, v, target) {
+                    u = u * 2 - 1;
+                    v = v * 2 - 1;
+                    const x = u * size;
+                    const y = (u * u - v * v) * size * 0.5;
+                    const z = v * size;
+                    target.set(x, y, z);
+                }, segments, segments);
+                const material = new THREE.MeshStandardMaterial({
+                    color: 0x00ffff,
+                    emissive: 0x00ffff,
+                    emissiveIntensity: 0.3,
+                    metalness: 0.8,
+                    roughness: 0.2,
+                    side: THREE.DoubleSide,
+                    transparent: true,
+                    opacity: 0.9
+                });
+                model = new THREE.Mesh(geometry, material);
+                scene.add(model);
+                const edges = new THREE.EdgesGeometry(geometry);
+                const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff, linewidth: 2 });
+                const wireframe = new THREE.LineSegments(edges, lineMaterial);
+                model.add(wireframe);
+            }
+        );
+        function animate() {
+            requestAnimationFrame(animate);
+            if (model) {
+                const time = Date.now() * 0.0005;
+                model.rotation.x = Math.sin(time) * 0.1;
+                model.rotation.y += 0.005;
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        const themeButton = document.getElementById('themeButton');
+        function getSystemTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                return 'light';
+            }
+            return 'dark';
+        }
+        let currentTheme = localStorage.getItem('selectedTheme') || getSystemTheme();
+        setTheme(currentTheme);
+        themeButton.addEventListener('click', function() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(currentTheme);
+            localStorage.setItem('selectedTheme', currentTheme);
+        });
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            currentTheme = theme;
+        }
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('selectedTheme')) {
+                const newTheme = e.matches ? 'light' : 'dark';
+                setTheme(newTheme);
+            }
+        });
+
+        const languageButton = document.getElementById('languageButton');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const currentLanguageSpan = document.getElementById('currentLanguage');
+        const languageOptions = document.querySelectorAll('.language-option');
+
+        languageButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageButton.classList.toggle('active');
+            languageDropdown.classList.toggle('active');
+        });
+
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const selectedLang = this.getAttribute('data-lang');
+                if (selectedLang === 'fr') {
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
+                languageButton.classList.remove('active');
+                languageDropdown.classList.remove('active');
+            }
+        });
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+</body>
+</html>

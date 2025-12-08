@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Portfolio</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- Общие скрипты -->
+  <script src="main.js" defer></script>
+  <script src="js/contact-form.js" defer></script>
+
+  <!-- Three.js для страницы контактов -->
+  <script src="three-contact.js" defer></script>
+</head>
+<body class="page-contact">
+
+    <header class="animated-header">
+        <div class="header-left">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+            <div class="header-controls">
+                <div class="theme-switcher">
+                    <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
+                        <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+                        <span class="theme-slider"></span>
+                        <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+                    </button>
+                </div>
+                <div class="language-switcher">
+                    <button class="language-button" id="languageButton">
+                        <span id="currentLanguage">FR</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option selected" data-lang="fr">Français</div>
+                        <div class="language-option" data-lang="en">English</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <a href="projects.html" ><span>Projets</span></a>
+            <a href="about.html"><span>À propos</span></a>
+            <a href="contact.html" class="active"><span>Contact</span></a>
+        </nav>
+
+    </header>
+
+<div class="main-container">
+  <!-- 3D фон -->
+  <div id="model-container" class="full-size"></div>
+
+  <!-- Левая колонка -->
+  <div class="left-side">
+    <div class="left-content">
+      <h2 class="contact-title">CONTACT</h2>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-value">
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Téléphone</div>
+          <div class="info-value">
+            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Telegram</div>
+          <div class="info-value">
+            <a href="https://t.me/yourusername" target="_blank">@yourusername</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">WhatsApp</div>
+          <div class="info-value">
+            <a href="https://wa.me/79991234567" target="_blank">+7 (999) 123-45-67</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Правая колонка -->
+  <div class="right-side">
+    <div class="right-content">
+      <div class="form-container">
+        <form class="contact-form" id="contactForm">
+          <!-- Nom -->
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Nom complet *"
+                required
+              >
+            </div>
+          </div>
+
+          <!-- Email + Téléphone -->
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="Email *"
+                required
+              >
+            </div>
+
+            <div class="form-group phone-group">
+              <span class="phone-code-prefix" aria-hidden="true">+</span>
+              <input
+                type="tel"
+                id="countryCode"
+                name="countryCode"
+                class="form-input phone-code-input"
+                value="33"
+                aria-label="Indicatif du pays"
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input phone-input"
+                placeholder="Téléphone"
+              >
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea js-autogrow-textarea"
+              placeholder="Message *"
+              rows="1"
+              maxlength="600"
+              required
+            ></textarea>
+
+            <div class="char-counter" data-for="message">
+              <span class="char-counter-current">0</span>/<span class="char-counter-max">600</span>
+            </div>
+          </div>
+
+          <div class="form-note">
+            En envoyant ce formulaire, vous acceptez que vos données soient traitées uniquement pour vous répondre.
+            <a href="privacy-fr.html">Politique de confidentialité</a>
+          </div>
+
+          <!-- Envoyer -->
+          <div class="submit-wrapper">
+            <button type="submit" class="submit-button submit-button-accent">
+              <span>Envoyer</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+
+<script>
+  (function() {
+    const textareas = document.querySelectorAll('.js-autogrow-textarea');
+
+    textareas.forEach((ta) => {
+      ta.style.overflow = 'hidden';
+      ta.style.resize = 'none';
+
+      const resize = () => {
+        ta.style.height = 'auto';
+        ta.style.height = ta.scrollHeight + 'px';
+      };
+
+      const updateCounter = () => {
+        const max = parseInt(ta.getAttribute('maxlength'), 10) || 0;
+        const current = ta.value.length;
+        const wrapper = ta.closest('.form-group');
+        if (!wrapper) return;
+        const counter = wrapper.querySelector('.char-counter');
+        if (!counter) return;
+        const currentSpan = counter.querySelector('.char-counter-current');
+        const maxSpan = counter.querySelector('.char-counter-max');
+        if (currentSpan) currentSpan.textContent = current;
+        if (maxSpan && max) maxSpan.textContent = max;
+      };
+
+      const onInput = () => {
+        resize();
+        updateCounter();
+      };
+
+      ['input', 'change'].forEach(evt => {
+        ta.addEventListener(evt, onInput);
+      });
+
+      resize();
+      updateCounter();
+    });
+  })();
+</script>
+
+</body>
+</html>

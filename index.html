@@ -4,34 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио | Creative Designer</title>
+
+    <meta name="description" content="Портфолио Bandurian M. — UX/UI дизайнер и creative developer. Современные сайты, интерфейсы и 3D‑опыт для брендов и стартапов.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Портфолио | Bandurian M. — UX/UI Designer & Creative Developer">
+    <meta property="og:description" content="Проекты по веб‑дизайну, фронтенд‑разработке и 3D‑интерактиву от Bandurian M.">
+    <meta property="og:url" content="https://example.com/portfolio-fr">
+    <meta property="og:image" content="https://example.com/assets/preview-portfolio.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Портфолио | Bandurian M.">
+    <meta name="twitter:description" content="UX/UI дизайн, фронтенд и 3D‑эксперименты. Портфолио Bandurian M.">
+    <meta name="twitter:image" content="https://example.com/assets/preview-portfolio.jpg">
+    <link rel="canonical" href="https://example.com/portfolio-fr">
+
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+
+
+    <link rel="alternate" hreflang="fr" href="https://example.com/portfolio-fr">
+    <link rel="alternate" hreflang="en" href="https://example.com/portfolio-en">
+    <link rel="alternate" hreflang="x-default" href="https://example.com/portfolio-en">
+
+
+    <!-- three.js и GLTFLoader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js" defer></script>
+
 </head>
 <body class="page-portfolio">
-
-    <!-- Header -->
     <header class="animated-header">
         <div class="header-left">
-            <a href="portfolio.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
-            
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
             <div class="header-controls">
-                <!-- Theme Switcher -->
                 <div class="theme-switcher">
                     <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
-                        <span class="theme-icon-display moon">
-                            <i class="fa-solid fa-moon"></i>
-                        </span>
+                        <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
                         <span class="theme-slider"></span>
-                        <span class="theme-icon-display sun">
-                            <i class="fa-solid fa-sun"></i>
-                        </span>
+                        <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
                     </button>
                 </div>
-                
-                <!-- Language Switcher -->
                 <div class="language-switcher">
                     <button class="language-button" id="languageButton">
                         <span id="currentLanguage">FR</span>
@@ -43,450 +54,65 @@
                 </div>
             </div>
         </div>
-    
-    <nav>
-        <a href="projects.html">
-            <span data-lang="fr">Projets</span>
-            <span data-lang="en" style="display: none;">Projects</span>
-        </a>
-        <a href="#about">
-            <span data-lang="fr">À propos</span>
-            <span data-lang="en" style="display: none;">About</span>
-        </a>
-        <a href="contact.html">
-            <span data-lang="fr">Contact</span>
-            <span data-lang="en" style="display: none;">Contact</span>
-        </a>
-    </nav>
-</header>
+        <nav>
+            <a href="projects.html"><span>Projets</span></a>
+            <a href="about.html"><span>À propos</span></a>
+            <a href="contact.html"><span>Contact</span></a>
+        </nav>
 
-    <!-- Главный заголовок -->
-    <div class="main-heading">
-        <span data-lang="fr">CRÉATIF</span>
-        <span data-lang="en" style="display: none;">CREATIVE</span>
-    </div>
+    </header>
 
-    <!-- 3D Model Container -->
+    <div class="main-heading"><h1>CRÉATIF</h1></div>
     <div id="model-container"></div>
 
-    <!-- Grid Container -->
     <div class="grid-container">
-        <!-- Ряд 1 -->
-        <div class="grid-item content info">
-            <div class="item-text top-left">
-                <span data-lang="fr">DESIGNER<br>ET DÉVELOPPEUR</span>
-                <span data-lang="en" style="display: none;">DESIGNER<br>AND DEVELOPER</span>
-            </div>
-        </div>
+        <div class="grid-item content info"><div class="item-text top-left">DESIGNER<br>ET DÉVELOPPEUR</div></div>
         <div class="grid-item empty"></div>
-        <div class="grid-item content info">
-            <div class="item-text top-right">
-                <span data-lang="fr">DÉVELOPPEURS</span>
-                <span data-lang="en" style="display: none;">DEVELOPERS</span>
-            </div>
-        </div>
+        <div class="grid-item content info"><div class="item-text top-right">DÉVELOPPEURS</div></div>
         <div class="grid-item empty"></div>
         <div class="grid-item empty"></div>
-        <div class="grid-item content info">
-            <div class="item-text top-right">✦</div>
-        </div>
-        <div class="grid-item content info">
-            <div class="item-text top-left">
-                <span data-lang="fr">JE CRÉE<br>DES PRODUITS</span>
-                <span data-lang="en" style="display: none;">I CREATE<br>PRODUCTS</span>
-            </div>
-        </div>
-        <div class="grid-item empty"></div>
-
-        <!-- Ряд 2 -->
-        <div class="grid-item empty"></div>
-        <div class="grid-item content interactive">
-            <div class="item-text bottom-left">
-                <span data-lang="fr">MES<br>PROJETS</span>
-                <span data-lang="en" style="display: none;">MY<br>PROJECTS</span>
-            </div>
-        </div>
+        <div class="grid-item content info"><div class="item-text top-right">✦</div></div>
+        <div class="grid-item content info"><div class="item-text top-left">JE CRÉE<br>DES PRODUITS</div></div>
         <div class="grid-item empty"></div>
         <div class="grid-item empty"></div>
-        <div class="grid-item content info">
-            <div class="item-text top-left">
-                <span data-lang="fr">QUI</span>
-                <span data-lang="en" style="display: none;">WHO</span>
-            </div>
-        </div>
-        <div class="grid-item empty"></div>
-        <div class="grid-item content info">
-            <div class="item-text bottom-right">
-                <span data-lang="fr">AVENIR</span>
-                <span data-lang="en" style="display: none;">FUTURE</span>
-            </div>
-        </div>
-        <div class="grid-item content info">
-            <div class="item-text top-right">
-                <img src="star.svg" alt="star" class="icon-svg">
-            </div>
-        </div>
-
-        <!-- Ряд 3 -->
-        <div class="grid-item content info">
-            <div class="item-text bottom-left">
-                <span data-lang="fr">ICI NAISSENT<br>LES IDÉES</span>
-                <span data-lang="en" style="display: none;">IDEAS ARE<br>BORN HERE</span>
-            </div>
-        </div>
+        <div class="grid-item content interactive"><div class="item-text bottom-left">MES<br>PROJETS</div></div>
         <div class="grid-item empty"></div>
         <div class="grid-item empty"></div>
-        <div class="grid-item content info">
-            <div class="item-text bottom-left">✦</div>
-        </div>
+        <div class="grid-item content info"><div class="item-text top-left">QUI</div></div>
         <div class="grid-item empty"></div>
-        <div class="grid-item content interactive">
-            <div class="item-text bottom-right">
-                <span data-lang="fr">ME<br>CONTACTER</span>
-                <span data-lang="en" style="display: none;">GET IN<br>TOUCH</span>
-            </div>
-        </div>
+        <div class="grid-item content info"><div class="item-text bottom-right">AVENIR</div></div>
+        <div class="grid-item content info"><div class="item-text top-right"><img src="star.svg" alt="star" class="icon-svg"></div></div>
+        <div class="grid-item content info"><div class="item-text bottom-left">ICI NAISSENT<br>LES IDÉES</div></div>
         <div class="grid-item empty"></div>
-        <div class="grid-item content info">
-            <div class="item-text bottom-right">2025</div>
-        </div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text bottom-left">✦</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content interactive"><div class="item-text bottom-right">ME<br>CONTACTER</div></div>
+        <div class="grid-item empty"></div>
+        <div class="grid-item content info"><div class="item-text bottom-right">2025</div></div>
     </div>
 
-    <!-- Footer -->
     <footer class="animated-footer">
-        <div class="email">your.email@example.com</div>
+        <div class="footer-left">
+            <div class="email">your.email@example.com</div>
+            <a href="privacy-fr.html" class="privacy-link">
+                Politique de confidentialité
+            </a>
+        </div>
         <div class="social-links">
-            <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp">
-                <span>W</span>
-            </a>
-            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn">
-                <span>in</span>
-            </a>
-            <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram">
-                <span>T</span>
-            </a>
+            <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a>
+            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+            <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a>
         </div>
     </footer>
 
-    <script>
-        /* ═══════════════════════════════════════════════════════════════
-           ИНИЦИАЛИЗАЦИЯ
-        ═══════════════════════════════════════════════════════════════ */
-        
-        // Задержки анимации для grid-items
-        document.querySelectorAll('.grid-item').forEach((item, index) => {
-            item.style.animationDelay = (2.0 + index * 0.05) + 's';
-        });
-
-        /* ═══════════════════════════════════════════════════════════════
-           ИНТЕРАКТИВНОСТЬ БЛОКОВ
-        ═══════════════════════════════════════════════════════════════ */
-        
-        document.querySelectorAll('.grid-item.content.interactive').forEach(item => {
-            item.addEventListener('click', function(e) {
-                const text = this.querySelector('.item-text')?.textContent || '';
-                
-                if (text.includes('PROJET') || text.includes('PROJECT')) {
-                    transitionToPage(e, 'projects.html');
-                } else if (text.includes('CONTACT') || text.includes('TOUCH')) {
-                    transitionToPage(e, 'contact.html');
-                }
-            });
-        });
-
-        /* ═══════════════════════════════════════════════════════════════
-           ПЕРЕХОД МЕЖДУ СТРАНИЦАМИ
-        ═══════════════════════════════════════════════════════════════ */
-        
-        function transitionToPage(event, pageUrl) {
-            const circle = document.createElement('div');
-            circle.classList.add('transition-overlay');
-            
-            circle.style.left = event.clientX + 'px';
-            circle.style.top = event.clientY + 'px';
-            
-            const maxDistance = Math.sqrt(
-                Math.pow(Math.max(event.clientX, window.innerWidth - event.clientX), 2) +
-                Math.pow(Math.max(event.clientY, window.innerHeight - event.clientY), 2)
-            );
-            
-            circle.style.width = maxDistance * 2 + 'px';
-            circle.style.height = maxDistance * 2 + 'px';
-            
-            document.body.appendChild(circle);
-            document.body.classList.add('page-transitioning');
-            
-            setTimeout(() => circle.classList.add('active'), 10);
-            setTimeout(() => window.location.href = pageUrl, 800);
-        }
-
-        /* ═══════════════════════════════════════════════════════════════
-           ПАРАЛЛАКС ЭФФЕКТ ЗАГОЛОВКА
-        ═══════════════════════════════════════════════════════════════ */
-        
-        document.addEventListener('mousemove', (e) => {
-            const heading = document.querySelector('.main-heading');
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-            heading.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-        });
-
-        /* ═══════════════════════════════════════════════════════════════
-           3D MODEL SETUP (Three.js)
-        ═══════════════════════════════════════════════════════════════ */
-        
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
-        const modelContainer = document.getElementById('model-container');
-        renderer.setSize(600, 600);
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.0;
-        modelContainer.appendChild(renderer.domElement);
-        
-        // Анимация появления модели
-        setTimeout(() => {
-            modelContainer.style.opacity = '1';
-            modelContainer.style.transform = 'translate(-50%, -50%)';
-        }, 100);
-        
-        // Освещение
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-        scene.add(ambientLight);
-        
-        const directionalLight1 = new THREE.DirectionalLight(0x00ffff, 1.5);
-        directionalLight1.position.set(2, 2, 2);
-        scene.add(directionalLight1);
-        
-        const directionalLight2 = new THREE.DirectionalLight(0x0088ff, 0.8);
-        directionalLight2.position.set(-2, -1, -1);
-        scene.add(directionalLight2);
-        
-        camera.position.z = 4;
-        
-        let model;
-        const MODEL_FILE = 'star.glb';
-        
-        // Загрузка модели
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-            MODEL_FILE,
-            function (gltf) {
-                model = gltf.scene;
-                
-                model.traverse((child) => {
-                    if (child.isMesh && child.material) {
-                        child.material.transparent = true;
-                        child.material.opacity = 0.7;
-                    }
-                });
-                
-                const box = new THREE.Box3().setFromObject(model);
-                const center = box.getCenter(new THREE.Vector3());
-                model.position.sub(center);
-                
-                const size = box.getSize(new THREE.Vector3());
-                const maxDim = Math.max(size.x, size.y, size.z);
-                const scale = 6.0 / maxDim;
-                model.scale.multiplyScalar(scale);
-                
-                scene.add(model);
-                console.log('✓ Модель загружена успешно!');
-            },
-            function (xhr) {
-                if (xhr.total > 0) {
-                    console.log(Math.round((xhr.loaded / xhr.total * 100)) + '% загружено');
-                }
-            },
-            function (error) {
-                console.log('⚠ Модель "' + MODEL_FILE + '" не найдена');
-                console.log('Показываю запасную фигуру...');
-                
-                // Запасная фигура
-                const size = 2;
-                const segments = 50;
-                const geometry = new THREE.ParametricGeometry(function(u, v, target) {
-                    u = u * 2 - 1;
-                    v = v * 2 - 1;
-                    
-                    const x = u * size;
-                    const y = (u * u - v * v) * size * 0.5;
-                    const z = v * size;
-                    
-                    target.set(x, y, z);
-                }, segments, segments);
-                
-                const material = new THREE.MeshStandardMaterial({
-                    color: 0x00ffff,
-                    emissive: 0x00ffff,
-                    emissiveIntensity: 0.3,
-                    metalness: 0.8,
-                    roughness: 0.2,
-                    side: THREE.DoubleSide,
-                    transparent: true,
-                    opacity: 0.9
-                });
-                
-                model = new THREE.Mesh(geometry, material);
-                scene.add(model);
-                
-                const edges = new THREE.EdgesGeometry(geometry);
-                const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff, linewidth: 2 });
-                const wireframe = new THREE.LineSegments(edges, lineMaterial);
-                model.add(wireframe);
-            }
-        );
-        
-        // Анимация
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            if (model) {
-                const time = Date.now() * 0.0005;
-                model.rotation.x = Math.sin(time) * 0.1;
-                model.rotation.y += 0.005;
-            }
-            
-            renderer.render(scene, camera);
-        }
-        
-        animate();
 
 
+    <!-- Ваш основной JS -->
+    <script src="js/main.js" defer></script>
+    <script src="/js/three-portfolio.js" defer></script>
 
-        /* ═══════════════════════════════════════════════════════════════
-   THEME SWITCHER
-═══════════════════════════════════════════════════════════════ */
-
-const themeButton = document.getElementById('themeButton');
-
-// Функция определения системной темы
-function getSystemTheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
-    }
-    return 'dark';
-}
-
-// Проверяем сохраненную тему или используем системную
-let currentTheme = localStorage.getItem('selectedTheme') || getSystemTheme();
-
-// Устанавливаем начальную тему
-setTheme(currentTheme);
-
-// Переключение темы при клике
-themeButton.addEventListener('click', function() {
-    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(currentTheme);
-    localStorage.setItem('selectedTheme', currentTheme);
-});
-
-// Функция установки темы
-function setTheme(theme) {
-    if (theme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-        document.documentElement.removeAttribute('data-theme');
-    }
-    currentTheme = theme;
-}
-
-// Слушаем изменения системной темы (если пользователь не выбрал вручную)
-window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-    // Только если пользователь не выбрал тему вручную
-    if (!localStorage.getItem('selectedTheme')) {
-        const newTheme = e.matches ? 'light' : 'dark';
-        setTheme(newTheme);
-    }
-});
-
-
-
-
-
-        /* ═══════════════════════════════════════════════════════════════
-           LANGUAGE SWITCHER
-        ═══════════════════════════════════════════════════════════════ */
-
-        const languageButton = document.getElementById('languageButton');
-        const languageDropdown = document.getElementById('languageDropdown');
-        const currentLanguageSpan = document.getElementById('currentLanguage');
-        const languageOptions = document.querySelectorAll('.language-option');
-
-        // Проверяем сохраненный язык или используем французский по умолчанию
-        let currentLang = localStorage.getItem('selectedLanguage') || 'fr';
-
-        // Устанавливаем начальный язык
-        switchLanguage(currentLang);
-
-        // Открытие/закрытие выпадающего списка
-        languageButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            languageButton.classList.toggle('active');
-            languageDropdown.classList.toggle('active');
-        });
-
-        // Выбор языка
-        languageOptions.forEach(option => {
-            option.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const selectedLang = this.getAttribute('data-lang');
-                
-                // Переключаем язык
-                switchLanguage(selectedLang);
-                
-                // Сохраняем выбор
-                localStorage.setItem('selectedLanguage', selectedLang);
-                
-                // Закрываем dropdown
-                languageButton.classList.remove('active');
-                languageDropdown.classList.remove('active');
-            });
-        });
-
-        // Закрытие dropdown при клике вне его
-        document.addEventListener('click', function(e) {
-            if (!languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
-                languageButton.classList.remove('active');
-                languageDropdown.classList.remove('active');
-            }
-        });
-
-        // Функция переключения языка
-        function switchLanguage(lang) {
-            currentLang = lang;
-            currentLanguageSpan.textContent = lang.toUpperCase();
-            
-            // Обновляем HTML lang атрибут
-            document.documentElement.lang = lang;
-            
-            // Обновляем выбранную опцию
-            languageOptions.forEach(opt => {
-                if (opt.getAttribute('data-lang') === lang) {
-                    opt.classList.add('selected');
-                } else {
-                    opt.classList.remove('selected');
-                }
-            });
-            
-            // Показываем/скрываем тексты на разных языках
-            document.querySelectorAll('[data-lang]').forEach(element => {
-                if (element.classList.contains('language-option')) {
-                    return; // Пропускаем опции в dropdown
-                }
-                
-                if (element.getAttribute('data-lang') === lang) {
-                    element.style.display = '';
-                } else {
-                    element.style.display = 'none';
-                }
-            });
-        }
-    </script>
-    <!-- Cloudflare Web Analytics -->
-     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'>
-     </script>
-    <!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare beacon, если нужен -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
 </body>
 </html>
