@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ 
                     name, 
                     email, 
-                    phone: phoneNumber, 
+                    phone: phone,
                     message 
                 })
 
