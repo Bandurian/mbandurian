@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Marharyta Bandurian — UX/UI & Graphic Designer</title>
+
+    <meta name="description" content="Портфолио Marharyta Bandurian — UX/UI & graphic designer из Тулона. Интерфейсы, бренд‑айдентика и веб‑сайты для продуктов и брендов.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Портфолио | Marharyta Bandurian — UX/UI & Graphic Designer">
+    <meta property="og:description" content="UX/UI дизайн, графический дизайн, бренд‑системы и e‑commerce.">
+    <meta property="og:url" content="https://example.com/portfolio-fr">
+    <meta property="og:image" content="https://example.com/assets/preview-portfolio.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Портфолио | Marharyta Bandurian">
+    <meta name="twitter:description" content="UX/UI, графический дизайн и веб‑интерфейсы.">
+    <meta name="twitter:image" content="https://example.com/assets/preview-portfolio.jpg">
+    <link rel="canonical" href="https://example.com/portfolio-fr">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="alternate" hreflang="fr" href="https://example.com/portfolio-fr">
+    <link rel="alternate" hreflang="en" href="https://example.com/portfolio-en">
+    <link rel="alternate" hreflang="x-default" href="https://example.com/portfolio-en">
+
+    <!-- three.js и GLTFLoader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js" defer></script>
+</head>
+<body class="page-portfolio">
+<header class="animated-header">
+    <div class="header-left">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+        <div class="header-controls">
+            <div class="theme-switcher">
+                <button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
+                    <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="theme-slider"></span>
+                    <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+                </button>
+            </div>
+            <div class="language-switcher">
+                <button class="language-button" id="languageButton">
+                    <span id="currentLanguage">FR</span>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option selected" data-lang="fr">Français</div>
+                    <div class="language-option" data-lang="en">English</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <a href="projects.html"><span>Projets</span></a>
+        <a href="about.html"><span>À propos</span></a>
+        <a href="contact.html"><span>Contact</span></a>
+    </nav>
+</header>
+
+<!-- Заменили CRÉATIF на UX/UI & GRAPHIC DESIGNER -->
+<div class="main-heading"><h1>UX/UI & GRAPHIC<br>DESIGNER</h1></div>
+<div id="model-container"></div>
+
+<div class="grid-container">
+    <!-- 1: роль -->
+    <div class="grid-item content info">
+        <div class="item-text top-left">
+            UX/UI<br>DESIGN
+        </div>
+    </div>
+    <div class="grid-item empty"></div>
+
+    <!-- 2: что делаешь -->
+    <div class="grid-item content info">
+        <div class="item-text top-right">
+            WEB<br>& PRODUITS
+        </div>
+    </div>
+    <div class="grid-item empty"></div>
+
+    <!-- 3: декоративный -->
+    <div class="grid-item empty"></div>
+    <div class="grid-item content info">
+        <div class="item-text top-right">✦</div>
+    </div>
+
+    <!-- 4: брендинг -->
+    <div class="grid-item content info">
+        <div class="item-text top-left">
+            BRANDING<br>& IDENTITÉS
+        </div>
+    </div>
+    <div class="grid-item empty"></div>
+
+    <!-- 5: линк на проекты -->
+    <div class="grid-item empty"></div>
+    <div class="grid-item content interactive">
+        <div class="item-text bottom-left">
+            MES<br>PROJETS
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="grid-item empty"></div>
+    <div class="grid-item empty"></div>
+
+    <!-- 7: графдизайн -->
+    <div class="grid-item content info">
+        <div class="item-text top-left">
+            GRAPHIC<br>DESIGN
+        </div>
+    </div>
+    <div class="grid-item empty"></div>
+
+    <!-- 8: e‑commerce -->
+    <div class="grid-item content info">
+        <div class="item-text bottom-right">
+            E‑COMMERCE<br>& UI
+        </div>
+    </div>
+
+    <!-- 9: иконка -->
+    <div class="grid-item content info">
+        <div class="item-text top-right">
+            <img src="star.svg" alt="star" class="icon-svg">
+        </div>
+    </div>
+
+    <!-- 10: 3D / интерактив -->
+    <div class="grid-item content info">
+        <div class="item-text bottom-left">
+            3D<br>& INTERACTIF
+        </div>
+    </div>
+
+    <div class="grid-item empty"></div>
+    <div class="grid-item empty"></div>
+
+    <!-- 11: декоративный -->
+    <div class="grid-item content info">
+        <div class="item-text bottom-left">✦</div>
+    </div>
+    <div class="grid-item empty"></div>
+
+    <!-- 12: контакт -->
+    <div class="grid-item content interactive">
+        <div class="item-text bottom-right">
+            ME<br>CONTACTER
+        </div>
+    </div>
+
+    <div class="grid-item empty"></div>
+
+    <!-- 13: локация/год -->
+    <div class="grid-item content info">
+        <div class="item-text bottom-right">
+            TOULON<br>2025
+        </div>
+    </div>
+</div>
+
+<footer class="animated-footer">
+    <div class="footer-left">
+        <div class="email">hello.bandurian@gmail.com</div>
+        <a href="privacy-fr.html" class="privacy-link">
+            Politique de confidentialité
+        </a>
+    </div>
+    <div class="social-links">
+        <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a>
+        <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+        <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a>
+    </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="/js/three-portfolio.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+</body>
+</html>
