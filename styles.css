@@ -1,106 +1,209 @@
-/*    CSS ПЕРЕМЕННЫЕ (ROOT VARIABLES) */
+/* ПОДКЛЮЧЕНИЕ ШРИФТОВ */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Lato:wght@300;400;500;700;900&display=swap');
+
+/* CSS ПЕРЕМЕННЫЕ (ROOT VARIABLES) */
+
 :root {
-    /* БАЗОВЫЕ ЦВЕТА - изменяйте ТОЛЬКО эти 3 значения! */
-    --color-bg: #0a0a0a;
-    --color-text: #ffffff;
-    --color-accent: #d9ff00;
-    
-    /* ДОПОЛНИТЕЛЬНЫЕ БАЗОВЫЕ ЦВЕТА */
-    --color-black: #000000;
-    --color-success: #00ff64;
-    --color-error: #ff3232;
-    
-    /* ВАРИАЦИИ ФОНА */
-    --bg-overlay-light: color-mix(in srgb, var(--color-bg) 30%, transparent);
-    --bg-overlay-medium: color-mix(in srgb, var(--color-bg) 70%, transparent);
-    --bg-overlay-heavy: color-mix(in srgb, var(--color-bg) 95%, transparent);
-    
-    /* ВАРИАЦИИ ТЕКСТА */
-    --text-primary: var(--color-text);
-    --text-secondary: color-mix(in srgb, var(--color-text) 70%, transparent);
-    --text-tertiary: color-mix(in srgb, var(--color-text) 30%, transparent);
-    --text-border: color-mix(in srgb, var(--color-text) 20%, transparent);
-    --text-border-subtle: color-mix(in srgb, var(--color-text) 8%, transparent);
-    --text-surface: color-mix(in srgb, var(--color-text) 3%, transparent);
-    
-    /* ✨ ВАРИАЦИИ АКЦЕНТА */
-    --accent-primary: var(--color-accent);
-    --accent-hover-border: color-mix(in srgb, var(--color-accent) 70%, transparent);
-    --accent-bright: color-mix(in srgb, var(--color-accent) 60%, transparent);
-    --accent-medium: color-mix(in srgb, var(--color-accent) 50%, transparent);
-    --accent-hover-surface: color-mix(in srgb, var(--color-accent) 25%, transparent);
-    --accent-light: color-mix(in srgb, var(--color-accent) 15%, transparent);
-    --accent-lighter: color-mix(in srgb, var(--color-accent) 10%, transparent);
-    --accent-subtle: color-mix(in srgb, var(--color-accent) 5%, transparent);
-    
-    /* ГРАДИЕНТЫ */
-    --gradient-overlay: linear-gradient(to top, var(--bg-overlay-heavy) 0%, var(--bg-overlay-medium) 50%, var(--bg-overlay-light) 100%);
-    
-    /* ТЕНИ */
-    --shadow-heavy: color-mix(in srgb, var(--color-black) 95%, transparent);
-    --shadow-accent: color-mix(in srgb, var(--color-accent) 20%, transparent);
-    
-    /* СИСТЕМНЫЕ ЦВЕТА */
-    --status-success-bg: color-mix(in srgb, var(--color-success) 10%, transparent);
-    --status-success-border: color-mix(in srgb, var(--color-success) 30%, transparent);
-    --status-success-text: var(--color-success);
-    --status-error-bg: color-mix(in srgb, var(--color-error) 10%, transparent);
-    --status-error-border: color-mix(in srgb, var(--color-error) 30%, transparent);
-    --status-error-text: var(--color-error);
-    --accent-tag-hover: color-mix(in srgb, var(--color-accent) 20%, transparent);
-    
-    /* Скругления */
-    --radius-small: 0.3125rem;
-    --radius-medium: 1.25rem;
-    --radius-asymmetric: 1.25rem 0.3125rem 1.25rem 0.3125rem;
-    
-    /* Отступы */
-    --spacing-xs: 0.625rem;
-    --spacing-sm: 0.9375rem;
-    --spacing-md: 1.25rem;
-    --spacing-lg: 1.875rem;
-    --spacing-xl: 2.5rem;
-    --spacing-2xl: 3.125rem;
-    --spacing-3xl: 3.75rem;
-    --spacing-4xl: 5rem;
-    
-    /* Типографика */
-    --font-size-xs: 0.6rem;
-    --font-size-sm: 0.7rem;
-    --font-size-base: 0.8rem;
-    --font-size-md: 0.85rem;
-    --font-size-lg: 0.9rem;
-    --font-size-xl: 1rem;
-    --font-size-2xl: 1.2rem;
-    --font-size-3xl: 2rem;
-    --font-size-4xl: 2.5rem;
-    --font-size-5xl: 3rem;
-    --font-size-6xl: 4.5rem;
-    --font-size-7xl: 6rem;
-    
-    /* Переходы */
-    --transition-fast: 0.3s ease;
-    --transition-medium: 0.4s ease;
-    --transition-slow: 0.8s ease;
-    --transition-custom: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* БАЗОВЫЕ ЦВЕТА - изменяйте ТОЛЬКО эти 3 значения! */
+
+  --color-bg: #0d0b11;
+
+  --color-text: #F2F2F2;
+
+  --color-accent: #9F88F2;
+
+  /* THEME VARIABLES */
+
+
+
+
+
+  /* ДОПОЛНИТЕЛЬНЫЕ БАЗОВЫЕ ЦВЕТА */
+
+  --color-black: #000000;
+
+  --color-success: #00ff64;
+
+  --color-error: #ff3232;
+
+  /* ВАРИАЦИИ ФОНА */
+
+  --bg-overlay-light: color-mix(in srgb, var(--color-bg) 30%, transparent);
+
+  --bg-overlay-medium: color-mix(in srgb, var(--color-bg) 70%, transparent);
+
+  --bg-overlay-heavy: color-mix(in srgb, var(--color-bg) 95%, transparent);
+
+  /* ВАРИАЦИИ ТЕКСТА */
+
+  --text-primary: var(--color-text);
+
+  --text-secondary: color-mix(in srgb, var(--color-text) 70%, transparent);
+
+  --text-tertiary: color-mix(in srgb, var(--color-text) 30%, transparent);
+
+  --text-border: color-mix(in srgb, var(--color-text) 20%, transparent);
+
+  --text-border-subtle: color-mix(in srgb, var(--color-text) 8%, transparent);
+
+  --text-surface: color-mix(in srgb, var(--color-text) 3%, transparent);
+
+  /* ✨ ВАРИАЦИИ АКЦЕНТА */
+
+  --accent-primary: var(--color-accent);
+
+  --accent-hover-border: color-mix(in srgb, var(--color-accent) 70%, transparent);
+
+  --accent-bright: color-mix(in srgb, var(--color-accent) 60%, transparent);
+
+  --accent-medium: color-mix(in srgb, var(--color-accent) 50%, transparent);
+
+  --accent-hover-surface: color-mix(in srgb, var(--color-accent) 25%, transparent);
+
+  --accent-light: color-mix(in srgb, var(--color-accent) 15%, transparent);
+
+  --accent-lighter: color-mix(in srgb, var(--color-accent) 10%, transparent);
+
+  --accent-subtle: color-mix(in srgb, var(--color-accent) 5%, transparent);
+
+  /* ГРАДИЕНТЫ */
+
+  --gradient-overlay: linear-gradient(to top, var(--bg-overlay-heavy) 0%, var(--bg-overlay-medium) 50%, var(--bg-overlay-light) 100%);
+
+  /* ТЕНИ */
+
+  --shadow-heavy: color-mix(in srgb, var(--color-black) 95%, transparent);
+
+  --shadow-accent: color-mix(in srgb, var(--color-accent) 20%, transparent);
+
+  /* СИСТЕМНЫЕ ЦВЕТА */
+
+  --status-success-bg: color-mix(in srgb, var(--color-success) 10%, transparent);
+
+  --status-success-border: color-mix(in srgb, var(--color-success) 30%, transparent);
+
+  --status-success-text: var(--color-success);
+
+  --status-error-bg: color-mix(in srgb, var(--color-error) 10%, transparent);
+
+  --status-error-border: color-mix(in srgb, var(--color-error) 30%, transparent);
+
+  --status-error-text: var(--color-error);
+
+  --accent-tag-hover: color-mix(in srgb, var(--color-accent) 20%, transparent);
+
+  /* Скругления */
+
+  --radius-small: 0.3125rem;
+
+  --radius-medium: 1.25rem;
+
+  --radius-asymmetric: 1.25rem 0.3125rem 1.25rem 0.3125rem;
+
+  /* Отступы */
+
+  --spacing-xs: 0.625rem;
+
+  --spacing-sm: 0.9375rem;
+
+  --spacing-md: 1.25rem;
+
+  --spacing-lg: 1.875rem;
+
+  --spacing-xl: 2.5rem;
+
+  --spacing-2xl: 3.125rem;
+
+  --spacing-3xl: 3.75rem;
+
+  --spacing-4xl: 5rem;
+
+  /* Типографика */
+
+  --font-size-xs: 0.6rem;
+
+  --font-size-sm: 0.7rem;
+
+  --font-size-base: 0.8rem;
+
+  --font-size-md: 0.85rem;
+
+  --font-size-lg: 0.9rem;
+
+  --font-size-xl: 1rem;
+
+  --font-size-2xl: 1.2rem;
+
+  --font-size-3xl: 2rem;
+
+  --font-size-4xl: 2.5rem;
+
+  --font-size-5xl: 3rem;
+
+  --font-size-6xl: 4.5rem;
+
+  --font-size-7xl: 6rem;
+
+  /* Переходы */
+
+  --transition-fast: 0.3s ease;
+
+  --transition-medium: 0.4s ease;
+
+  --transition-slow: 0.8s ease;
+
+  --transition-custom: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/*    БАЗОВЫЕ СТИЛИ */
+/* Светлая тема */
+:root[data-theme="light"] {
+    --color-bg: #F2F2F2;
+    --color-text: #0d0b11;
+    --color-accent: #7A5FD9;
+}
+
+/* БАЗОВЫЕ СТИЛИ */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: var(--color-bg);
-    color: var(--color-text);
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: 'Lato', Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Заголовки – Bungee */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.main-heading,
+.contact-title,
+.page-projects h1,
+.about-title {
+  font-family: 'Bungee', 'Lato', Arial, sans-serif;
+}
+
+/* Остальной текст — Lato уже задан через body */
+
+/* ДОП. КЛАССЫ, ГДЕ РАНЬШЕ БЫЛ ЯВНЫЙ Arial, ПЕРЕПИСАНЫ НА Lato */
+
+.form-input,
+.form-textarea {
+  font-family: 'Lato', Arial, sans-serif;
 }
 
 body.page-portfolio {
@@ -1670,21 +1773,7 @@ body.page-transitioning {
 }
 
 
-/* THEME VARIABLES */
 
-/* Темная тема (по умолчанию) */
-:root {
-    --color-bg: #0a0a0a;
-    --color-text: #ffffff;
-    --color-accent: #d9ff00;
-}
-
-/* Светлая тема */
-:root[data-theme="light"] {
-    --color-bg: #f5f5f5;
-    --color-text: #0a0a0a;
-    --color-accent: #6b00ff;
-}
 
 /* THEME SWITCHER */
 

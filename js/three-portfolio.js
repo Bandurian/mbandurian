@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   camera.position.z = 4;
 
   let model;
-  const MODEL_FILE = 'star.glb';
+  const MODEL_FILE = 'star.gltf';
 
   const loader = new THREE.GLTFLoader();
   loader.load(

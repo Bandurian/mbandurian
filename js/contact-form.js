@@ -1,178 +1,130 @@
-// js/contact-form.js
-
-// Инициализация формы только на странице contact.html
+// js/contact-form.js (исправленный)
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
+  const form = document.getElementById('contactForm');
+  if (!form) return;
 
-    const formStatus = document.getElementById('formStatus');
-    const submitButton = form.querySelector('.submit-button');
+  const formStatus = document.getElementById('formStatus');
+  const submitButton = form.querySelector('.submit-button');
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+  // Утилиты
+  const sanitizeNumber = (countryCodeRaw, phoneRaw) => {
+    // Убираем всё кроме цифр и плюса в countryCode
+    let cc = String(countryCodeRaw || '').trim();
+    cc = cc.replace(/[^\d+]/g, '');
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const countryCode = document.getElementById('countryCode').value;
-        const phoneRaw = document.getElementById('phone').value.trim();
-        const phone = `+${countryCode}${phoneRaw}`;
+    // Если пользователь ввёл + в начале — убираем его (мы добавляем + отдельно)
+    cc = cc.replace(/^\+/, '');
 
-        const message = document.getElementById('message').value;
+    // Оставляем только цифры из phoneRaw
+    let p = String(phoneRaw || '').trim();
+    p = p.replace(/\D/g, '');
 
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<span data-lang="fr">Envoi...</span><span data-lang="en" style="display: none;">Sending...</span><span>→</span>';
-        formStatus.style.display = 'none';
+    // Если телефон пуст — вернём пустую строку
+    if (!p) return '';
 
+    return `+${cc}${p}`;
+  };
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Берём значения (защита на случай отсутствия элементов)
+    const nameEl = document.getElementById('name');
+    const emailEl = document.getElementById('email');
+    const countryCodeEl = document.getElementById('countryCode');
+    const phoneEl = document.getElementById('phone');
+    const messageEl = document.getElementById('message');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+    const countryCode = countryCodeEl ? countryCodeEl.value.trim() : '';
+    const phoneRaw = phoneEl ? phoneEl.value.trim() : '';
+    const message = messageEl ? messageEl.value.trim() : '';
+
+    const phone = sanitizeNumber(countryCode, phoneRaw);
+
+    // Простая валидация
+    if (!name || !email || !message) {
+      formStatus.className = 'form-status error';
+      formStatus.innerHTML = '<span>Veuillez remplir tous les champs requis.</span>';
+      formStatus.style.display = 'block';
+      return;
+    }
+
+    // UX: блокируем кнопку и показываем статус
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<span data-lang="fr">Envoi...</span><span data-lang="en" style="display:none;">Sending...</span><span>→</span>';
+    if (formStatus) formStatus.style.display = 'none';
+
+    // Для отладки — логируем что будем отправлять
+    console.log('Submitting contact form:', { name, email, phone, message });
+
+    try {
+      const response = await fetch('https://telegram-form-worker.kinameri20.workers.dev', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+          // Если бекенд требует специальных заголовков, добавь их здесь
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          message
+        })
+      });
+
+      // Логи для отладки CORS/статуса
+      console.log('Fetch response status:', response.status, response.statusText);
+
+      // Проверяем сетевой/HTTP статус
+      if (!response.ok) {
+        // Если backend вернул ответ, попробуем прочитать тело (JSON/текст)
+        let text = '';
         try {
-            const response = await fetch('https://telegram-form-worker.kinameri20.workers.dev', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ 
-                    name, 
-                    email, 
-                    phone: phone,
-                    message 
-                })
-
-            });
-
-            const data = await response.json();
-
-            if (data.ok) {
-                formStatus.className = 'form-status success';
-                formStatus.innerHTML = '<span data-lang="fr">Message envoyé !</span><span data-lang="en" style="display: none;">Message sent!</span>';
-                formStatus.style.display = 'block';
-                form.reset();
-
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                }, 5000);
-            } else {
-                throw new Error('Ошибка отправки');
-            }
-        } catch (error) {
-            formStatus.className = 'form-status error';
-            formStatus.innerHTML = '<span data-lang="fr">Erreur d’envoi. Réessayez plus tard.</span><span data-lang="en" style="display: none;">Error sending. Please try again later.</span>';
-            formStatus.style.display = 'block';
-            console.error('Ошибка:', error);
-        } finally {
-            submitButton.disabled = false;
-            submitButton.innerHTML = '<span data-lang="fr">Envoyer</span><span data-lang="en" style="display: none;">Send</span><span>→</span>';
+          text = await response.text();
+        } catch (err) {
+          text = '[cannot read response body]';
         }
-    });
-});
+        throw new Error(`Network error: ${response.status} ${response.statusText} — ${text}`);
+      }
 
+      // Пытаемся распарсить JSON
+      let data;
+      try {
+        data = await response.json();
+      } catch (err) {
+        throw new Error('Invalid JSON from server');
+      }
 
-// three-contact.js
-document.addEventListener('DOMContentLoaded', () => {
-  const modelContainer = document.getElementById('model-container');
-  if (!modelContainer || typeof THREE === 'undefined') return;
+      console.log('Worker response data:', data);
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
-  modelContainer.appendChild(renderer.domElement);
-
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-  scene.add(ambientLight);
-
-  const directionalLight1 = new THREE.DirectionalLight(0x00ffff, 1.5);
-  directionalLight1.position.set(2, 2, 2);
-  scene.add(directionalLight1);
-
-  const directionalLight2 = new THREE.DirectionalLight(0x0088ff, 0.8);
-  directionalLight2.position.set(-2, -1, -1);
-  scene.add(directionalLight2);
-
-  camera.position.z = 4;
-
-  let model;
-  const MODEL_FILE = 'star.glb';
-
-  const loader = new THREE.GLTFLoader();
-  loader.load(
-    MODEL_FILE,
-    function (gltf) {
-      model = gltf.scene;
-
-      model.traverse((child) => {
-        if (child.isMesh && child.material) {
-          child.material.transparent = true;
-          child.material.opacity = 0.3;
-        }
-      });
-
-      const box = new THREE.Box3().setFromObject(model);
-      const center = box.getCenter(new THREE.Vector3());
-      model.position.sub(center);
-
-      const size = box.getSize(new THREE.Vector3());
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 6.0 / maxDim;
-      model.scale.multiplyScalar(scale);
-
-      scene.add(model);
-    },
-    undefined,
-    function () {
-      console.log('Модель не найдена, показываю запасную фигуру...');
-
-      const size = 2;
-      const segments = 50;
-      const geometry = new THREE.ParametricGeometry(function(u, v, target) {
-        u = u * 2 - 1;
-        v = v * 2 - 1;
-
-        const x = u * size;
-        const y = (u * u - v * v) * size * 0.5;
-        const z = v * size;
-
-        target.set(x, y, z);
-      }, segments, segments);
-
-      const material = new THREE.MeshStandardMaterial({
-        color: 0x00ffff,
-        emissive: 0x00ffff,
-        emissiveIntensity: 0.2,
-        metalness: 0.8,
-        roughness: 0.2,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.3
-      });
-      model = new THREE.Mesh(geometry, material);
-      scene.add(model);
+      // Логика успешного ответа — зависит от того, что возвращает worker
+      if (data && (data.ok === true || data.result)) {
+        formStatus.className = 'form-status success';
+        formStatus.innerHTML = '<span data-lang="fr">Message envoyé !</span><span data-lang="en" style="display:none;">Message sent!</span>';
+        formStatus.style.display = 'block';
+        form.reset();
+        // сбрасываем счётчик/высоту для textarea, если нужно
+        document.querySelectorAll('.js-autogrow-textarea').forEach(ta => {
+          ta.style.height = 'auto';
+        });
+        setTimeout(() => {
+          formStatus.style.display = 'none';
+        }, 5000);
+      } else {
+        // Если сервер вернул ok:false или неизвестную структуру
+        let errText = (data && data.error) ? data.error : 'Server returned an error';
+        throw new Error(errText);
+      }
+    } catch (error) {
+      console.error('Ошибка отправки формы:', error);
+      formStatus.className = 'form-status error';
+      formStatus.innerHTML = '<span data-lang="fr">Erreur d’envoi. Réessayez plus tard.</span><span data-lang="en" style="display:none;">Error sending. Please try again later.</span>';
+      formStatus.style.display = 'block';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = '<span data-lang="fr">Envoyer</span><span data-lang="en" style="display:none;">Send</span><span>→</span>';
     }
-  );
-
-  function animate() {
-    requestAnimationFrame(animate);
-
-    if (model) {
-      const time = Date.now() * 0.0005;
-      model.rotation.x = Math.sin(time) * 0.1;
-      model.rotation.y += 0.005;
-    }
-
-    renderer.render(scene, camera);
-  }
-
-  animate();
-
-  window.addEventListener('resize', function() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
   });
 });
