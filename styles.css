@@ -79,13 +79,13 @@
 
   /* СИСТЕМНЫЕ ЦВЕТА */
 
-  --status-success-bg: color-mix(in srgb, var(--color-success) 10%, transparent);
+  --status-success-bg: color-mix(in srgb, var(--color-success) 40%, transparent);
 
-  --status-success-border: color-mix(in srgb, var(--color-success) 30%, transparent);
+  --status-success-border: color-mix(in srgb, var(--color-success) 60%, transparent);
 
   --status-success-text: var(--color-success);
 
-  --status-error-bg: color-mix(in srgb, var(--color-error) 10%, transparent);
+  --status-error-bg: color-mix(in srgb, var(--color-error) 20%, transparent);
 
   --status-error-border: color-mix(in srgb, var(--color-error) 30%, transparent);
 
@@ -406,6 +406,7 @@ header {
   align-items: center;
   z-index: 200;
   border-bottom: 0.0625rem solid var(--text-border-subtle);
+  background: var(--color-bg);
 }
 
 
@@ -527,6 +528,7 @@ footer.shadow-footer {
 .email {
     letter-spacing: 0.0625rem;
     color: var(--text-secondary);
+    text-decoration: none;
 }
 
 .page-portfolio .email {
@@ -2008,6 +2010,7 @@ body.page-privacy .privacy-layout {
   align-items: flex-start;
   justify-content: center;
   padding: var(--spacing-4xl) var(--spacing-xl);
+  padding-top: 7rem;
 }
 
 /* Меньший главный заголовок */
@@ -2753,7 +2756,8 @@ main,
 .grid-container,
 .container,
 .main-container,
-.about-main {
+.about-main,
+.privacy-layout {
   padding-top: 7rem; /* высота хедера + небольшой запас */
 }
 

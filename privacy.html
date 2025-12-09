@@ -4,76 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politique de confidentialité | Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta name="description" content="Politique de confidentialité du portfolio de Marharyta Bandurian, UX/UI & graphic designer basée à Toulon.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Politique de confidentialité | Portfolio — Marharyta Bandurian">
+  <meta property="og:description" content="Informations sur la collecte, l’utilisation et la conservation de vos données via le formulaire de contact et l’analytique.">
+  <meta property="og:url" content="https://example.com/privacy-fr">
+  <meta property="og:image" content="https://example.com/assets/preview-portfolio.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Politique de confidentialité | Portfolio">
+  <meta name="twitter:description" content="Politique de confidentialité du portfolio de Marharyta Bandurian.">
+  <meta name="twitter:image" content="https://example.com/assets/preview-portfolio.jpg">
+  <link rel="canonical" href="https://example.com/privacy-fr">
+
+  <link rel="alternate" hreflang="fr" href="https://example.com/privacy-fr">
+  <link rel="alternate" hreflang="en" href="https://example.com/privacy-en">
+  <link rel="alternate" hreflang="x-default" href="https://example.com/privacy-en">
+
   <link rel="stylesheet" href="styles.css">
-  <script src="js/theme-lang.js" defer></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="js/main.js" defer></script>
 </head>
 <body class="page-privacy">
-
-<!-- Header -->
 <header class="animated-header">
-<div class="header-left">
-<a href="portfolio.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
-
-<div class="header-controls">
-<!-- Theme Switcher -->
-<div class="theme-switcher">
-<button class="theme-toggle" id="themeButton" aria-label="Toggle theme">
-<span class="theme-icon-display moon">
-<i class="fa-solid fa-moon"></i>
-</span>
-<span class="theme-slider"></span>
-<span class="theme-icon-display sun">
-<i class="fa-solid fa-sun"></i>
-</span>
-</button>
-</div>
-
-<!-- Language Switcher -->
-<div class="language-switcher">
-<button class="language-button" id="languageButton">
-<span id="currentLanguage">FR</span>
-</button>
-<div class="language-dropdown" id="languageDropdown">
-<div class="language-option selected" data-lang="fr">Français</div>
-<div class="language-option" data-lang="en">English</div>
-</div>
-</div>
-</div>
-</div>
-
-<nav>
-<a href="projects.html">
-<span data-lang="fr">Projets</span>
-<span data-lang="en" style="display: none;">Projects</span>
-</a>
-<a href="#about">
-<span data-lang="fr">À propos</span>
-<span data-lang="en" style="display: none;">About</span>
-</a>
-<a href="contact.html">
-<span data-lang="fr">Contact</span>
-<span data-lang="en" style="display: none;">Contact</span>
-</a>
-</nav>
+  <div class="header-left">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+    <div class="header-controls">
+      <!-- Theme switcher: как на главной -->
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
+          <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+          <span class="theme-slider"></span>
+          <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+        </button>
+      </div>
+      <!-- Language switcher: такая же разметка с data-lang -->
+      <div class="language-switcher">
+        <button class="language-button" id="languageButton" aria-label="Changer de langue">
+          <span id="currentLanguage">FR</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <div class="language-option selected" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="en">English</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <a href="projects.html">
+      <span data-lang="fr">Projets</span>
+      <span data-lang="en" style="display: none;">Projects</span>
+    </a>
+    <a href="about.html">
+      <span data-lang="fr">À propos</span>
+      <span data-lang="en" style="display: none;">About</span>
+    </a>
+    <a href="contact.html">
+      <span data-lang="fr">Contact</span>
+      <span data-lang="en" style="display: none;">Contact</span>
+    </a>
+  </nav>
 </header>
 
 <div class="main-container privacy-layout">
-  <!-- Кнопка назад слева от блока -->
-  <a href="contact.html" class="back-button ">
+  <!-- Back button -->
+  <a href="contact.html" class="back-button">
     <span data-lang="fr">← Retour</span>
     <span data-lang="en" style="display: none;">← Back</span>
   </a>
 
-  <!-- Основной блок политики -->
+  <!-- Main privacy block -->
   <div>
-    <div class="left-content" style="max-width: 60rem; height: auto; padding: var(--spacing-3xl) var(--spacing-2xl);">
+    <div class="left-content"
+         style="max-width: 60rem; height: auto; padding: var(--spacing-3xl) var(--spacing-2xl);">
       <h2 class="contact-title" style="margin-bottom: var(--spacing-xl);">
         <span data-lang="fr">Politique de confidentialité</span>
         <span data-lang="en" style="display: none;">Privacy Policy</span>
       </h2>
 
       <div class="contact-info" style="gap: var(--spacing-lg);">
-        <!-- 1. Données collectées -->
+        <!-- 1. Données collectées / Data collected -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">1. Données collectées</span>
@@ -103,7 +116,7 @@
           </div>
         </div>
 
-        <!-- 2. Finalité -->
+        <!-- 2. Finalité / Purpose -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">2. Finalité</span>
@@ -125,60 +138,84 @@
           </div>
         </div>
 
-        <!-- 3. Durée de conservation -->
+        <!-- 3. Durée de conservation / Retention period -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">3. Durée de conservation</span>
             <span data-lang="en" style="display: none;">3. Retention period</span>
           </div>
           <div class="info-value">
-            <span data-lang="fr">Les messages sont conservés le temps nécessaire pour traiter votre demande et un suivi raisonnable, puis supprimés ou archivés de façon sécurisée.</span>
-            <span data-lang="en" style="display: none;">Messages are kept as long as needed to handle your request and reasonable follow‑up, then deleted or securely archived.</span>
+            <span data-lang="fr">
+              Les messages sont conservés le temps nécessaire pour traiter votre demande
+              et un suivi raisonnable, puis supprimés ou archivés de façon sécurisée.
+            </span>
+            <span data-lang="en" style="display: none;">
+              Messages are kept as long as needed to handle your request and reasonable follow‑up,
+              then deleted or securely archived.
+            </span>
           </div>
         </div>
 
-        <!-- 4. Partage des données -->
+        <!-- 4. Partage des données / Data sharing -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">4. Partage des données</span>
             <span data-lang="en" style="display: none;">4. Data sharing</span>
           </div>
           <div class="info-value">
-            <span data-lang="fr">Je ne vends ni ne partage vos données avec des tiers. Les messages sont envoyés directement sur mon email et/ou messagerie privée.</span>
-            <span data-lang="en" style="display: none;">I do not sell or share your data with third parties. Messages are sent directly to my email and/or private messaging.</span>
+            <span data-lang="fr">
+              Je ne vends ni ne partage vos données avec des tiers.
+              Les messages sont envoyés directement sur mon email et/ou messagerie privée.
+            </span>
+            <span data-lang="en" style="display: none;">
+              I do not sell or share your data with third parties.
+              Messages are sent directly to my email and/or private messaging.
+            </span>
           </div>
         </div>
 
-        <!-- 5. Analytique -->
+        <!-- 5. Analytique / Analytics -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">5. Analytique</span>
             <span data-lang="en" style="display: none;">5. Analytics</span>
           </div>
           <div class="info-value">
-            <span data-lang="fr">Ce site utilise Cloudflare Web Analytics, un outil sans cookies qui fournit uniquement des statistiques globales de visite (pages vues, pays, type d’appareil, etc.).</span>
-            <span data-lang="en" style="display: none;">This site uses Cloudflare Web Analytics, a cookie‑free tool that provides only aggregated visit statistics (page views, country, device type, etc.).</span>
+            <span data-lang="fr">
+              Ce site utilise Cloudflare Web Analytics, un outil sans cookies qui fournit
+              uniquement des statistiques globales de visite (pages vues, pays, type d’appareil, etc.).
+            </span>
+            <span data-lang="en" style="display: none;">
+              This site uses Cloudflare Web Analytics, a cookie‑free tool that provides only
+              aggregated visit statistics (page views, country, device type, etc.).
+            </span>
           </div>
         </div>
 
-        <!-- 6. Vos droits -->
+        <!-- 6. Vos droits / Your rights -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">6. Vos droits</span>
             <span data-lang="en" style="display: none;">6. Your rights</span>
           </div>
           <div class="info-value">
-            <span data-lang="fr">Vous pouvez demander l’accès, la correction ou la suppression de vos données, ainsi que retirer votre consentement.</span>
-            <span data-lang="en" style="display: none;">You can request access to, correction or deletion of your data, and withdraw your consent.</span>
+            <span data-lang="fr">
+              Vous pouvez demander l’accès, la correction ou la suppression de vos données,
+              ainsi que retirer votre consentement.
+            </span>
+            <span data-lang="en" style="display: none;">
+              You can request access to, correction or deletion of your data,
+              and withdraw your consent.
+            </span>
             <div style="margin-top: 0.5rem;">
               <span data-lang="fr">Contact : </span>
               <span data-lang="en" style="display: none;">Contact: </span>
-              <a href="mailto:your.email@example.com">your.email@example.com</a>
+              <a href="mailto:hello.bandurian@gmail.com">hello.bandurian@gmail.com</a>
             </div>
           </div>
         </div>
 
-        <!-- 7. Dernière mise à jour -->
+        <!-- 7. Dernière mise à jour / Last updated -->
         <div class="info-item">
           <div class="info-label">
             <span data-lang="fr">Dernière mise à jour</span>
@@ -195,9 +232,23 @@
   </div>
 </div>
 
+<footer class="animated-footer">
+  <div class="footer-left">
+    <div class="email">hello.bandurian@gmail.com</div>
+    <a href="privacy-fr.html" class="privacy-link">
+      <span data-lang="fr">Politique de confidentialité</span>
+      <span data-lang="en" style="display: none;">Privacy Policy</span>
+    </a>
+  </div>
+  <div class="social-links">
+    <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a>
+    <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8"
+       class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+    <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a>
+  </div>
+</footer>
+
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
-
-
 </body>
 </html>

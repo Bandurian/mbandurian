@@ -1,29 +1,34 @@
 // Набор скиллов для трёх вкладок
 const SKILLS = {
   frontend: [
-    { label: 'HTML',       type: 'rect'   },
-    { label: 'CSS',        type: 'rect'   },
-    { label: 'Sass',       type: 'pill'   },
-    { label: 'JavaScript', type: 'rect'   },
-    { label: 'TypeScript', type: 'pill'   },
-    { label: 'React',      type: 'circle' },
-    { label: 'Three.js',   type: 'pill'   }
+    { label: 'HTML',          type: 'rect'   },
+    { label: 'CSS',           type: 'rect'   },
+    { label: 'JavaScript',    type: 'rect'   },
+    { label: 'WordPress',     type: 'pill'   },
+    { label: 'WooCommerce',   type: 'pill'   },
+    { label: 'Divi Builder',  type: 'pill'   },
+    { label: 'Responsive web',type: 'circle' }
   ],
   design: [
-    { label: 'UI Design',        type: 'rect'   },
-    { label: 'UX',               type: 'circle' },
-    { label: 'Prototyping',      type: 'pill'   },
-    { label: 'Motion',           type: 'rect'   },
-    { label: 'Micro-Interactions', type: 'pill' }
+    { label: 'UX', type: 'circle' },
+    { label: 'UI',     type: 'rect'   },
+    { label: 'Design de produits',          type: 'pill'   },
+    { label: 'Identité de marque',          type: 'rect'   },
+    { label: 'Design graphique',            type: 'rect'   },
+    { label: 'Typographie',                 type: 'pill'   },
+    { label: 'Design produits imprimés',    type: 'pill'   }
   ],
   tools: [
-    { label: 'Figma',   type: 'circle' },
-    { label: 'Git',     type: 'rect'   },
-    { label: 'VS Code', type: 'rect'   },
-    { label: 'Webpack', type: 'pill'   },
-    { label: 'Vite',    type: 'pill'   }
+    { label: 'Figma',        type: 'circle' },
+    { label: 'Adobe Illustrator', type: 'rect' },
+    { label: 'Adobe Photoshop',   type: 'rect' },
+    { label: 'Adobe InDesign',    type: 'pill' },
+    { label: 'Adobe After Effects', type: 'pill' },
+    { label: 'Blender',      type: 'circle' },
+    { label: 'Unity',        type: 'pill'   }
   ]
 };
+
 
 function initMatterForStage(stageEl) {
   const {
@@ -221,6 +226,7 @@ function initMatterForStage(stageEl) {
   return { engine, render, runner, mouseConstraint };
 }
 
+
 // Инициализация после загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
   const stage = document.getElementById('skillsStage');
@@ -290,5 +296,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Стартовая вкладка
-  renderSkills('frontend');
+  renderSkills('design');
 });
