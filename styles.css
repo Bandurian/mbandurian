@@ -395,14 +395,22 @@ body.page-overflow-hidden {
 
 /* HEADER */
 header {
-    padding: var(--spacing-lg) var(--spacing-xl);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 200;
-    border-bottom: 0.0625rem solid var(--text-border-subtle);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 200;
+  border-bottom: 0.0625rem solid var(--text-border-subtle);
 }
+
+
+
+
 
 header.animated-header {
     opacity: 0;
@@ -2741,6 +2749,12 @@ body.page-about {
 
 
 
-
+main,
+.grid-container,
+.container,
+.main-container,
+.about-main {
+  padding-top: 7rem; /* высота хедера + небольшой запас */
+}
 
 
