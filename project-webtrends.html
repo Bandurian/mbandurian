@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png">
+
+
+  <title>Projet – Tendances du design Web</title>
+  <meta name="description" content="Site one-page responsive au design minimaliste présentant les tendances actuelles du design Web, avec filtrage animé des contenus via MixItUp, thèmes clair/sombre et développement en HTML, CSS et JavaScript." />
+
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+
+<body class="page-portfolio page-project-detail">
+  <!-- Header -->
+  <header class="animated-header">
+    <div class="header-left">
+      <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+
+
+      <div class="header-controls">
+        <div class="theme-switcher">
+          <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
+            <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+            <span class="theme-slider"></span>
+            <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+          </button>
+        </div>
+
+
+        <div class="language-switcher">
+          <button class="language-button" id="languageButton">
+            <span id="currentLanguage">FR</span>
+          </button>
+          <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option selected" data-lang="fr">Français</div>
+            <div class="language-option" data-lang="en">English</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <nav>
+      <a href="projects.html" class="active"><span>Projets</span></a>
+      <a href="about.html"><span>À propos</span></a>
+      <a href="contact.html"><span>Contacts</span></a>
+    </nav>
+  </header>
+
+
+  <main class="project-detail-main">
+    <a href="javascript:history.back()" class="back-button">← Retour</a>
+
+
+    <!-- Hero Illomi → Web trends -->
+    <section class="project-hero-full">
+      <div class="project-hero-inner">
+        <h1 class="project-hero-title">Tendances du design Web</h1>
+        <p class="project-hero-subtitle">
+          Site Web one-page responsive au design minimaliste moderne, structuré en sept sections pour présenter et illustrer les principales tendances actuelles en matière de design Web. Le site propose une introduction au sujet, une section récapitulative de toutes les tendances classées par catégorie, puis quatre sections dédiées chacune à une famille de tendances modernes, avec navigation fluide par défilement.
+        
+        </p>
+
+        <a href="https://kinameri.github.io/webtrends/"
+         class="submit-button submit-button-accent"
+         target="_blank"
+          rel="noopener noreferrer"
+         download
+         style="margin-top: 1.5rem; align-self: flex-start; text-decoration: none; width: 13rem; margin-bottom: 2.5rem;">
+        <span>Voir site</span>
+        <i class="fa-solid fa-eye" style="font-size: 0.7rem;"></i>
+      </a>
+        
+                <h2 class="project-info-title">Outils</h2>
+        <p class="project-info-text">
+          Figma | Adobe Illustrator | Adobe Photoshop | Visual Studio Code
+        </p>
+
+        
+        <div class="project-hero-meta">
+          <span class="tag">Web design</span>
+          <span class="tag">Front-end</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <p class="project-info-text">Projet académique, 2022, associé à l’Université nationale de radioélectronique de Kharkiv.</p>
+          
+        
+      </div>
+      
+    </section>
+
+
+    <!-- Infos projet -->
+    <section class="project-info-grid">
+      
+    </section>
+
+
+    <!-- Галерея: 6 картинок -->
+    <section class="project-gallery-two-cols">
+      <div class="project-gallery-item" data-parallax="0.15">
+        <img src="assets/img/trends/hd.jpeg" alt="Écran principal du site présentant le thème des tendances du design Web" />
+      </div>
+      <div class="project-gallery-item" data-parallax="0.2">
+        <img src="assets/img/trends/hl.jpeg" alt="Section listant les tendances du design Web organisées par catégories" />
+      </div>
+      <div class="project-gallery-item" data-parallax="0.18">
+        <img src="assets/img/trends/tl.jpeg" alt="Bloc de contenu détaillant une catégorie de tendances de design Web moderne" />
+      </div>
+      <div class="project-gallery-item" data-parallax="0.22">
+        <img src="assets/img/trends/td.jpeg" alt="Interface de filtrage des tendances utilisant la bibliothèque MixItUp pour trier les éléments" />
+      </div>
+
+    </section>
+  </main>
+
+
+  <!-- Footer -->
+<footer class="animated-footer">
+    <div class="footer-left">
+        <a href="mailto:contact@mbandurian.com" class="email">contact@mbandurian.com</a>
+
+
+        <a href="privacy.html" class="privacy-link">
+            Politique de confidentialité
+        </a>
+    </div>
+    <div class="social-links">
+        <!-- <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a> -->
+        <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+        <!-- <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a> -->
+    </div>
+</footer>
+
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

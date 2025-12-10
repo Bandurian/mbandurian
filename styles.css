@@ -1303,6 +1303,9 @@ body.page-transitioning {
     opacity: 0;
     transform: scale(0.95) translateY(1.875rem);
     animation: fadeInUpScale var(--transition-slow) forwards;
+    text-decoration: none;
+    color: var(--text-primary);
+    
 }
 
 .project-card:nth-child(1) { animation-delay: 2.5s; }
@@ -2606,7 +2609,7 @@ body.page-about {
       gap: 64px;
       padding: 0 4px;
       padding-left: 2rem;
-      min-width: 130%;
+      min-width: 100%;
     }
 
     .timeline-track::before {
@@ -2630,7 +2633,7 @@ body.page-about {
 
     .timeline-dot {
       position: absolute;
-      top: 45.5%;
+      top: 46%;
       left: 50%;
       width: 15px;
       height: 15px;
@@ -2669,7 +2672,7 @@ body.page-about {
     .timeline-role {
       font-size: 15px;
       font-weight: 600;
-      margin-bottom: 2px;
+      margin-bottom: 0.5rem;
     }
 
     .timeline-company {
@@ -2684,15 +2687,35 @@ body.page-about {
       line-height: 1.5;
     }
 
+    .timeline-tools,
+     .timeline-duration{
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    strong {
+        font-weight: 900;
+        color: var(--text-primary)
+
+
+    }
+
+    .timeline-meta-bottom {
+        margin-top: 1rem;
+    }
+
+    
+
     .timeline-item:nth-child(odd) .timeline-card {
-      margin-bottom: 16rem;
+      margin-bottom: 23rem;
       /* transform: translateY(-100%); */
 
       transform-origin: bottom center;
     }
 
     .timeline-item:nth-child(even) .timeline-card {
-      margin-top: 13rem;
+      margin-top: 17rem;
       /* transform: translateY(100%); */
       transform-origin: top center;
     }
@@ -2760,5 +2783,223 @@ main,
 .privacy-layout {
   padding-top: 7rem; /* высота хедера + небольшой запас */
 }
+
+
+
+
+
+
+
+
+
+
+/* Страница проекта: общий контейнер */
+.page-project-detail {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-main {
+  flex: 1;
+  padding-top: 7rem; /* как main, .container и т.п. */
+}
+
+/* Hero-блок на всю ширину */
+.project-hero-full {
+  width: 100%;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  background: var(--text-surface);
+  border-bottom: 0.0625rem solid var(--text-border-subtle);
+  transition: background var(--transition-fast), 
+                border-color var(--transition-fast);
+    cursor: default;
+    opacity: 0;
+    transform: scale(0.95) translateX(-1.875rem);
+    animation: fadeInScaleLeft var(--transition-slow) 0.3s forwards;
+
+}
+
+.project-hero-full:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+}
+
+
+.project-hero-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.project-hero-title {
+  font-family: Bungee, Lato, Arial, sans-serif;
+  font-size: var(--font-size-5xl);
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+  margin: 0 0 var(--spacing-md);
+}
+
+.project-hero-subtitle {
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 40rem;
+  margin: 0 0 var(--spacing-lg);
+}
+
+.project-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-info-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+
+}
+
+.project-info-text {
+    font-size: var(--font-size-md);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 40rem;
+    margin: 0 0 var(--spacing-lg);
+}
+
+/* Галерея 2 колонки */
+.project-gallery-two-cols {
+  /* max-width: 72rem; */
+  /* margin: var(--spacing-3xl) auto var(--spacing-4xl);
+  padding: 0 var(--spacing-xl); */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+  /* gap: var(--spacing-lg); */
+}
+
+.project-gallery-five-cols {
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+}
+
+.project-gallery-item {
+  background: var(--text-surface);
+  border-radius: var(--radius-asymmetric);
+  border: 0.0625rem solid var(--text-border-subtle);
+  overflow: hidden;
+}
+
+.project-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-asymmetric);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .project-hero-full {
+    padding: var(--spacing-3xl) var(--spacing-md);
+  }
+
+  .project-hero-title {
+    font-size: var(--font-size-3xl);
+    letter-spacing: 0.2rem;
+  }
+
+  .project-gallery-two-cols {
+    padding: 0 var(--spacing-md);
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* Галерея: максимум ширины */
+/* .project-gallery-two-cols {
+  width: 100%;
+  margin: var(--spacing-2xl) 0 var(--spacing-4xl);
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-md);
+} */
+
+.project-gallery-item {
+  border-radius: 0;                 /* без радиуса, чтобы казалось более «полноэкранным» */
+  border: none;                     /* без рамки */
+  background: transparent;
+  overflow: hidden;
+}
+
+.project-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* заполняет блок */
+}
+
+/* На больших экранах — чуть меньше полей */
+/* @media (min-width: 1200px) {
+  .project-gallery-two-cols {
+    padding: 0 var(--spacing-lg);
+    gap: var(--spacing-md);
+  }
+} */
+
+/* Мобильный: одна колонка, по-прежнему на всю ширину */
+@media (max-width: 768px) {
+  .project-hero-full {
+    padding: var(--spacing-3xl) var(--spacing-md);
+  }
+
+  .project-gallery-two-cols {
+    grid-template-columns: 1fr;
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+}
+
+
+
+
+.project-hero-full {
+  width: 100%;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  background: var(--text-surface);
+  border-bottom: 0.0625rem solid var(--text-border-subtle);
+  opacity: 0;
+  transform: translateY(1.25rem) scale(0.98);
+  animation: fadeInUpScale var(--transition-slow) 0.1s forwards;
+}
+
+
+
+
+.project-gallery-item {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(1.25rem) scale(0.98);
+  will-change: transform;
+}
+
+/* появление только после IntersectionObserver */
+.project-gallery-item.is-visible {
+  animation: fadeInUpScale var(--transition-slow) forwards;
+  /* базовая задержка, чтобы hero успел появиться */
+  animation-delay: var(--project-delay, 0.4s);
+}
+
+
+
+
 
 

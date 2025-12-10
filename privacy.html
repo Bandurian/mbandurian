@@ -33,7 +33,7 @@
   <div class="header-left">
     <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
     <div class="header-controls">
-      <!-- Theme switcher: как на главной -->
+      <!-- Theme switcher -->
       <div class="theme-switcher">
         <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
           <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
@@ -41,7 +41,7 @@
           <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
         </button>
       </div>
-      <!-- Language switcher: такая же разметка с data-lang -->
+      <!-- Language switcher (можешь удалить полностью, если не нужен) -->
       <div class="language-switcher">
         <button class="language-button" id="languageButton" aria-label="Changer de langue">
           <span id="currentLanguage">FR</span>
@@ -54,176 +54,111 @@
     </div>
   </div>
   <nav>
-    <a href="projects.html">
-      <span data-lang="fr">Projets</span>
-      <span data-lang="en" style="display: none;">Projects</span>
-    </a>
-    <a href="about.html">
-      <span data-lang="fr">À propos</span>
-      <span data-lang="en" style="display: none;">About</span>
-    </a>
-    <a href="contact.html">
-      <span data-lang="fr">Contact</span>
-      <span data-lang="en" style="display: none;">Contact</span>
-    </a>
+    <a href="projects.html">Projets</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <div class="main-container privacy-layout">
   <!-- Back button -->
-  <a href="contact.html" class="back-button">
-    <span data-lang="fr">← Retour</span>
-    <span data-lang="en" style="display: none;">← Back</span>
-  </a>
+
+  <a href="javascript:history.back()" class="back-button">← Retour</a>
+
 
   <!-- Main privacy block -->
   <div>
     <div class="left-content"
          style="max-width: 60rem; height: auto; padding: var(--spacing-3xl) var(--spacing-2xl);">
       <h2 class="contact-title" style="margin-bottom: var(--spacing-xl);">
-        <span data-lang="fr">Politique de confidentialité</span>
-        <span data-lang="en" style="display: none;">Privacy Policy</span>
+        Politique de confidentialité
       </h2>
 
       <div class="contact-info" style="gap: var(--spacing-lg);">
-        <!-- 1. Données collectées / Data collected -->
+        <!-- 1. Données collectées -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">1. Données collectées</span>
-            <span data-lang="en" style="display: none;">1. Data collected</span>
+            1. Données collectées
           </div>
           <div class="info-value">
-            <span data-lang="fr">Lorsque vous utilisez le formulaire de contact, je peux collecter :</span>
-            <span data-lang="en" style="display: none;">When you use the contact form, I may collect:</span>
+            Lorsque vous utilisez le formulaire de contact, je peux collecter :
             <ul style="margin-top: 0.5rem; padding-left: 1.5rem; line-height: 1.6;">
-              <li>
-                <span data-lang="fr">Nom complet</span>
-                <span data-lang="en" style="display: none;">Full name</span>
-              </li>
-              <li>
-                <span data-lang="fr">Email</span>
-                <span data-lang="en" style="display: none;">Email</span>
-              </li>
-              <li>
-                <span data-lang="fr">Téléphone (optionnel)</span>
-                <span data-lang="en" style="display: none;">Phone (optional)</span>
-              </li>
-              <li>
-                <span data-lang="fr">Message</span>
-                <span data-lang="en" style="display: none;">Message</span>
-              </li>
+              <li>Nom complet</li>
+              <li>Email</li>
+              <li>Téléphone (optionnel)</li>
+              <li>Message</li>
             </ul>
           </div>
         </div>
 
-        <!-- 2. Finalité / Purpose -->
+        <!-- 2. Finalité -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">2. Finalité</span>
-            <span data-lang="en" style="display: none;">2. Purpose</span>
+            2. Finalité
           </div>
           <div class="info-value">
-            <span data-lang="fr">Ces données sont utilisées uniquement pour :</span>
-            <span data-lang="en" style="display: none;">These data are used only to:</span>
+            Ces données sont utilisées uniquement pour :
             <ul style="margin-top: 0.5rem; padding-left: 1.5rem; line-height: 1.6;">
-              <li>
-                <span data-lang="fr">Vous répondre</span>
-                <span data-lang="en" style="display: none;">Reply to you</span>
-              </li>
-              <li>
-                <span data-lang="fr">Discuter d’un projet ou d’une collaboration</span>
-                <span data-lang="en" style="display: none;">Discuss a project or collaboration</span>
-              </li>
+              <li>Vous répondre</li>
+              <li>Discuter d’un projet ou d’une collaboration</li>
             </ul>
           </div>
         </div>
 
-        <!-- 3. Durée de conservation / Retention period -->
+        <!-- 3. Durée de conservation -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">3. Durée de conservation</span>
-            <span data-lang="en" style="display: none;">3. Retention period</span>
+            3. Durée de conservation
           </div>
           <div class="info-value">
-            <span data-lang="fr">
-              Les messages sont conservés le temps nécessaire pour traiter votre demande
-              et un suivi raisonnable, puis supprimés ou archivés de façon sécurisée.
-            </span>
-            <span data-lang="en" style="display: none;">
-              Messages are kept as long as needed to handle your request and reasonable follow‑up,
-              then deleted or securely archived.
-            </span>
+            Les messages sont conservés le temps nécessaire pour traiter votre demande
+            et un suivi raisonnable, puis supprimés ou archivés de façon sécurisée.
           </div>
         </div>
 
-        <!-- 4. Partage des données / Data sharing -->
+        <!-- 4. Partage des données -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">4. Partage des données</span>
-            <span data-lang="en" style="display: none;">4. Data sharing</span>
+            4. Partage des données
           </div>
           <div class="info-value">
-            <span data-lang="fr">
-              Je ne vends ni ne partage vos données avec des tiers.
-              Les messages sont envoyés directement sur mon email et/ou messagerie privée.
-            </span>
-            <span data-lang="en" style="display: none;">
-              I do not sell or share your data with third parties.
-              Messages are sent directly to my email and/or private messaging.
-            </span>
+            Je ne vends ni ne partage vos données avec des tiers.
+            Les messages sont envoyés directement sur mon email et/ou messagerie privée.
           </div>
         </div>
 
-        <!-- 5. Analytique / Analytics -->
+        <!-- 5. Analytique -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">5. Analytique</span>
-            <span data-lang="en" style="display: none;">5. Analytics</span>
+            5. Analytique
           </div>
           <div class="info-value">
-            <span data-lang="fr">
-              Ce site utilise Cloudflare Web Analytics, un outil sans cookies qui fournit
-              uniquement des statistiques globales de visite (pages vues, pays, type d’appareil, etc.).
-            </span>
-            <span data-lang="en" style="display: none;">
-              This site uses Cloudflare Web Analytics, a cookie‑free tool that provides only
-              aggregated visit statistics (page views, country, device type, etc.).
-            </span>
+            Ce site utilise Cloudflare Web Analytics, un outil sans cookies qui fournit
+            uniquement des statistiques globales de visite (pages vues, pays, type d’appareil, etc.).
           </div>
         </div>
 
-        <!-- 6. Vos droits / Your rights -->
+        <!-- 6. Vos droits -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">6. Vos droits</span>
-            <span data-lang="en" style="display: none;">6. Your rights</span>
+            6. Vos droits
           </div>
           <div class="info-value">
-            <span data-lang="fr">
-              Vous pouvez demander l’accès, la correction ou la suppression de vos données,
-              ainsi que retirer votre consentement.
-            </span>
-            <span data-lang="en" style="display: none;">
-              You can request access to, correction or deletion of your data,
-              and withdraw your consent.
-            </span>
+            Vous pouvez demander l’accès, la correction ou la suppression de vos données,
+            ainsi que retirer votre consentement.
             <div style="margin-top: 0.5rem;">
-              <span data-lang="fr">Contact : </span>
-              <span data-lang="en" style="display: none;">Contact: </span>
-              <a href="mailto:hello.bandurian@gmail.com">hello.bandurian@gmail.com</a>
+              Contact : <a href="mailto:hello.bandurian@gmail.com">hello.bandurian@gmail.com</a>
             </div>
           </div>
         </div>
 
-        <!-- 7. Dernière mise à jour / Last updated -->
+        <!-- 7. Dernière mise à jour -->
         <div class="info-item">
           <div class="info-label">
-            <span data-lang="fr">Dernière mise à jour</span>
-            <span data-lang="en" style="display: none;">Last updated</span>
+            Dernière mise à jour
           </div>
           <div class="info-value">
-            <span data-lang="fr">7 décembre 2025</span>
-            <span data-lang="en" style="display: none;">December 7, 2025</span>
+            7 décembre 2025
           </div>
         </div>
 
@@ -233,19 +168,18 @@
 </div>
 
 <footer class="animated-footer">
-  <div class="footer-left">
-    <div class="email">hello.bandurian@gmail.com</div>
-    <a href="privacy-fr.html" class="privacy-link">
-      <span data-lang="fr">Politique de confidentialité</span>
-      <span data-lang="en" style="display: none;">Privacy Policy</span>
-    </a>
-  </div>
-  <div class="social-links">
-    <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a>
-    <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8"
-       class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
-    <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a>
-  </div>
+    <div class="footer-left">
+        <a href="mailto:contact@mbandurian.com" class="email">contact@mbandurian.com</a>
+
+        <a href="privacy.html" class="privacy-link">
+            Politique de confidentialité
+        </a>
+    </div>
+    <div class="social-links">
+        <!-- <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a> -->
+        <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+        <!-- <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a> -->
+    </div>
 </footer>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"

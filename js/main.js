@@ -28,9 +28,11 @@ function initGridAnimations() {
             const text = (this.querySelector('.item-text')?.textContent || '').toUpperCase();
 
             if (text.includes('PROJET')) {
-                transitionToPage(e, 'projects-fr.html');
+                transitionToPage(e, 'projects.html');
             } else if (text.includes('CONTACT')) {
-                transitionToPage(e, 'contact-fr.html');
+                transitionToPage(e, 'contact.html');
+            }  else if (text.includes('QUI')) {
+                transitionToPage(e, 'about.html');
             }
         });
     });
@@ -204,3 +206,72 @@ function initLanguageSwitcher() {
         }
     });
 }
+
+
+
+
+
+
+// PARALLAX + LAZY REVEAL FOR PROJECT IMAGES
+(function () {
+  const items = document.querySelectorAll('.project-gallery-item');
+  if (!items.length) return;
+
+  const speedDefault = 0.15;
+
+  // задаём дополнительную задержку для каждой карточки
+  items.forEach((item, index) => {
+    const isRightColumn = (index + 1) % 2 === 0; // 2,4,6...
+    // hero уже стартовал, поэтому начинаем позже:
+    const baseDelay = 0.4;              // базовая пауза после hero
+    const offset = isRightColumn ? 0.2 : 0.0; // правая колонка чуть позже
+    const totalDelay = baseDelay + offset;
+
+    item.style.setProperty('--project-delay', `${totalDelay}s`);
+  });
+
+  function updateParallax(visibleItems) {
+    const vh = window.innerHeight;
+
+    visibleItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const distanceFromCenter = center - vh / 2;
+
+      const speed = parseFloat(item.getAttribute('data-parallax')) || speedDefault;
+      const translateY = -distanceFromCenter * speed * 0.1;
+
+      item.style.transform = `translateY(${translateY}px) scale(0.98)`;
+    });
+  }
+
+  const visibleSet = new Set();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const item = entry.target;
+
+        if (entry.isIntersecting) {
+          visibleSet.add(item);
+          item.classList.add('is-visible');
+        } else {
+          visibleSet.delete(item);
+        }
+      });
+
+      updateParallax(Array.from(visibleSet));
+    },
+    { threshold: 0.1 }
+  );
+
+  items.forEach((item) => observer.observe(item));
+
+  function onScrollOrResize() {
+    if (!visibleSet.size) return;
+    updateParallax(Array.from(visibleSet));
+  }
+
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize);
+})();
