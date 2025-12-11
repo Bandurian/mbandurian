@@ -12,7 +12,7 @@ const SKILLS = {
   design: [
     { label: 'UX', type: 'circle' },
     { label: 'UI',     type: 'rect'   },
-    { label: 'Design de produits',          type: 'pill'   },
+    // { label: 'Design de produits',          type: 'pill'   },
     { label: 'Identité de marque',          type: 'rect'   },
     { label: 'Design graphique',            type: 'rect'   },
     { label: 'Typographie',                 type: 'pill'   },
