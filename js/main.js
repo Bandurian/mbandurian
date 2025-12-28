@@ -275,3 +275,72 @@ function initLanguageSwitcher() {
   window.addEventListener('scroll', onScrollOrResize, { passive: true });
   window.addEventListener('resize', onScrollOrResize);
 })();
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerButton = document.getElementById('burgerButton');
+  const nav = document.getElementById('mainNav');
+  const overlay = document.getElementById('menuOverlay');
+
+  if (!burgerButton || !nav) return;
+
+  const setMenuState = (isOpen) => {
+    burgerButton.classList.toggle('is-open', isOpen);
+    nav.classList.toggle('nav-open', isOpen);
+    burgerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    if (overlay) {
+      overlay.classList.toggle('is-visible', isOpen);
+    }
+
+    document.body.classList.toggle('page-overflow-hidden', isOpen);
+  };
+
+  const toggleMenu = () => {
+    const isOpen = !burgerButton.classList.contains('is-open');
+    setMenuState(isOpen);
+  };
+
+  burgerButton.addEventListener('click', toggleMenu);
+
+  if (overlay) {
+    overlay.addEventListener('click', () => setMenuState(false));
+  }
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenuState(false));
+  });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('mainNav');
+  const navControlsSlot = nav?.querySelector('.nav-controls-slot');
+  const headerLeft = document.querySelector('.header-left');
+  const headerControls = document.querySelector('.header-controls-main');
+
+  if (!nav || !navControlsSlot || !headerLeft || !headerControls) return;
+
+  const MOBILE_BREAKPOINT = 768; // как в media (max-width: 48em)
+
+  const moveControls = () => {
+    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+    if (isMobile && headerControls.parentElement !== navControlsSlot) {
+      // переносим в бургер-меню
+      navControlsSlot.appendChild(headerControls);
+    } else if (!isMobile && headerControls.parentElement !== headerLeft) {
+      // возвращаем на место перед бургером
+      headerLeft.insertBefore(headerControls, document.getElementById('burgerButton'));
+    }
+  };
+
+  moveControls(); // при загрузке
+  window.addEventListener('resize', moveControls);
+});
+
+

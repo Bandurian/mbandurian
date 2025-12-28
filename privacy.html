@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Politique de confidentialité | Portfolio</title>
+  <title>Politique de confidentialité | M. Bandurian</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
   <meta name="description" content="Politique de confidentialité du portfolio de Marharyta Bandurian, UX/UI & graphic designer basée à Toulon.">
@@ -29,34 +29,48 @@
   <script src="js/main.js" defer></script>
 </head>
 <body class="page-privacy">
-<header class="animated-header">
-    <div class="header-left">
-        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
-        <div class="header-controls">
-            <div class="theme-switcher">
-                <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
-                    <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
-                    <span class="theme-slider"></span>
-                    <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
-                </button>
-            </div>
-            <!-- <div class="language-switcher">
-                <button class="language-button" id="languageButton" aria-label="Changer de langue">
-                    <span id="currentLanguage">FR</span>
-                </button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option selected" data-lang="fr">Français</div>
-                    <div class="language-option" data-lang="en">English</div>
-                </div>
-            </div> -->
+
+  <header class="animated-header">
+  <div class="header-left">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+
+    <div class="header-controls header-controls-main">
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
+          <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+          <span class="theme-slider"></span>
+          <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+        </button>
+      </div>
+
+      <!-- <div class="language-switcher">
+        <button class="language-button" id="languageButton" aria-label="Changer de langue">
+          <span id="currentLanguage">FR</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <div class="language-option selected" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="en">English</div>
         </div>
+      </div> -->
     </div>
-    <nav>
-        <a href="projects.html"><span>Projets</span></a>
-        <a href="about.html"><span>À propos</span></a>
-        <a href="contact.html"><span>Contact</span></a>
-    </nav>
+
+    <button class="burger-button" id="burgerButton" aria-label="Ouvrir le menu"
+            aria-expanded="false" aria-controls="mainNav">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </div>
+
+  <nav id="mainNav">
+    <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
+    <a href="projects.html"><span>Projets</span></a>
+    <a href="about.html"><span>À propos</span></a>
+    <a href="contact.html"><span>Contact</span></a>
+  </nav>
 </header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
 
 <div class="main-container privacy-layout">
   <!-- Back button -->
@@ -145,7 +159,7 @@
             Vous pouvez demander l’accès, la correction ou la suppression de vos données,
             ainsi que retirer votre consentement.
             <div style="margin-top: 0.5rem;">
-              Contact : <a href="mailto:hello.bandurian@gmail.com">hello.bandurian@gmail.com</a>
+              Contact : <a href="mailto:contact@mbandurian.com">contact@mbandurian.com</a>
             </div>
           </div>
         </div>

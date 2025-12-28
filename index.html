@@ -28,36 +28,71 @@
     <!-- three.js et GLTFLoader -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js" defer></script>
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marharyta Bandurian",
+        "alternateName": [
+            "Margarita Bandurian",
+            "Marguerite Bandurian",
+            "Margaryta Bandurian"
+        ],
+        "jobTitle": "UX/UI Designer, Graphic Designer",
+        "url": "https://mbandurian.com/",
+        "sameAs": [
+            "https://www.linkedin.com/in/marharyta-bandurian-1866b52a8"
+        ]
+        }
+    </script>
+
+
 </head>
 <body class="page-portfolio">
-<header class="animated-header">
-    <div class="header-left">
-        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
-        <div class="header-controls">
-            <div class="theme-switcher">
-                <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
-                    <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
-                    <span class="theme-slider"></span>
-                    <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
-                </button>
-            </div>
-            <!-- <div class="language-switcher">
-                <button class="language-button" id="languageButton" aria-label="Changer de langue">
-                    <span id="currentLanguage">FR</span>
-                </button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option selected" data-lang="fr">Français</div>
-                    <div class="language-option" data-lang="en">English</div>
-                </div>
-            </div> -->
+
+    <header class="animated-header">
+  <div class="header-left">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+
+    <div class="header-controls header-controls-main">
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
+          <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+          <span class="theme-slider"></span>
+          <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+        </button>
+      </div>
+
+      <!-- <div class="language-switcher">
+        <button class="language-button" id="languageButton" aria-label="Changer de langue">
+          <span id="currentLanguage">FR</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <div class="language-option selected" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="en">English</div>
         </div>
+      </div> -->
     </div>
-    <nav>
-        <a href="projects.html"><span>Projets</span></a>
-        <a href="about.html"><span>À propos</span></a>
-        <a href="contact.html"><span>Contact</span></a>
-    </nav>
+
+    <button class="burger-button" id="burgerButton" aria-label="Ouvrir le menu"
+            aria-expanded="false" aria-controls="mainNav">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </div>
+
+  <nav id="mainNav">
+    <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
+    <a href="projects.html"><span>Projets</span></a>
+    <a href="about.html"><span>À propos</span></a>
+    <a href="contact.html"><span>Contact</span></a>
+  </nav>
 </header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
 
 <div class="main-heading">
     <h1>UX/UI &amp; GRAPHIC<br>DESIGNER</h1>

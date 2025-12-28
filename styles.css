@@ -1662,7 +1662,7 @@ body.page-transitioning {
     }
     
     .page-portfolio .main-heading {
-        font-size: 1.8rem;
+        /* font-size: 1.8rem; */
         letter-spacing: 0.1875rem;
     }
 
@@ -1780,7 +1780,7 @@ body.page-transitioning {
 /* Адаптивность для переключателя языков */
 @media (max-width: 48em) { /* 768px */
     .header-left {
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: var(--spacing-sm);
     }
 }
@@ -1962,7 +1962,7 @@ body.page-transitioning {
 /* Адаптивность для переключателей */
 @media (max-width: 48em) { /* 768px */
     .header-left {
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: var(--spacing-sm);
     }
     
@@ -3003,3 +3003,794 @@ main,
 
 
 
+/* Базовая раскладка — две колонки (десктоп) */
+
+/* Планшеты ≤ 1024px — одна колонка, сначала текст, потом скиллы */
+@media (max-width: 64em) {
+  .about-main {
+    /* padding: var(--spacing-3xl) var(--spacing-xl); */
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    /* gap: var(--spacing-2xl); */
+  }
+
+  .about-left,
+  .about-right {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+@media (max-width: 30em) {
+  .about-main {
+    padding: var(--spacing-2xl) var(--spacing-sm);
+  }
+
+  .about-left,
+  .about-right {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .about-title {
+    font-size: var(--font-size-2xl);
+    letter-spacing: 0.12rem;
+  }
+
+  .about-text {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  .skills-stage {
+    height: 220px;
+  }
+}
+
+
+
+
+
+
+
+/* Чуть компактнее таймлайн на мобиле */
+@media (max-width: 30em) {
+  .timeline-wrapper {
+    padding: 24px 0 24px;
+  }
+
+  .timeline-track {
+    gap: 40px;
+    padding-left: 1rem;
+  }
+
+  .timeline-item {
+    min-width: 190px;
+  }
+
+  .timeline-card {
+    max-width: 210px;
+    padding: 10px 12px;
+  }
+
+  .timeline-role {
+    font-size: 13px;
+  }
+
+  .timeline-description {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 48em) {
+  header {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
+  footer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+}
+
+
+
+/* Кнопка CV — на всю ширину на мобильных */
+@media (max-width: 30em) {
+  .about-left .submit-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skills-tabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .skills-tab {
+    flex: 1;
+    text-align: center;
+    padding-inline: 0.75rem;
+  }
+}
+
+
+
+/* До 1024px — чуть компактнее */
+@media (max-width: 64em) {
+  header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  nav a {
+    font-size: var(--font-size-md);
+    letter-spacing: 0.09rem;
+  }
+}
+
+
+
+@media (max-width: 48em) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  /* .header-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .header-controls {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xs);
+    justify-content: center;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+  }
+
+  nav a {
+    font-size: var(--font-size-sm);
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+
+
+
+@media (max-width: 30em) {
+  .logo {
+    font-size: var(--font-size-base);
+    letter-spacing: 0.12rem;
+  }
+
+  nav a {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.08rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  header {
+    padding-inline: var(--spacing-sm);
+  }
+}
+
+
+
+
+
+
+
+/* Бургер по умолчанию скрыт (десктоп) */
+.burger-button {
+  display: none;
+}
+
+/* Мобильная версия */
+@media (max-width: 48em) {
+  header {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  /* .header-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+  } */
+
+  .header-controls {
+    /* margin-left: auto; */
+    margin-right: var(--spacing-sm);
+  }
+
+  /* Показать бургер */
+  .burger-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 0.0625rem solid var(--text-border-subtle);
+    background: var(--text-surface);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .burger-button:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-medium);
+    transform: translateY(-1px);
+  }
+
+  .burger-line {
+    width: 1.4rem;
+    height: 0.125rem;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition-fast), opacity var(--transition-fast), background var(--transition-fast);
+  }
+
+  /* Спрятать обычный горизонтальный навбар */
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    background: var(--color-bg);
+    border-top: 0.0625rem solid var(--text-border-subtle);
+    border-bottom: 0.0625rem solid var(--text-border-subtle);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    z-index: 150;
+  }
+
+  nav a {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.09rem;
+  }
+
+  /* Активное состояние меню */
+  nav.nav-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Анимация крестика */
+  .burger-button.is-open .burger-line:nth-child(1) {
+    transform: translateY(0.425rem) rotate(45deg);
+  }
+
+  .burger-button.is-open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-button.is-open .burger-line:nth-child(3) {
+    transform: translateY(-0.425rem) rotate(-45deg);
+  }
+}
+
+
+
+
+
+/* Десктоп: nav как раньше */
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.nav-top-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.nav-links-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+/* Чтобы контролы выглядели как раньше */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Мобильный режим */
+@media (max-width: 48em) {
+  header {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  /* .header-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+  } */
+
+  /* Бургер (как раньше) */
+  .burger-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 0.0625rem solid var(--text-border-subtle);
+    background: var(--text-surface);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .burger-line {
+    width: 1.4rem;
+    height: 0.125rem;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition-fast), opacity var(--transition-fast), background var(--transition-fast);
+  }
+
+  /* Мобильное меню-оверлей */
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-bg);
+    border-top: 0.0625rem solid var(--text-border-subtle);
+    border-bottom: 0.0625rem solid var(--text-border-subtle);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav-top-row {
+    justify-content: flex-start;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-links-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  nav a {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.09rem;
+    padding: 0.3rem 0;
+  }
+
+  /* Открытое меню */
+  nav.nav-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Анимация крестика */
+  .burger-button.is-open .burger-line:nth-child(1) {
+    transform: translateY(0.425rem) rotate(45deg);
+  }
+  .burger-button.is-open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-button.is-open .burger-line:nth-child(3) {
+    transform: translateY(-0.425rem) rotate(-45deg);
+  }
+}
+
+/* На совсем маленьких экранах уменьшить кнопки */
+@media (max-width: 30em) {
+  .theme-toggle,
+  .language-button {
+    transform: scale(0.9);
+  }
+}
+
+
+
+
+
+@media (max-width: 48em) {
+  header {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  .header-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Лого слева, бургер справа */
+    /* gap: var(--spacing-sm); */
+  }
+
+  .logo {
+    font-size: var(--font-size-base);
+    letter-spacing: 0.14rem;
+    flex-shrink: 0;
+  }
+
+  .burger-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 0.0625rem solid var(--text-border-subtle);
+    background: var(--text-surface);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .burger-line {
+    width: 1.4rem;
+    height: 0.125rem;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition-fast), opacity var(--transition-fast), background var(--transition-fast);
+  }
+
+  /* nav как выпадающее меню — как мы делали раньше */
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-bg);
+    border-top: 0.0625rem solid var(--text-border-subtle);
+    border-bottom: 0.0625rem solid var(--text-border-subtle);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  nav.nav-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links-row {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  nav a {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.09rem;
+    padding: 0.3rem 0;
+  }
+
+  /* Анимация крестика */
+  .burger-button.is-open .burger-line:nth-child(1) {
+    transform: translateY(0.425rem) rotate(45deg);
+  }
+  .burger-button.is-open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-button.is-open .burger-line:nth-child(3) {
+    transform: translateY(-0.425rem) rotate(-45deg);
+  }
+}
+
+
+
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay-heavy); /* у тебя уже есть эта переменная */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+  z-index: 140; /* меньше, чем nav (150), но выше контента */
+}
+
+/* Активный оверлей */
+.menu-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+
+
+@media (max-width: 48em) {
+  /* nav-структура */
+  nav {
+    /* остальной код nav как раньше */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav-top-row {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;  /* именно слева */
+  }
+
+  /* Контролы темы и языка в меню — слева, как раньше */
+  nav .header-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    justify-content: flex-start;
+  }
+
+  .nav-links-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+
+
+
+
+/* Десктоп: всё как раньше */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Бургер скрыт на десктопе */
+.burger-button {
+  display: none;
+}
+
+/* Мобильный вид */
+@media (max-width: 48em) {
+  header {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  .header-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* слева: logo+controls, справа: burger */
+    gap: var(--spacing-sm);
+  }
+
+  .logo {
+    font-size: var(--font-size-base);
+    letter-spacing: 0.14rem;
+    flex-shrink: 0;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-left: var(--spacing-sm);
+  }
+
+  .theme-toggle,
+  .language-button {
+    transform: scale(0.9);
+  }
+
+  /* Бургер */
+  .burger-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 0.0625rem solid var(--text-border-subtle);
+    background: var(--text-surface);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast),
+                border-color var(--transition-fast),
+                transform var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .burger-line {
+    width: 1.4rem;
+    height: 0.125rem;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition-fast),
+                opacity var(--transition-fast),
+                background var(--transition-fast);
+  }
+
+  /* Выпадающее меню */
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-bg);
+    border-top: 0.0625rem solid var(--text-border-subtle);
+    border-bottom: 0.0625rem solid var(--text-border-subtle);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast),
+                transform var(--transition-fast);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  nav.nav-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  nav a {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.09rem;
+    padding: 0.3rem 0;
+  }
+
+  /* Анимация крестика */
+  .burger-button.is-open .burger-line:nth-child(1) {
+    transform: translateY(0.425rem) rotate(45deg);
+  }
+  .burger-button.is-open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-button.is-open .burger-line:nth-child(3) {
+    transform: translateY(-0.425rem) rotate(-45deg);
+  }
+}
+
+/* Overlay затемнения */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay-heavy);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+  z-index: 140;
+}
+
+.menu-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+#mainNav .nav-controls-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 48em) {
+  body.page-projects {
+    overflow: auto;
+    height: auto;
+  }
+  .container {
+    display: block;
+    overflow: visible;
+  }
+  .content {
+    overflow-y: visible;
+    height: auto;
+  }
+}
+
+
+/* ВОССТАНОВИТЬ СКРОЛЛ НА МОБИЛЬНЫХ ДЛЯ CONTACT */
+@media (max-width: 48em) { /* 768px */
+  body.page-contact {
+    overflow: auto;
+    height: auto;
+  }
+
+  .main-container {
+    overflow: visible; /* на всякий случай, чтобы контент не резался */
+  }
+}
