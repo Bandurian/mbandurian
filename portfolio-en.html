@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="js/site-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Creative Designer</title>
@@ -15,7 +18,8 @@
     <meta name="twitter:description" content="UX/UI design, frontend and 3D experiments. Portfolio by Bandurian M.">
     <meta name="twitter:image" content="https://example.com/assets/preview-portfolio.jpg">
     <link rel="canonical" href="https://example.com/portfolio-en">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Unbounded:wght@500;600;700;800;900&amp;display=swap" />
+  <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
@@ -217,13 +221,7 @@
         animate();
 
         const themeButton = document.getElementById('themeButton');
-        function getSystemTheme() {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                return 'light';
-            }
-            return 'dark';
-        }
-        let currentTheme = localStorage.getItem('selectedTheme') || getSystemTheme();
+        let currentTheme = localStorage.getItem('selectedTheme') === 'light' ? 'light' : 'dark';
         setTheme(currentTheme);
         themeButton.addEventListener('click', function() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -238,12 +236,7 @@
             }
             currentTheme = theme;
         }
-        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('selectedTheme')) {
-                const newTheme = e.matches ? 'light' : 'dark';
-                setTheme(newTheme);
-            }
-        });
+
 
         const languageButton = document.getElementById('languageButton');
         const languageDropdown = document.getElementById('languageDropdown');
