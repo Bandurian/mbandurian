@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta http-equiv="refresh" content="0;url=/contact/">
+  <link rel="canonical" href="https://mbandurian.com/contact/">
+  <script>window.location.replace('/contact/' + window.location.search + window.location.hash);</script>
+
+  <script src="js/site-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | M. Bandurian</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
+  <!-- Same font pair as the redesigned homepage -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Unbounded:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -58,7 +69,7 @@
     <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
     <a href="projects.html"><span>Projets</span></a>
     <a href="about.html"><span>À propos</span></a>
-    <a href="contact.html"><span>Contact</span></a>
+    <a aria-current="page" class="active" href="contact.html"><span>Contact</span></a>
   </nav>
 </header>
 
@@ -71,8 +82,6 @@
   <!-- Левая колонка -->
   <div class="left-side">
     <div class="left-content">
-      <h2 class="contact-title">CONTACT</h2>
-
       <div class="contact-info">
         <div class="info-item">
           <div class="info-label">Email</div>
@@ -94,6 +103,8 @@
           </div>
         </div>
       </div>
+
+      <h2 class="contact-title">CONTACT</h2>
     </div>
   </div>
 
@@ -175,7 +186,6 @@
           <div class="submit-wrapper">
             <button type="submit" class="submit-button submit-button-accent">
               <span>Envoyer</span>
-              <span>→</span>
             </button>
           </div>
 

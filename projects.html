@@ -1,32 +1,54 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets | M. Bandurian</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+  <meta http-equiv="refresh" content="0;url=/projects/">
+  <link rel="canonical" href="https://mbandurian.com/projects/">
+  <script>window.location.replace('/projects/' + window.location.search + window.location.hash);</script>
 
-    <meta name="description" content="Projets de web design, développement front-end et expériences 3D par Bandurian M.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Projets | Bandurian M. — UX/UI Designer & Creative Developer">
-    <meta property="og:description" content="Sélection de projets pour des marques et startups : sites modernes, interfaces et expériences interactives.">
-    <meta property="og:url" content="https://example.com/projects-fr">
-    <meta property="og:image" content="https://example.com/assets/preview-projects.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Projets | Bandurian M.">
-    <meta name="twitter:description" content="UX/UI, front-end et expériences 3D. Projets sélectionnés de Bandurian M.">
-    <meta name="twitter:image" content="https://example.com/assets/preview-projects.jpg">
-    <link rel="canonical" href="https://example.com/projects-fr">
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <link rel="alternate" hreflang="fr" href="https://example.com/projects-fr">
-    <link rel="alternate" hreflang="en" href="https://example.com/projects-en">
-    <link rel="alternate" hreflang="x-default" href="https://example.com/projects-en">
+  <script src="js/site-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projets | M. Bandurian</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<meta content="Projets de web design, développement front-end et expériences 3D par Bandurian M." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Projets | Bandurian M. — UX/UI Designer &amp; Creative Developer" property="og:title"/>
+<meta content="Sélection de projets pour des marques et startups : sites modernes, interfaces et expériences interactives." property="og:description"/>
+<meta content="https://example.com/projects-fr" property="og:url"/>
+<meta content="https://example.com/assets/preview-projects.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Projets | Bandurian M." name="twitter:title"/>
+<meta content="UX/UI, front-end et expériences 3D. Projets sélectionnés de Bandurian M." name="twitter:description"/>
+<meta content="https://example.com/assets/preview-projects.jpg" name="twitter:image"/>
+<link href="https://example.com/projects-fr" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Unbounded:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+/* Avoid painting the beginning of the grid before restoring a saved return position. */
+try {
+  if (sessionStorage.getItem('portfolioProjectsReturning') === '1' &&
+      sessionStorage.getItem('portfolioProjectsReturnScroll') !== null) {
+    document.documentElement.classList.add('projects-restoring-scroll');
+  }
+} catch (_) {}
+</script>
+<script>/* Prepare reveal before first paint; never hide content when motion is reduced. */
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('projects-scroll-reveal-ready');
+}
+</script>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://example.com/projects-fr" hreflang="fr" rel="alternate"/>
+<link href="https://example.com/projects-en" hreflang="en" rel="alternate"/>
+<link href="https://example.com/projects-en" hreflang="x-default" rel="alternate"/>
 </head>
 <body class="page-projects">
-    <!-- Header -->
+<!-- Header -->
 <header class="animated-header">
   <div class="header-left">
     <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
@@ -61,132 +83,117 @@
 
   <nav id="mainNav">
     <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
-    <a href="projects.html"><span>Projets</span></a>
+    <a aria-current="page" class="active" href="projects.html"><span>Projets</span></a>
     <a href="about.html"><span>À propos</span></a>
     <a href="contact.html"><span>Contact</span></a>
   </nav>
 </header>
-
 <div class="menu-overlay" id="menuOverlay"></div>
-
-    <div class="container">
-        <!-- Кнопка назад и заголовок -->
-        
-        <h1>Mes<br>Projets</h1>
-
-        <!-- Картинка слева -->
-        <div class="arc-image">
-            <img src="/1-01.svg" alt="Design">
-        </div>
-
-        <!-- SVG индикатор скролла -->
-        <div class="scroll-indicator-container">
-            <div class="scroll-indicator-layers">
-                <div class="scroll-svg-base">
-                    <img src="/2-01.svg" alt="Scroll Base">
-                </div>
-                <div class="scroll-svg-progress">
-                    <img src="/2-02.svg" alt="Scroll Progress">
-                </div>
-            </div>
-        </div>
-
-        <!-- Меню категорий -->
-        <div class="categories-menu">
-            <div class="category-item active" data-category="web-design">UX/UI Design</div>
-            <div class="category-item" data-category="branding">Branding</div>
-            <!-- <div class="category-item" data-category="mobile">Мобильные</div>
+<div class="container">
+<!-- Кнопка назад и заголовок -->
+<h1>Mes<br/>Projets</h1>
+<!-- Картинка слева -->
+<div class="arc-image">
+<img alt="Design" src="1-01.svg"/>
+</div>
+<!-- SVG индикатор скролла -->
+<div class="scroll-indicator-container">
+<div class="scroll-indicator-layers">
+<div class="scroll-svg-base">
+<img alt="Scroll Base" src="2-01.svg"/>
+</div>
+<div class="scroll-svg-progress">
+<img alt="Scroll Progress" src="2-02.svg"/>
+</div>
+</div>
+</div>
+<!-- Меню категорий -->
+<div class="categories-menu">
+<div class="category-item active" data-category="web-design">UX/UI Design</div>
+<div class="category-item" data-category="branding">Branding</div>
+<!-- <div class="category-item" data-category="mobile">Мобильные</div>
             <div class="category-item" data-category="3d">3D Графика</div> -->
-        </div>
-
-        <!-- Контент -->
-        <div class="content">
-            <div class="projects-grid">
-                <!-- Веб Дизайн -->
-                <a href="project-clliic.html" class="project-card" data-category="web-design" style="background-image: url('assets/img/clliic/clliic.png'); grid-column: 1; grid-row: 1;">
-                    <div class="project-number">01</div>
-                    <h3 class="project-title">CLLIIC – E-commerce IT</h3>
-                    <div class="project-description">
+</div>
+<!-- Контент -->
+<div class="content">
+<div class="projects-grid">
+<!-- Веб Дизайн -->
+<a class="project-card project-scroll-pending" data-category="web-design" href="project-clliic.html" style="background-image: url('assets/img/clliic/clliic-cover.webp'); grid-column: 1; grid-row: 1;">
+<h3 class="project-title">Site e-commerce<br/>CLLIIC</h3>
+<div class="project-description">
                         Conception et réalisation d’une boutique en ligne pour un revendeur de matériel informatique.
                     </div>
-                    <div class="project-tags">
-                        <span class="tag">Web design</span>
-                        <span class="tag">UX/UI</span>
-                        <span class="tag">E-commerce</span>
-                    </div>
-                </a>
-                <a href="project-multiself.html" class="project-card" data-category="web-design" style="background-image: url('assets/img/multiself/home.png'); grid-column: 2; grid-row: 2;">
-                    <div class="project-number">02</div>
-                    <h3 class="project-title">Multiself</h3>
-                    <div class="project-description">
+<div class="project-tags">
+<span class="tag">Web design</span>
+<span class="tag">UX/UI</span>
+<span class="tag">E-commerce</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="web-design" href="project-multiself.html" style="grid-column: 2; grid-row: 2;" data-project-background="url(&#x27;assets/img/multiself/multiself-cover.webp&#x27;)">
+<h3 class="project-title">Interface tactile<br/>Multiself</h3>
+<div class="project-description">
                         Refonte UX/UI de l’interface tactile du distributeur automatique Multiself.
                     </div>
-                    <div class="project-tags">
-                        <span class="tag">UX/UI</span>
-                        <span class="tag">Design d’interface</span>
-                        <span class="tag">Produit digital</span>
-                    </div>
-                </a>
-                <a href="project-webtrends.html" class="project-card" data-category="web-design" style="background-image: url('assets/img/trends/Site\ web.png'); grid-column: 1; grid-row: 3;">
-                    <div class="project-number">03</div>
-                    <h3 class="project-title">Tendances du design Web</h3>
-                    <div class="project-description">
+<div class="project-tags">
+<span class="tag">UX/UI</span>
+<span class="tag">Design d’interface</span>
+<span class="tag">Produit digital</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="web-design" href="project-webtrends.html" style="grid-column: 1; grid-row: 3;" data-project-background="url(&#x27;assets/img/trends/webtrends-cover.webp&#x27;)">
+<h3 class="project-title">Site web éditorial<br/>Tendances du design</h3>
+<div class="project-description">
                         Site Web one-page responsive au design minimaliste moderne, structuré en sept sections pour présenter et illustrer les principales tendances actuelles en matière de design Web.
                     </div>
-                    <div class="project-tags">
-                        <span class="tag">Web design</span>
-                        <span class="tag">Front-end</span>
-                        <span class="tag">UI/UX</span>
-                    </div>
-                </a>
-
-
-                <!-- Брендинг -->
-                 <a href="project-alliesark.html" class="project-card" data-category="branding" style="background-image: url('assets/img/alliesark/ark.png'); grid-column: 2; grid-row: 4;">
-                    <div class="project-number">04</div>
-                    <h3 class="project-title">Allies Ark</h3>
-                    <div class="project-description">
+<div class="project-tags">
+<span class="tag">Web design</span>
+<span class="tag">Front-end</span>
+<span class="tag">UI/UX</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<!-- Брендинг -->
+<a class="project-card project-scroll-pending" data-category="branding" href="project-alliesark.html" style="grid-column: 2; grid-row: 4;" data-project-background="url(&#x27;assets/img/alliesark/alliesark-cover.webp&#x27;)">
+<h3 class="project-title">Identité visuelle<br/>Allies Ark</h3>
+<div class="project-description">
                         Conception d’un logo pour une fondation internationale dédiée à la sauvegarde des animaux, accompagné d’un mockup de mise en situation. 
                     </div>
-                    <div class="project-tags">
-                        <span class="tag">Branding</span>
-                         <span class="tag">Direction artistique</span>
-                       <span class="tag">Identité visuelle</span>
-                    </div>
-                </a>
-                <a href="project-ergos.html" class="project-card" data-category="branding" style="background-image: url('assets/img/ergos/ergos.png'); grid-column: 1; grid-row: 5;">
-                    <div class="project-number">05</div>
-                    <h3 class="project-title">ERGOS</h3>
-                    <div class="project-description">
+<div class="project-tags">
+<span class="tag">Branding</span>
+<span class="tag">Direction artistique</span>
+<span class="tag">Identité visuelle</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="branding" href="project-ergos.html" style="grid-column: 1; grid-row: 5;" data-project-background="url(&#x27;assets/img/ergos/ergos-cover.webp&#x27;)">
+<h3 class="project-title">Rebranding<br/>ERGOS</h3>
+<div class="project-description">
                        Participation à la mise à jour de l’identité visuelle et à la création de supports de communication pour le print et le digital.
                     </div>
-                    <div class="project-tags">
-                        <span class="tag">Branding</span>
-                         <span class="tag">Direction artistique</span>
-                       <span class="tag">Identité visuelle</span>
-                    </div>
-                </a>
-                <a href="project-illomi.html" class="project-card" data-category="branding" style="background-image: url('assets/img/illomi/illomi.png'); grid-column: 2; grid-row: 6;">
-                    <div class="project-number">06</div>
-                    <h3 class="project-title">Illomi</h3>
-                    <div class="project-description">
+<div class="project-tags">
+<span class="tag">Branding</span>
+<span class="tag">Direction artistique</span>
+<span class="tag">Identité visuelle</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="branding" href="project-illomi.html" style="grid-column: 2; grid-row: 6;" data-project-background="url(&#x27;assets/img/illomi/illomi-cover.webp&#x27;)">
+<h3 class="project-title">Identité visuelle<br/>Illomi</h3>
+<div class="project-description">
                         Système d’identité visuelle pour Illomi, marque de luminaires et de décoration.
                     </div>
-                    <div class="project-tags">
-                        <span class="tag">Branding</span>
-                        <span class="tag">Direction artistique</span>
-                        <span class="tag">Identité visuelle</span>
-                    </div>
-                </a>
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
+<div class="project-tags">
+<span class="tag">Branding</span>
+<span class="tag">Direction artistique</span>
+<span class="tag">Identité visuelle</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+</div>
+</div>
+</div>
 <footer class="animated-footer">
     <div class="footer-left">
         <a href="mailto:contact@mbandurian.com" class="email">contact@mbandurian.com</a>
@@ -201,8 +208,32 @@
         <!-- <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a> -->
     </div>
 </footer>
-
-    <script>
+<script>
+/* Start downloading card artwork shortly before it enters the project scroller. */
+(() => {
+  const scroller = document.querySelector('.page-projects .content');
+  const cards = document.querySelectorAll('.page-projects .project-card[data-project-background]');
+  const loadBackground = (card) => {
+    const source = card.getAttribute('data-project-background');
+    if (!source) return;
+    card.style.backgroundImage = source;
+    card.removeAttribute('data-project-background');
+  };
+  if (!scroller || !('IntersectionObserver' in window)) {
+    cards.forEach(loadBackground);
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      loadBackground(entry.target);
+      observer.unobserve(entry.target);
+    }
+  }, { root: scroller, rootMargin: '650px 0px', threshold: 0 });
+  cards.forEach(card => observer.observe(card));
+})();
+</script>
+<script>
         /* SCROLL PROGRESS INDICATOR */
         function updateScrollProgress() {
             const contentElement = document.querySelector('.content');
@@ -276,12 +307,91 @@
         updateActiveCategory();
     </script>
 
-    <!-- Логика темы, языка и общие эффекты -->
-    <script src="js/main.js" defer></script>
+<script>
+/* Same one-time fade + gentle lift as À propos sections, scoped to the
+   independently scrolling project area. CSS `translate` never changes hover `transform`. */
+(() => {
+  const cards = [...document.querySelectorAll('.projects-grid .project-card')];
+  const scroller = document.querySelector('.content');
+  const ready = document.documentElement.classList.contains('projects-scroll-reveal-ready');
+  if (!ready || !cards.length || !scroller) {
+    cards.forEach(el => { el.classList.remove('project-scroll-pending'); el.classList.add('project-scroll-visible'); });
+    document.documentElement.classList.remove('projects-scroll-reveal-ready');
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target;
+      card.classList.add('project-scroll-visible');
+      card.classList.remove('project-scroll-pending');
+      observer.unobserve(card);
+    });
+  }, { root: scroller, rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
+  cards.forEach(card => observer.observe(card));
+})();
+</script>
+<script>
+/* Keep the exact position of the independently scrollable project list on return. */
+(() => {
+  const scroller = document.querySelector('.page-projects .content');
+  if (!scroller) return;
+  const positionKey = 'portfolioProjectsReturnScroll';
+  const returnKey = 'portfolioProjectsReturning';
 
+  scroller.querySelectorAll('a.project-card[href]').forEach(card => {
+    card.addEventListener('click', () => {
+      try {
+        sessionStorage.setItem(positionKey, String(scroller.scrollTop));
+        sessionStorage.setItem(returnKey, '1');
+      } catch (_) {}
+    });
+  });
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
-    <!-- End Cloudflare Web Analytics -->
+  let restorationInProgress = false;
+  function restorePosition() {
+    if (restorationInProgress) return;
+    let storedTop = null;
+    try {
+      if (sessionStorage.getItem(returnKey) === '1') {
+        storedTop = sessionStorage.getItem(positionKey);
+        sessionStorage.removeItem(returnKey);
+        sessionStorage.removeItem(positionKey);
+        sessionStorage.removeItem('portfolioProjectFocus');
+      }
+    } catch (_) {}
+    if (storedTop === null) {
+      document.documentElement.classList.remove('projects-restoring-scroll');
+      return;
+    }
+    const top = Number(storedTop);
+    if (!Number.isFinite(top)) {
+      document.documentElement.classList.remove('projects-restoring-scroll');
+      return;
+    }
+    restorationInProgress = true;
+    // Restore immediately with animations disabled, then reveal the already-positioned view.
+    const previousBehavior = scroller.style.scrollBehavior;
+    scroller.style.scrollBehavior = 'auto';
+    scroller.scrollTop = top;
+    const finish = () => {
+      scroller.scrollTop = top;
+      scroller.style.scrollBehavior = previousBehavior;
+      document.documentElement.classList.remove('projects-restoring-scroll');
+      restorationInProgress = false;
+      if (typeof updateScrollProgress === 'function') updateScrollProgress();
+      if (typeof updateActiveCategory === 'function') updateActiveCategory();
+    };
+    requestAnimationFrame(() => requestAnimationFrame(finish));
+  }
+  restorePosition();
+  window.addEventListener('pageshow', restorePosition);
+})();
+</script>
+<!-- Логика темы, языка и общие эффекты -->
+<script defer="" src="js/main.js"></script>
+<!-- Cloudflare Web Analytics -->
+<script data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<!-- End Cloudflare Web Analytics -->
 </body>
 </html>

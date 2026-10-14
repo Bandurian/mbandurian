@@ -1,24 +1,36 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>À propos | M. Bandurian</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta http-equiv="refresh" content="0;url=/about/">
+  <link rel="canonical" href="https://mbandurian.com/about/">
+  <script>window.location.replace('/about/' + window.location.search + window.location.hash);</script>
 
-  <meta name="description" content="À propos de Marharyta Bandurian — Graphic & UX/UI Designer à Toulon. Interfaces, identités de marque et e‑commerce où chaque détail est intentionnel.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="À propos | Marharyta Bandurian — Graphic & UX/UI Designer">
-  <meta property="og:description" content="Parcours, compétences et expériences de Marharyta Bandurian : UX/UI basé sur la recherche, identités de marque et plateformes e‑commerce.">
-  <meta property="og:url" content="https://example.com/about-fr">
-  <meta property="og:image" content="https://example.com/assets/preview-about.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="À propos | Marharyta Bandurian">
-  <meta name="twitter:description" content="Graphic & UX/UI Designer à Toulon — interfaces, branding et e‑commerce.">
-  <meta name="twitter:image" content="https://example.com/assets/preview-about.jpg">
-  <link rel="canonical" href="https://example.com/about-fr">
-
-    <script type="application/ld+json">
+<script src="js/site-init.js"></script>
+<meta charset="utf-8"/>
+<script>
+  // Set the pre-reveal guard before any career panels are painted.
+  // No guard when animations are disabled or unsupported.
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('about-reveal-ready');
+  }
+</script>
+<title>À propos | M. Bandurian</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<meta content="À propos de Marharyta Bandurian — UX/UI &amp; Graphic Designer à Toulon. Interfaces, identités de marque et e‑commerce où chaque détail est intentionnel." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="À propos | Marharyta Bandurian — UX/UI &amp; Graphic Designer" property="og:title"/>
+<meta content="Parcours, compétences et expériences de Marharyta Bandurian : UX/UI basé sur la recherche, identités de marque et plateformes e‑commerce." property="og:description"/>
+<meta content="https://example.com/about-fr" property="og:url"/>
+<meta content="https://example.com/assets/preview-about.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="À propos | Marharyta Bandurian" name="twitter:title"/>
+<meta content="UX/UI &amp; Graphic Designer à Toulon — interfaces, branding et e‑commerce." name="twitter:description"/>
+<meta content="https://example.com/assets/preview-about.jpg" name="twitter:image"/>
+<link href="https://example.com/about-fr" rel="canonical"/>
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -35,44 +47,35 @@
     ]
   }
 </script>
-
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <link rel="alternate" hreflang="fr" href="https://example.com/about-fr">
-  <link rel="alternate" hreflang="en" href="https://example.com/about-en">
-  <link rel="alternate" hreflang="x-default" href="https://example.com/about-en">
-
-  <!-- Matter.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
-
-  <!-- Logique thème/langue -->
-  <script src="js/main.js" defer></script>
-  <!-- Anim des skills -->
-  <script src="js/about-matter.js" defer></script>
-
-  
-
-
+<!-- Same typography as Home and Contact -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Unbounded:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://example.com/about-fr" hreflang="fr" rel="alternate"/>
+<link href="https://example.com/about-en" hreflang="en" rel="alternate"/>
+<link href="https://example.com/about-en" hreflang="x-default" rel="alternate"/>
+<!-- Matter.js -->
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<!-- Logique thème/langue -->
+<script defer="" src="js/main.js"></script>
+<!-- Anim des skills -->
+<script defer="" src="js/about-matter.js"></script>
 </head>
 <body class="page-about">
-
 <header class="animated-header">
-  <div class="header-left">
-    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
-
-    <div class="header-controls header-controls-main">
-      <div class="theme-switcher">
-        <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
-          <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
-          <span class="theme-slider"></span>
-          <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
-        </button>
-      </div>
-
-      <!-- <div class="language-switcher">
+<div class="header-left">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">BANDURIAN M<span class="logo-dot">.</span></a>
+<div class="header-controls header-controls-main">
+<div class="theme-switcher">
+<button aria-label="Changer de thème" class="theme-toggle" id="themeButton">
+<span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+<span class="theme-slider"></span>
+<span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+</button>
+</div>
+<!-- <div class="language-switcher">
         <button class="language-button" id="languageButton" aria-label="Changer de langue">
           <span id="currentLanguage">FR</span>
         </button>
@@ -81,242 +84,201 @@
           <div class="language-option" data-lang="en">English</div>
         </div>
       </div> -->
-    </div>
-
-    <button class="burger-button" id="burgerButton" aria-label="Ouvrir le menu"
-            aria-expanded="false" aria-controls="mainNav">
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-    </button>
-  </div>
-
-  <nav id="mainNav">
-    <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
-    <a href="projects.html"><span>Projets</span></a>
-    <a href="about.html"><span>À propos</span></a>
-    <a href="contact.html"><span>Contact</span></a>
-  </nav>
-</header>
-
-<div class="menu-overlay" id="menuOverlay"></div>
-
-
-
-
-<main class="about-main">
-  <section class="about-section">
-    <div class="about-left">
-      <h1 class="about-title">À propos</h1>
-      <p class="about-text">
-        Bonjour, je m’appelle Marharyta (prononcé « Margarita »), Graphic &amp; UX/UI Designer basée à Toulon, obsédée par les détails et les résultats.
-      </p>
-      <p class="about-text">
-        Spécialisée dans des interfaces minimalistes et stratégiques pour écrans tactiles, plateformes e‑commerce et systèmes web responsives, avec un focus sur des identités de marque claires et des design systems prêts pour la production.
-      </p>
-
-      <a href="assets/cv-BANDURIAN-Marharyta.pdf"
-         class="submit-button submit-button-accent"
-         download
-         style="margin-top: 1.5rem; align-self: flex-start; text-decoration: none;">
-        <span>Télécharger CV</span>
-        <i class="fa-solid fa-download" style="font-size: 0.85rem;"></i>
-      </a>
-    </div>
-
-<div class="about-right">
-  <h2 class="about-title">Compétences</h2>
-  <div class="skills-tabs" id="skillsTabs">
-    <button class="skills-tab active" data-group="design">Design</button>
-    <button class="skills-tab" data-group="tools">Outils</button>
-    <button class="skills-tab" data-group="frontend">Front‑end</button>
-  </div>
-  <div class="skills-stage" id="skillsStage"></div>
 </div>
-
-
-  </section>
+<button aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir le menu" class="burger-button" id="burgerButton">
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+</button>
+</div>
+<nav id="mainNav">
+<div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
+<a href="projects.html"><span>Projets</span></a>
+<a aria-current="page" class="active" href="about.html"><span>À propos</span></a>
+<a href="contact.html"><span>Contact</span></a>
+</nav>
+</header>
+<div class="menu-overlay" id="menuOverlay"></div>
+<main class="about-main">
+<section class="about-section">
+<div aria-labelledby="about-hero-name" class="about-left about-hero">
+<div class="about-hero-identity">
+<h1 class="about-hero-name" id="about-hero-name">
+<span class="about-hero-firstname">MAR<span class="about-name-letter">H<span aria-hidden="true" class="about-name-hint">G</span></span>ARYTA</span>
+<span>BANDURIAN<span class="about-hero-dot">.</span></span>
+</h1>
+<p class="about-hero-role">UX/UI <span>&amp; Graphic Designer</span></p>
+<p class="about-hero-keywords">LE SENS DU DÉTAIL <span aria-hidden="true" class="about-hero-star"><svg aria-hidden="true" focusable="false" height="18" viewbox="0 0 177.484 177.625" width="18">
+<path d="M 176.96875 88.625 C 128.109375 88.695312 88.484375 128.320312 88.414062 177.179688 L 88.484375 114.21875 C 88.484375 100.117188 76.992188 88.625 62.890625 88.625 L 0 88.625 C 48.929688 88.625 88.554688 49 88.554688 0.0703125 L 88.554688 62.960938 C 88.554688 77.0625 100.046875 88.554688 114.148438 88.554688 Z M 176.96875 88.625 " fill="currentColor"></path>
+</svg></span> LE GOÛT DU RÉSULTAT</p>
+</div>
+<div class="about-hero-copy">
+<p class="about-hero-lead">Je conçois des interfaces claires et des expériences numériques utiles, lisibles et sensibles, ainsi que des identités visuelles cohérentes.</p>
+<p class="about-hero-description">Mon profil polyvalent associe des compétences en UX/UI, en design graphique et en branding à des savoir-faire complémentaires en création de sites web, en motion design et en montage vidéo. Du concept à la réalisation, je cherche l’équilibre entre esthétique, logique et résultat concret.</p>
+<a class="submit-button submit-button-accent about-hero-cv" download="" href="assets/cv-BANDURIAN-Marharyta.pdf">Télécharger CV</a>
+</div>
+</div>
+<div class="about-right">
+<div class="skills-header">
+<h2 class="about-title">Compétences</h2>
+<span aria-hidden="true" class="skills-header-rule"></span>
+<div aria-label="Catégories de compétences" class="skills-tabs" id="skillsTabs" role="group">
+<button class="skills-tab active" data-group="design" type="button">Design</button>
+<button class="skills-tab" data-group="tools" type="button">Outils</button>
+<button class="skills-tab" data-group="frontend" type="button">Front‑end</button>
+</div>
+</div>
+<div class="skills-stage" id="skillsStage"></div>
+</div>
+</section>
 </main>
-
-<section class="experience-section">
-  <h2 class="about-title">Expérience</h2>
-  <p class="experience-subtitle">
+<section aria-label="Parcours professionnel et formation" class="career-columns"><div class="career-panel career-panel-experience"><div class="career-panel-header"><h2 class="about-title career-panel-title">Expérience</h2><span aria-hidden="true" class="career-header-rule"></span></div><p class="career-panel-description">
     Quelques projets où le design devait fonctionner sur de vrais utilisateurs, de vraies machines et de vrais parcours d’achat.
-  </p>
-
-  <div class="timeline-wrapper">
-    <div class="timeline-track">
-      <!-- CLLIIC -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2025</div>
-          <div class="timeline-role">Designer web</div>
-          <div class="timeline-company">CLLIIC · La Bollène‑Vésubie</div>
-          <div class="timeline-description">
+  </p><div class="career-timeline"><details class="career-entry" name="career-experience" open=""><summary class="career-entry-summary"><span class="career-entry-year">2025</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role career-entry-role-with-contract">Designer web <span class="career-contract-badge">Stage</span></div><div class="career-entry-company">CLLIIC <span class="career-place-separator">·</span> <span class="career-entry-place">La Bollène‑Vésubie</span></div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Plateforme e‑commerce complète pour un revendeur de matériel informatique : identité visuelle, design system UI et tunnel d’achat optimisé sur WordPress/WooCommerce.
-          </div>
-          <div class="timeline-meta-bottom">
-            <span class="timeline-duration"><strong>Durée&nbsp;:</strong> 2 mois</span>
-            <span class="timeline-tools"><strong>Outils&nbsp;:</strong> Figma, WordPress, WooCommerce, Illustrator, Blender</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bleutec -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2024</div>
-          <div class="timeline-role">Designer UX/UI</div>
-          <div class="timeline-company">Bleutec System · Carros</div>
-          <div class="timeline-description">
+          </div><div class="career-entry-meta">
+<span class="timeline-duration"><svg class="career-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.8v5.5l3.7 2.1"/></svg><span class="career-meta-copy"><strong>Durée :</strong> <span class="career-duration-value">2 mois</span></span></span>
+<span class="timeline-tools"><svg class="career-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 9 5.2-9 5.2L3 8z"/><path d="m3 12 9 5.2 9-5.2M3 16l9 5.2 9-5.2"/></svg><span class="career-meta-copy"><strong>Outils :</strong> Figma, WordPress, WooCommerce, Illustrator, Blender</span></span>
+</div></div></details><details class="career-entry" name="career-experience"><summary class="career-entry-summary"><span class="career-entry-year">2024</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role career-entry-role-with-contract">Designer UX/UI <span class="career-contract-badge">Stage</span></div><div class="career-entry-company">Bleutec System <span class="career-place-separator">·</span> <span class="career-entry-place">Carros</span></div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Nouvelle interface tactile pour le distributeur automatique Multiself : flux d’achat simplifié, design monochrome structuré et écrans animés testés directement sur la machine.
-          </div>
-          <div class="timeline-meta-bottom">
-            <span class="timeline-duration"><strong>Durée&nbsp;:</strong> 2 mois</span>
-            <span class="timeline-tools"><strong>Outils&nbsp;:</strong> Figma, Illustrator, After Effects</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ERGOS -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2021</div>
-          <div class="timeline-role">Graphiste</div>
-          <div class="timeline-company">ERGOS · Kharkiv</div>
-          <div class="timeline-description">
+          </div><div class="career-entry-meta">
+<span class="timeline-duration"><svg class="career-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.8v5.5l3.7 2.1"/></svg><span class="career-meta-copy"><strong>Durée :</strong> <span class="career-duration-value">2 mois</span></span></span>
+<span class="timeline-tools"><svg class="career-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 9 5.2-9 5.2L3 8z"/><path d="m3 12 9 5.2 9-5.2M3 16l9 5.2 9-5.2"/></svg><span class="career-meta-copy"><strong>Outils :</strong> Figma, Illustrator, After Effects</span></span>
+</div></div></details><details class="career-entry" name="career-experience"><summary class="career-entry-summary"><span class="career-entry-year">2021</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role career-entry-role-with-contract">Graphiste <span class="career-contract-badge">Stage</span></div><div class="career-entry-company">ERGOS <span class="career-place-separator">·</span> <span class="career-entry-place">Kharkiv</span></div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Création de visuels print &amp; digital, retouche produit et préparation de fichiers prêts pour l’impression dans le cadre d’une évolution d’identité visuelle.
-          </div>
-          <div class="timeline-meta-bottom">
-            <span class="timeline-duration"><strong>Durée&nbsp;:</strong> 3 mois</span>
-            <span class="timeline-tools"><strong>Outils&nbsp;:</strong> Photoshop, Illustrator, InDesign</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="education-section">
-  <h2 class="about-title">Éducation</h2>
-  <p class="education-subtitle">
+          </div><div class="career-entry-meta">
+<span class="timeline-duration"><svg class="career-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.8v5.5l3.7 2.1"/></svg><span class="career-meta-copy"><strong>Durée :</strong> <span class="career-duration-value">3 mois</span></span></span>
+<span class="timeline-tools"><svg class="career-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 9 5.2-9 5.2L3 8z"/><path d="m3 12 9 5.2 9-5.2M3 16l9 5.2 9-5.2"/></svg><span class="career-meta-copy"><strong>Outils :</strong> Photoshop, Illustrator, InDesign</span></span>
+</div></div></details></div></div><div class="career-panel career-panel-formation"><div class="career-panel-header"><h2 class="about-title career-panel-title">Formation</h2><span aria-hidden="true" class="career-header-rule"></span><div class="formation-tabs" role="group" aria-label="Catégorie de formation">
+<button type="button" class="formation-tab active" data-formation-filter="academic" aria-pressed="true" aria-controls="formation-timeline">Académique</button>
+<button type="button" class="formation-tab" data-formation-filter="certifications" aria-pressed="false" aria-controls="formation-timeline">Certifications</button>
+</div></div><p class="career-panel-description">
     Parcours mêlant design d’expérience, communication et design graphique, avec un socle solide en typographie et outils de création.
-  </p>
-
-  <div class="timeline-wrapper">
-    <div class="timeline-track">
-      <!-- Master -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2024 — 2026</div>
-          <div class="timeline-role">Master · Design d'Expérience et Design d'Interface</div>
-          <div class="timeline-company">Université de Toulon</div>
-          <div class="timeline-description">
+  </p><div class="career-timeline"><details class="career-entry" data-formation-category="academic" name="career-formation" open=""><summary class="career-entry-summary"><span class="career-entry-year">2024 — 2026</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Master · Design d'Expérience et Design d'Interface</div><div class="career-entry-company">Université de Toulon</div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Formation axée sur la recherche utilisateur, le design d’interface, le prototypage et la collaboration avec les développeurs pour des produits web, mobile et interactifs.
-          </div>
-        </div>
-      </div>
-
-      <!-- Licence -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2023 — 2024</div>
-          <div class="timeline-role">Licence · Information et Communication</div>
-          <div class="timeline-company">Université de Toulon · UFR Ingémédia</div>
-          <div class="timeline-description">
+          </div></div></details><details class="career-entry" data-formation-category="academic" name="career-formation"><summary class="career-entry-summary"><span class="career-entry-year">2023 — 2024</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Licence · Information et Communication</div><div class="career-entry-company">Université de Toulon <span class="career-place-separator">·</span> <span class="career-entry-place">UFR Ingémédia</span></div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Communication, UX/UI, stratégie de contenu et narration digitale, avec une vision de la communication comme parcours utilisateur.
-          </div>
-        </div>
-      </div>
-
-      <!-- Licence design graphique -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2020 — 2022</div>
-          <div class="timeline-role">Licence · Impression et Publication</div>
-          <div class="timeline-company">Université nationale de radioélectronique de Kharkiv</div>
-          <div class="timeline-description">
+          </div></div></details><details class="career-entry" data-formation-category="academic" name="career-formation"><summary class="career-entry-summary"><span class="career-entry-year">2020 — 2022</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Licence · Impression et Publication</div><div class="career-entry-company">Université nationale de radioélectronique de Kharkiv</div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Design graphique pour le print et le digital : composition, typographie, couleur, 2D/3D, vidéo et bases du web (HTML, CSS, JavaScript).
-          </div>
-        </div>
-      </div>
-
-      <!-- Certifications séparées -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2023</div>
-          <div class="timeline-role">Certificat · Design basics</div>
-          <div class="timeline-company">CASES</div>
-          <div class="timeline-description">
+          </div></div></details><details class="career-entry" data-formation-category="certifications" name="career-formation"><summary class="career-entry-summary"><span class="career-entry-year">2023</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Certificat · Design basics</div><div class="career-entry-company">CASES</div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Principes essentiels de composition, couleur et workflows de design systémique.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2022</div>
-          <div class="timeline-role">Certificat · Figma Basics</div>
-          <div class="timeline-company">CASES</div>
-          <div class="timeline-description">
+          </div></div></details><details class="career-entry" data-formation-category="certifications" name="career-formation"><summary class="career-entry-summary"><span class="career-entry-year">2022</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Certificat · Figma Basics</div><div class="career-entry-company">CASES</div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Composants, auto‑layout et prototypage interactif dans Figma.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2021</div>
-          <div class="timeline-role">Certificat · Introduction to Typography</div>
-          <div class="timeline-company">California Institute of the Arts</div>
-          <div class="timeline-description">
+          </div></div></details><details class="career-entry" data-formation-category="certifications" name="career-formation"><summary class="career-entry-summary"><span class="career-entry-year">2021</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Certificat · Introduction to Typography</div><div class="career-entry-company">California Institute of the Arts</div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Espacement, hiérarchie et systèmes typographiques pour des mises en page lisibles.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-year">2021</div>
-          <div class="timeline-role">Certificat · Fundamentals of Graphic Design</div>
-          <div class="timeline-company">California Institute of the Arts</div>
-          <div class="timeline-description">
+          </div></div></details><details class="career-entry" data-formation-category="certifications" name="career-formation"><summary class="career-entry-summary"><span class="career-entry-year">2021</span><span aria-hidden="true" class="career-entry-dot"></span><span class="career-entry-summary-text"><div class="career-entry-role">Certificat · Fundamentals of Graphic Design</div><div class="career-entry-company">California Institute of the Arts</div></span><span aria-hidden="true" class="career-entry-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m9 5 7 7-7 7"/></svg></span></summary><div class="career-entry-details"><div class="career-entry-description">
             Bases du design graphique : hiérarchie visuelle, couleur et équilibre de composition.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+          </div></div></details></div></div></section>
 
 <footer class="animated-footer">
-    <div class="footer-left">
-        <a href="mailto:contact@mbandurian.com" class="email">contact@mbandurian.com</a>
-
-        <a href="privacy.html" class="privacy-link">
+<div class="footer-left">
+<a class="email" href="mailto:contact@mbandurian.com">contact@mbandurian.com</a>
+<a class="privacy-link" href="privacy.html">
             Politique de confidentialité
         </a>
-    </div>
-    <div class="social-links">
-        <!-- <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a> -->
-        <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
-        <!-- <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a> -->
-    </div>
+</div>
+<div class="social-links">
+<!-- <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a> -->
+<a class="social-link" href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8" target="_blank" title="LinkedIn"><span>in</span></a>
+<!-- <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a> -->
+</div>
 </footer>
+<script data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script>
+  // Reveal pronunciation hints only after the hero has had time to appear.
+  document.addEventListener('DOMContentLoaded', () => {
+    const name = document.getElementById('about-hero-name');
+    if (!name) return;
+    const reveal = () => name.classList.add('about-name-revealed');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      reveal();
+    } else {
+      window.setTimeout(reveal, 1150);
+    }
+  });
+</script>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+<script>
+  // The native <summary> remains the accessible disclosure control.
+  // Also close an expanded card when its details/body is clicked.
+  document.querySelectorAll('.page-about .career-entry').forEach((entry) => {
+    entry.addEventListener('click', (event) => {
+      if (!entry.open || event.target.closest('summary')) return;
+      if (event.target.closest('a, button, input, textarea, select, label')) return;
+      entry.open = false;
+    });
+  });
+</script>
+<script>
+  // Formation category filter; existing native details accordion remains intact.
+  document.addEventListener('DOMContentLoaded', () => {
+    const panel = document.querySelector('.page-about .career-panel-formation');
+    if (!panel) return;
+    const tabs = [...panel.querySelectorAll('.formation-tab')];
+    const entries = [...panel.querySelectorAll('.career-entry[data-formation-category]')];
+    const choose = (category) => {
+      tabs.forEach(tab => {
+        const active = tab.dataset.formationFilter === category;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-pressed', String(active));
+      });
+      const visible = entries.filter(entry => entry.dataset.formationCategory === category);
+      entries.forEach(entry => {
+        const show = entry.dataset.formationCategory === category;
+        entry.hidden = !show;
+        if (!show) entry.open = false;
+      });
+      visible.forEach((entry, index) => { entry.open = index === 0; });
+    };
+    tabs.forEach(tab => tab.addEventListener('click', () => choose(tab.dataset.formationFilter)));
+    choose('academic');
+  });
+</script>
 
+<script>
+/* Gentle section entrances, once per page visit. No repeated flashing when
+   scrolling back. Does not animate the Matter.js chips themselves. */
+document.addEventListener('DOMContentLoaded', () => {
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const sections = [
+    document.querySelector('.page-about .about-right'),
+    ...document.querySelectorAll('.page-about .career-panel')
+  ].filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({target, isIntersecting}) => {
+      if (!isIntersecting) return;
+      target.classList.add('is-visible');
+      observer.unobserve(target);
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -35px 0px'});
+
+  // Only off-screen content needs an entrance: above-the-fold sections remain stable.
+  sections.forEach((section, index) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 45) {
+      // Already on screen: show immediately, with no entrance flash.
+      section.classList.add('is-visible');
+      return;
+    }
+    section.style.setProperty('--reveal-delay', index === 2 ? '110ms' : '0ms');
+    section.classList.add('scroll-reveal-prep');
+    observer.observe(section);
+  });
+
+  // Browser Back/Forward Cache may restore the scroll position mid-page.
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) return;
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top < window.innerHeight) {
+        section.classList.add('is-visible');
+        observer.unobserve(section);
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

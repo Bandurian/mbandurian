@@ -6,10 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
 });
 
-// Отдельно лениво запускаем тяжёлую three.js‑модель после полной загрузки страницы
-window.addEventListener('load', () => {
-    initThreeModel();
-});
+// 3D-модель инициализируется отдельно в js/three-portfolio.js.
+// Не вызываем отсутствующую initThreeModel() при событии window.load.
 
 
 /* ===========================
@@ -20,7 +18,7 @@ function initGridAnimations() {
     const gridItems = document.querySelectorAll('.grid-item');
 
     gridItems.forEach((item, index) => {
-        item.style.animationDelay = (2.0 + index * 0.05) + 's';
+        item.style.animationDelay = (0.12 + index * 0.025) + 's';
     });
 
     document.querySelectorAll('.grid-item.content.interactive').forEach(item => {
@@ -28,11 +26,11 @@ function initGridAnimations() {
             const text = (this.querySelector('.item-text')?.textContent || '').toUpperCase();
 
             if (text.includes('PROJET')) {
-                transitionToPage(e, 'projects.html');
+                transitionToPage(e, '/projects/');
             } else if (text.includes('CONTACT')) {
-                transitionToPage(e, 'contact.html');
-            }  else if (text.includes('QUI')) {
-                transitionToPage(e, 'about.html');
+                transitionToPage(e, '/contact/');
+            }  else if (text.includes('À PROPOS') || text.includes('QUI')) {
+                transitionToPage(e, '/about/');
             }
         });
     });
@@ -74,9 +72,11 @@ function initHeadingParallax() {
     if (!heading) return;
 
     document.addEventListener('mousemove', (e) => {
+        if (document.body.classList.contains('home-intro') && !document.body.classList.contains('home-title-visible')) return;
         const x = (e.clientX / window.innerWidth - 0.5) * 20;
         const y = (e.clientY / window.innerHeight - 0.5) * 20;
-        heading.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        heading.style.setProperty('--heading-parallax-x', `${x}px`);
+        heading.style.setProperty('--heading-parallax-y', `${y}px`);
     });
 }
 
@@ -90,14 +90,7 @@ function initThemeSwitcher() {
     const themeButton = document.getElementById('themeButton');
     if (!themeButton) return;
 
-    function getSystemTheme() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            return 'light';
-        }
-        return 'dark';
-    }
-
-    let currentTheme = localStorage.getItem('selectedTheme') || getSystemTheme();
+    let currentTheme = localStorage.getItem('selectedTheme') === 'light' ? 'light' : 'dark';
 
     function setTheme(theme) {
         if (theme === 'light') {
@@ -116,12 +109,7 @@ function initThemeSwitcher() {
         localStorage.setItem('selectedTheme', currentTheme);
     });
 
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('selectedTheme')) {
-            const newTheme = e.matches ? 'light' : 'dark';
-            setTheme(newTheme);
-        }
-    });
+
 }
 
 /* ===========================
@@ -260,7 +248,7 @@ function initLanguageSwitcher() {
         }
       });
 
-      updateParallax(Array.from(visibleSet));
+      updateParallax(visibleSet);
     },
     { threshold: 0.1 }
   );
@@ -269,7 +257,7 @@ function initLanguageSwitcher() {
 
   function onScrollOrResize() {
     if (!visibleSet.size) return;
-    updateParallax(Array.from(visibleSet));
+    updateParallax(visibleSet);
   }
 
   window.addEventListener('scroll', onScrollOrResize, { passive: true });

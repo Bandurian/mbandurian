@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <base href="/">
+  <script src="js/site-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projets | M. Bandurian</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<meta content="Projets de web design, développement front-end et expériences 3D par Bandurian M." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Projets | Bandurian M. — UX/UI Designer &amp; Creative Developer" property="og:title"/>
+<meta content="Sélection de projets pour des marques et startups : sites modernes, interfaces et expériences interactives." property="og:description"/>
+<meta content="https://mbandurian.com/projects/" property="og:url"/>
+<meta content="https://example.com/assets/preview-projects.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Projets | Bandurian M." name="twitter:title"/>
+<meta content="UX/UI, front-end et expériences 3D. Projets sélectionnés de Bandurian M." name="twitter:description"/>
+<meta content="https://example.com/assets/preview-projects.jpg" name="twitter:image"/>
+<link rel="canonical" href="https://mbandurian.com/projects/">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Unbounded:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+/* Avoid painting the beginning of the grid before restoring a saved return position. */
+try {
+  if (sessionStorage.getItem('portfolioProjectsReturning') === '1' &&
+      sessionStorage.getItem('portfolioProjectsReturnScroll') !== null) {
+    document.documentElement.classList.add('projects-restoring-scroll');
+  }
+} catch (_) {}
+</script>
+<script>/* Prepare reveal before first paint; never hide content when motion is reduced. */
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('projects-scroll-reveal-ready');
+}
+</script>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://example.com/projects-fr" hreflang="fr" rel="alternate"/>
+<link href="https://example.com/projects-en" hreflang="en" rel="alternate"/>
+<link href="https://example.com/projects-en" hreflang="x-default" rel="alternate"/>
+</head>
+<body class="page-projects">
+<!-- Header -->
+<header class="animated-header">
+  <div class="header-left">
+    <a href="/" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+
+    <div class="header-controls header-controls-main">
+      <div class="theme-switcher">
+        <button class="theme-toggle" id="themeButton" aria-label="Changer de thème">
+          <span class="theme-icon-display moon"><i class="fa-solid fa-moon"></i></span>
+          <span class="theme-slider"></span>
+          <span class="theme-icon-display sun"><i class="fa-solid fa-sun"></i></span>
+        </button>
+      </div>
+
+      <!-- <div class="language-switcher">
+        <button class="language-button" id="languageButton" aria-label="Changer de langue">
+          <span id="currentLanguage">FR</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <div class="language-option selected" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="en">English</div>
+        </div>
+      </div> -->
+    </div>
+
+    <button class="burger-button" id="burgerButton" aria-label="Ouvrir le menu"
+            aria-expanded="false" aria-controls="mainNav">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </div>
+
+  <nav id="mainNav">
+    <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
+    <a aria-current="page" class="active" href="/projects/"><span>Projets</span></a>
+    <a href="/about/"><span>À propos</span></a>
+    <a href="/contact/"><span>Contact</span></a>
+  </nav>
+</header>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="container">
+<!-- Кнопка назад и заголовок -->
+<h1>Mes<br/>Projets</h1>
+<!-- Картинка слева -->
+<div class="arc-image">
+<img alt="Design" src="1-01.svg"/>
+</div>
+<!-- SVG индикатор скролла -->
+<div class="scroll-indicator-container">
+<div class="scroll-indicator-layers">
+<div class="scroll-svg-base">
+<img alt="Scroll Base" src="2-01.svg"/>
+</div>
+<div class="scroll-svg-progress">
+<img alt="Scroll Progress" src="2-02.svg"/>
+</div>
+</div>
+</div>
+<!-- Меню категорий -->
+<div class="categories-menu">
+<div class="category-item active" data-category="web-design">UX/UI Design</div>
+<div class="category-item" data-category="branding">Branding</div>
+<!-- <div class="category-item" data-category="mobile">Мобильные</div>
+            <div class="category-item" data-category="3d">3D Графика</div> -->
+</div>
+<!-- Контент -->
+<div class="content">
+<div class="projects-grid">
+<!-- Веб Дизайн -->
+<a class="project-card project-scroll-pending" data-category="web-design" href="/projects/clliic/" style="background-image: url('assets/img/clliic/clliic-cover.webp'); grid-column: 1; grid-row: 1;">
+<h3 class="project-title">Site e-commerce<br/>CLLIIC</h3>
+<div class="project-description">
+                        Conception et réalisation d’une boutique en ligne pour un revendeur de matériel informatique.
+                    </div>
+<div class="project-tags">
+<span class="tag">Web design</span>
+<span class="tag">UX/UI</span>
+<span class="tag">E-commerce</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="web-design" href="/projects/multiself/" style="grid-column: 2; grid-row: 2;" data-project-background="url(&#x27;assets/img/multiself/multiself-cover.webp&#x27;)">
+<h3 class="project-title">Interface tactile<br/>Multiself</h3>
+<div class="project-description">
+                        Refonte UX/UI de l’interface tactile du distributeur automatique Multiself.
+                    </div>
+<div class="project-tags">
+<span class="tag">UX/UI</span>
+<span class="tag">Design d’interface</span>
+<span class="tag">Produit digital</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="web-design" href="/projects/webtrends/" style="grid-column: 1; grid-row: 3;" data-project-background="url(&#x27;assets/img/trends/webtrends-cover.webp&#x27;)">
+<h3 class="project-title">Site web éditorial<br/>Tendances du design</h3>
+<div class="project-description">
+                        Site Web one-page responsive au design minimaliste moderne, structuré en sept sections pour présenter et illustrer les principales tendances actuelles en matière de design Web.
+                    </div>
+<div class="project-tags">
+<span class="tag">Web design</span>
+<span class="tag">Front-end</span>
+<span class="tag">UI/UX</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<!-- Брендинг -->
+<a class="project-card project-scroll-pending" data-category="branding" href="/projects/alliesark/" style="grid-column: 2; grid-row: 4;" data-project-background="url(&#x27;assets/img/alliesark/alliesark-cover.webp&#x27;)">
+<h3 class="project-title">Identité visuelle<br/>Allies Ark</h3>
+<div class="project-description">
+                        Conception d’un logo pour une fondation internationale dédiée à la sauvegarde des animaux, accompagné d’un mockup de mise en situation. 
+                    </div>
+<div class="project-tags">
+<span class="tag">Branding</span>
+<span class="tag">Direction artistique</span>
+<span class="tag">Identité visuelle</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="branding" href="/projects/ergos/" style="grid-column: 1; grid-row: 5;" data-project-background="url(&#x27;assets/img/ergos/ergos-cover.webp&#x27;)">
+<h3 class="project-title">Rebranding<br/>ERGOS</h3>
+<div class="project-description">
+                       Participation à la mise à jour de l’identité visuelle et à la création de supports de communication pour le print et le digital.
+                    </div>
+<div class="project-tags">
+<span class="tag">Branding</span>
+<span class="tag">Direction artistique</span>
+<span class="tag">Identité visuelle</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+<a class="project-card project-scroll-pending" data-category="branding" href="/projects/illomi/" style="grid-column: 2; grid-row: 6;" data-project-background="url(&#x27;assets/img/illomi/illomi-cover.webp&#x27;)">
+<h3 class="project-title">Identité visuelle<br/>Illomi</h3>
+<div class="project-description">
+                        Système d’identité visuelle pour Illomi, marque de luminaires et de décoration.
+                    </div>
+<div class="project-tags">
+<span class="tag">Branding</span>
+<span class="tag">Direction artistique</span>
+<span class="tag">Identité visuelle</span>
+</div>
+<span aria-hidden="true" class="project-card-arrow card-link-icon"><svg fill="none" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"></circle><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg></span>
+</a>
+</div>
+</div>
+</div>
+<footer class="animated-footer">
+    <div class="footer-left">
+        <a href="mailto:contact@mbandurian.com" class="email">contact@mbandurian.com</a>
+
+        <a href="/privacy/" class="privacy-link">
+            Politique de confidentialité
+        </a>
+    </div>
+    <div class="social-links">
+        <!-- <a href="https://wa.me/yourphone" class="social-link" target="_blank" title="WhatsApp"><span>W</span></a> -->
+        <a href="https://www.linkedin.com/in/marharyta-bandurian-1866b52a8" class="social-link" target="_blank" title="LinkedIn"><span>in</span></a>
+        <!-- <a href="https://t.me/yourusername" class="social-link" target="_blank" title="Telegram"><span>T</span></a> -->
+    </div>
+</footer>
+<script>
+/* Start downloading card artwork shortly before it enters the project scroller. */
+(() => {
+  const scroller = document.querySelector('.page-projects .content');
+  const cards = document.querySelectorAll('.page-projects .project-card[data-project-background]');
+  const loadBackground = (card) => {
+    const source = card.getAttribute('data-project-background');
+    if (!source) return;
+    card.style.backgroundImage = source;
+    card.removeAttribute('data-project-background');
+  };
+  if (!scroller || !('IntersectionObserver' in window)) {
+    cards.forEach(loadBackground);
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      loadBackground(entry.target);
+      observer.unobserve(entry.target);
+    }
+  }, { root: scroller, rootMargin: '650px 0px', threshold: 0 });
+  cards.forEach(card => observer.observe(card));
+})();
+</script>
+<script>
+        /* SCROLL PROGRESS INDICATOR */
+        function updateScrollProgress() {
+            const contentElement = document.querySelector('.content');
+            if (!contentElement) return;
+            const scrollTop = contentElement.scrollTop;
+            const scrollHeight = contentElement.scrollHeight - contentElement.clientHeight;
+            const scrollProgress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+            const clipValue = scrollProgress * 100;
+
+            const imageScrollProgress = document.querySelector('.scroll-indicator-layers .scroll-svg-progress');
+            if (imageScrollProgress) {
+                imageScrollProgress.style.clipPath = `inset(0 0 ${100 - clipValue}% 0)`;
+            }
+        }
+
+        /* ACTIVE CATEGORY UPDATE */
+        function updateActiveCategory() {
+            const cards = document.querySelectorAll('.project-card');
+            const categoryItems = document.querySelectorAll('.category-item');
+            const contentElement = document.querySelector('.content');
+            if (!contentElement || !cards.length) return;
+
+            let activeCategory = null;
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardMiddle = rect.top + rect.height / 2;
+
+                if (cardMiddle > 0 && cardMiddle < contentElement.clientHeight) {
+                    activeCategory = card.getAttribute('data-category');
+                }
+            });
+
+            if (activeCategory) {
+                categoryItems.forEach(item => {
+                    if (item.getAttribute('data-category') === activeCategory) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        /* CATEGORY CLICK HANDLER */
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                const firstCard = document.querySelector(`.project-card[data-category="${category}"]`);
+                const contentElement = document.querySelector('.content');
+
+                if (firstCard && contentElement) {
+                    const cardTop = firstCard.offsetTop;
+                    contentElement.scrollTo({
+                        top: cardTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /* EVENT LISTENERS */
+        const contentElement = document.querySelector('.content');
+        if (contentElement) {
+            contentElement.addEventListener('scroll', updateScrollProgress);
+            contentElement.addEventListener('scroll', updateActiveCategory);
+        }
+
+        // Инициализация
+        updateScrollProgress();
+        updateActiveCategory();
+    </script>
+
+<script>
+/* Same one-time fade + gentle lift as À propos sections, scoped to the
+   independently scrolling project area. CSS `translate` never changes hover `transform`. */
+(() => {
+  const cards = [...document.querySelectorAll('.projects-grid .project-card')];
+  const scroller = document.querySelector('.content');
+  const ready = document.documentElement.classList.contains('projects-scroll-reveal-ready');
+  if (!ready || !cards.length || !scroller) {
+    cards.forEach(el => { el.classList.remove('project-scroll-pending'); el.classList.add('project-scroll-visible'); });
+    document.documentElement.classList.remove('projects-scroll-reveal-ready');
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target;
+      card.classList.add('project-scroll-visible');
+      card.classList.remove('project-scroll-pending');
+      observer.unobserve(card);
+    });
+  }, { root: scroller, rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
+  cards.forEach(card => observer.observe(card));
+})();
+</script>
+<script>
+/* Keep the exact position of the independently scrollable project list on return. */
+(() => {
+  const scroller = document.querySelector('.page-projects .content');
+  if (!scroller) return;
+  const positionKey = 'portfolioProjectsReturnScroll';
+  const returnKey = 'portfolioProjectsReturning';
+
+  scroller.querySelectorAll('a.project-card[href]').forEach(card => {
+    card.addEventListener('click', () => {
+      try {
+        sessionStorage.setItem(positionKey, String(scroller.scrollTop));
+        sessionStorage.setItem(returnKey, '1');
+      } catch (_) {}
+    });
+  });
+
+  let restorationInProgress = false;
+  function restorePosition() {
+    if (restorationInProgress) return;
+    let storedTop = null;
+    try {
+      if (sessionStorage.getItem(returnKey) === '1') {
+        storedTop = sessionStorage.getItem(positionKey);
+        sessionStorage.removeItem(returnKey);
+        sessionStorage.removeItem(positionKey);
+        sessionStorage.removeItem('portfolioProjectFocus');
+      }
+    } catch (_) {}
+    if (storedTop === null) {
+      document.documentElement.classList.remove('projects-restoring-scroll');
+      return;
+    }
+    const top = Number(storedTop);
+    if (!Number.isFinite(top)) {
+      document.documentElement.classList.remove('projects-restoring-scroll');
+      return;
+    }
+    restorationInProgress = true;
+    // Restore immediately with animations disabled, then reveal the already-positioned view.
+    const previousBehavior = scroller.style.scrollBehavior;
+    scroller.style.scrollBehavior = 'auto';
+    scroller.scrollTop = top;
+    const finish = () => {
+      scroller.scrollTop = top;
+      scroller.style.scrollBehavior = previousBehavior;
+      document.documentElement.classList.remove('projects-restoring-scroll');
+      restorationInProgress = false;
+      if (typeof updateScrollProgress === 'function') updateScrollProgress();
+      if (typeof updateActiveCategory === 'function') updateActiveCategory();
+    };
+    requestAnimationFrame(() => requestAnimationFrame(finish));
+  }
+  restorePosition();
+  window.addEventListener('pageshow', restorePosition);
+})();
+</script>
+<!-- Логика темы, языка и общие эффекты -->
+<script defer="" src="js/main.js"></script>
+<!-- Cloudflare Web Analytics -->
+<script data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

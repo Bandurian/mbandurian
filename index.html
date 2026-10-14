@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script src="js/site-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+      // Play the full intro on a new visit or a manual reload.
+      // Returning to the homepage within the same tab skips the intro.
+      (() => {
+        const navType = performance.getEntriesByType('navigation')[0]?.type;
+        let visited = false;
+        try {
+          visited = sessionStorage.getItem('mbandurian-home-seen') === '1';
+          sessionStorage.setItem('mbandurian-home-seen', '1');
+        } catch (_) { /* Storage can be unavailable in privacy-restricted contexts. */ }
+        if (visited && navType !== 'reload') {
+          document.documentElement.classList.add('home-skip-intro');
+        }
+      })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Marharyta Bandurian — UX/UI & Graphic Designer</title>
@@ -10,14 +29,18 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Portfolio | Marharyta Bandurian — UX/UI & Graphic Designer">
     <meta property="og:description" content="UX/UI design, design graphique, systèmes de marque et e‑commerce.">
-    <meta property="og:url" content="https://example.com/portfolio-fr">
+    <meta property="og:url" content="https://mbandurian.com/">
     <meta property="og:image" content="https://example.com/assets/preview-portfolio.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Portfolio | Marharyta Bandurian">
     <meta name="twitter:description" content="UX/UI, design graphique et interfaces web.">
     <meta name="twitter:image" content="https://example.com/assets/preview-portfolio.jpg">
-    <link rel="canonical" href="https://example.com/portfolio-fr">
+    <link rel="canonical" href="https://mbandurian.com/">
 
+    <!-- Home-only typography: Unbounded for display, Inter for UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Unbounded:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -50,11 +73,11 @@
 
 
 </head>
-<body class="page-portfolio">
+<body class="page-portfolio home-intro">
 
     <header class="animated-header">
   <div class="header-left">
-    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
+    <a href="/" class="logo" style="text-decoration: none; color: inherit;">BANDURIAN M.</a>
 
     <div class="header-controls header-controls-main">
       <div class="theme-switcher">
@@ -86,9 +109,9 @@
 
   <nav id="mainNav">
     <div class="nav-controls-slot"></div> <!-- сюда «переедут» контролы на мобильном состоянии -->
-    <a href="projects.html"><span>Projets</span></a>
-    <a href="about.html"><span>À propos</span></a>
-    <a href="contact.html"><span>Contact</span></a>
+    <a href="/projects/"><span>Projets</span></a>
+    <a href="/about/"><span>À propos</span></a>
+    <a href="/contact/"><span>Contact</span></a>
   </nav>
 </header>
 
@@ -111,7 +134,7 @@
     <!-- 2 : print вместо produits & interfaces -->
     <div class="grid-item content info">
         <div class="item-text top-right">
-            PRODUCTION<br>IMPRIMÉE
+            MOTION DESIGN<br>&amp; MONTAGE
         </div>
     </div>
     <div class="grid-item empty"></div>
@@ -119,13 +142,13 @@
     <!-- 3 : décoratif -->
     <div class="grid-item empty"></div>
     <div class="grid-item content info">
-        <div class="item-text top-right">✦</div>
+        <div class="item-text top-right"><span class="brand-mini-star" aria-hidden="true"><svg viewBox="0 0 177.484 177.625" focusable="false" aria-hidden="true"><path fill="currentColor" d="M 176.96875 88.625 C 128.109375 88.695312 88.484375 128.320312 88.414062 177.179688 L 88.484375 114.21875 C 88.484375 100.117188 76.992188 88.625 62.890625 88.625 L 0 88.625 C 48.929688 88.625 88.554688 49 88.554688 0.0703125 L 88.554688 62.960938 C 88.554688 77.0625 100.046875 88.554688 114.148438 88.554688 Z M 176.96875 88.625 "/></svg></span></div>
     </div>
 
     <!-- 4 : branding -->
     <div class="grid-item content info">
         <div class="item-text top-left">
-            IDENTITÉS<br>DE MARQUE
+            BRANDING<br>&amp; IMPRESSION
         </div>
     </div>
     <div class="grid-item empty"></div>
@@ -134,7 +157,8 @@
     <div class="grid-item empty"></div>
     <div class="grid-item content interactive">
         <div class="item-text bottom-left">
-            VOIR MES<br>PROJETS
+            <span class="card-link-label">VOIR MES<br>PROJETS</span>
+            <span class="card-link-icon" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"/><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
     </div>
 
@@ -160,7 +184,8 @@
     <!-- 9 : icône -->
     <div class="grid-item content interactive">
         <div class="item-text top-right">
-            QUI<br>SUIS-JE
+            <span class="card-link-label">À PROPOS<br>DE MOI</span>
+            <span class="card-link-icon" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"/><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
     </div>
 
@@ -176,14 +201,15 @@
 
     <!-- 11 : décoratif -->
     <div class="grid-item content info">
-        <div class="item-text bottom-left">✦</div>
+        <div class="item-text bottom-left"><span class="brand-mini-star" aria-hidden="true"><svg viewBox="0 0 177.484 177.625" focusable="false" aria-hidden="true"><path fill="currentColor" d="M 176.96875 88.625 C 128.109375 88.695312 88.484375 128.320312 88.414062 177.179688 L 88.484375 114.21875 C 88.484375 100.117188 76.992188 88.625 62.890625 88.625 L 0 88.625 C 48.929688 88.625 88.554688 49 88.554688 0.0703125 L 88.554688 62.960938 C 88.554688 77.0625 100.046875 88.554688 114.148438 88.554688 Z M 176.96875 88.625 "/></svg></span></div>
     </div>
     <div class="grid-item empty"></div>
 
     <!-- 12 : contact -->
     <div class="grid-item content interactive">
         <div class="item-text bottom-right">
-            ME<br>CONTACTER
+            <span class="card-link-label">ME<br>CONTACTER</span>
+            <span class="card-link-icon" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-opacity="0.64" stroke-width="0.8"/><path d="M12 24L24 12M15 12H24V21" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
     </div>
 
@@ -192,7 +218,7 @@
     <!-- 13 : localisation / année -->
     <div class="grid-item content info">
         <div class="item-text bottom-right">
-            TOULON<br>2025
+            TOULON<br>2026
         </div>
     </div>
 </div>
@@ -203,7 +229,7 @@
     <div class="footer-left">
         <a href="mailto:contact@mbandurian.com" class="email">contact@mbandurian.com</a>
 
-        <a href="privacy.html" class="privacy-link">
+        <a href="/privacy/" class="privacy-link">
             Politique de confidentialité
         </a>
     </div>
@@ -215,8 +241,92 @@
 </footer>
 
 <script src="js/main.js" defer></script>
-<script src="/js/three-portfolio.js" defer></script>
+<script src="./js/three-portfolio.js" defer></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "1c07d2ce373a46c2b559e6991586c4ac"}'></script>
+<script>
+  // Refined composition: give the headline room, then reveal grouped scale-in card waves, then the star.
+  document.addEventListener('DOMContentLoaded', () => {
+    const page = document.body;
+    const root = document.documentElement;
+    const cards = [...document.querySelectorAll('.page-portfolio .grid-item')];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const skipIntro = root.classList.contains('home-skip-intro');
+    const later = ms => new Promise(resolve => setTimeout(resolve, ms));
+    // Load the exact display font before revealing the heading on either path.
+    const fontReady = document.fonts?.load
+      ? document.fonts.load('800 48px Unbounded').catch(() => {})
+      : Promise.resolve();
+
+    // Returning: show the interface immediately, but animate the star only
+    // once the GLB has actually loaded, preventing a one-frame flash.
+    if (skipIntro) {
+      fontReady.then(() => {
+        root.classList.add('home-title-font-ready');
+        page.classList.add('home-title-visible');
+      });
+      const showReturnStar = () => page.classList.add('home-star-visible');
+      if (window.homeStarReady === true) showReturnStar();
+      else window.addEventListener('home-star-ready', showReturnStar, { once: true });
+      return;
+    }
+
+    // Group cards into broad diagonal bands: multiple cards reveal together.
+    // Preserve original scale(0) -> scale(1) animation instead of sliding.
+    cards.forEach((card, i) => {
+      const col = i % 8;
+      const row = Math.floor(i / 8);
+      const band = Math.floor((col + row * 1.7) / 2.2);
+      card.style.setProperty('--home-wave-delay', `${(1.15 + band * 0.13).toFixed(2)}s`);
+    });
+
+    let modelReady = window.homeStarReady === true;
+    let starCueReached = false;
+    const revealStar = () => {
+      if (modelReady && starCueReached) page.classList.add('home-star-visible');
+    };
+    window.addEventListener('home-star-ready', () => {
+      modelReady = true;
+      revealStar();
+    });
+
+    (async () => {
+      if (!reduceMotion) await later(320);
+      await fontReady;
+      root.classList.add('home-title-font-ready');
+      // The cursor-driven heading effect only starts after its intro ends.
+      if (!reduceMotion) await later(950);
+      page.classList.add('home-title-visible');
+    })();
+
+    (async () => {
+      if (!reduceMotion) await later(2150);
+      starCueReached = true;
+      revealStar();
+    })();
+  });
+
+  // A browser back/forward cache restores the original document rather
+  // than loading a new one. Make sure the intro cannot replay on return.
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) return;
+    document.documentElement.classList.add('home-skip-intro');
+    const revealRestoredTitle = () => {
+      document.documentElement.classList.add('home-title-font-ready');
+      document.body.classList.add('home-title-visible');
+    };
+    if (document.fonts?.check('800 48px Unbounded')) revealRestoredTitle();
+    else if (document.fonts?.load) document.fonts.load('800 48px Unbounded').then(revealRestoredTitle, revealRestoredTitle);
+    else revealRestoredTitle();
+    // A BFCache restoration does not reload the GLB. Restart only the short
+    // return animation after the restored page has painted.
+    document.body.classList.remove('home-star-visible');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.body.classList.add('home-star-visible');
+    }));
+    document.body.classList.remove('page-transitioning');
+    document.querySelectorAll('.transition-overlay').forEach(el => el.remove());
+  });
+</script>
 </body>
 </html>
