@@ -53,11 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // UX: блокируем кнопку и показываем статус
     submitButton.disabled = true;
-    submitButton.innerHTML = '<span data-lang="fr">Envoi...</span><span data-lang="en" style="display:none;">Sending...</span><span>→</span>';
+    submitButton.innerHTML = '<span data-lang="fr">Envoi...</span><span data-lang="en" style="display:none;">Sending...</span>';
     if (formStatus) formStatus.style.display = 'none';
 
     // Для отладки — логируем что будем отправлять
-    console.log('Submitting contact form:', { name, email, phone, message });
 
     try {
       const response = await fetch('https://telegram-form-worker.kinameri20.workers.dev', {
@@ -75,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Логи для отладки CORS/статуса
-      console.log('Fetch response status:', response.status, response.statusText);
 
       // Проверяем сетевой/HTTP статус
       if (!response.ok) {
@@ -96,8 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         throw new Error('Invalid JSON from server');
       }
-
-      console.log('Worker response data:', data);
 
       // Логика успешного ответа — зависит от того, что возвращает worker
       if (data && (data.ok === true || data.result)) {
@@ -124,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formStatus.style.display = 'block';
     } finally {
       submitButton.disabled = false;
-      submitButton.innerHTML = '<span data-lang="fr">Envoyer</span><span data-lang="en" style="display:none;">Send</span><span>→</span>';
+      submitButton.innerHTML = '<span data-lang="fr">Envoyer</span><span data-lang="en" style="display:none;">Send</span>';
     }
   });
 });

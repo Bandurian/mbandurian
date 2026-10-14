@@ -40,7 +40,8 @@ function initMatterForStage(stageEl) {
     MouseConstraint,
     Mouse,
     Events,
-    Body
+    Body,
+    Query
   } = Matter;
 
   const engine = Engine.create();
@@ -81,62 +82,29 @@ function initMatterForStage(stageEl) {
   }
 
   function createCircles() {
-    return Array.from(matterCircles).map(el => {
-      const w = el.offsetWidth;
-      const h = el.offsetHeight;
-      const x = el.offsetLeft + w / 2;
-      const y = el.offsetTop  + h / 2;
-      const r = Math.max(w, h) / 2;
-
-      const body = Bodies.circle(x, y, r, {
-        density: 0.01,
-        friction: 0.1,
-        restitution: 0.4,
-        render: { opacity: 0 }
-      });
-
-      Composite.add(engine.world, body);
-      return body;
-    });
+    return createBoxBodies(matterCircles);
   }
 
   function createPills() {
-    return Array.from(matterPills).map(el => {
+    return createBoxBodies(matterPills);
+  }
+
+  // Matter.js has no asymmetric-rounded rectangle primitive. Using the
+  // actual element width/height is a stable approximation for collisions.
+  function createBoxBodies(elements) {
+    return Array.from(elements).map(el => {
       const w = el.offsetWidth;
       const h = el.offsetHeight;
       const x = el.offsetLeft + w / 2;
-      const y = el.offsetTop  + h / 2;
-      const r = h / 2;
-
-      const leftCircle = Bodies.circle(x - w / 2 + r, y, r, {
+      const y = el.offsetTop + h / 2;
+      const body = Bodies.rectangle(x, y, w, h, {
         density: 0.01,
-        friction: 0.1,
-        restitution: 0.4,
-        render: { opacity: 0 }
+        friction: 0.15,
+        restitution: 0.35,
+        render: { visible: false }
       });
-
-      const rightCircle = Bodies.circle(x + w / 2 - r, y, r, {
-        density: 0.01,
-        friction: 0.1,
-        restitution: 0.4,
-        render: { opacity: 0 }
-      });
-
-      const rect = Bodies.rectangle(x, y, w - h, h, {
-        density: 0.01,
-        friction: 0.1,
-        restitution: 0.4,
-        render: { opacity: 0 }
-      });
-
-      const pillBody = Body.create({
-        parts: [leftCircle, rightCircle, rect],
-        friction: 0.1,
-        restitution: 0.4
-      });
-
-      Composite.add(engine.world, pillBody);
-      return pillBody;
+      Composite.add(engine.world, body);
+      return body;
     });
   }
 
@@ -144,19 +112,22 @@ function initMatterForStage(stageEl) {
     const W = matterBox.clientWidth;
     const H = matterBox.clientHeight;
 
-    const ground = Bodies.rectangle(W / 2, H, W, 1, {
+    // Boundaries sit on the stage edges (no internal side/bottom gutter).
+    // Thick external walls keep bodies from visually escaping at speed.
+    const wallSize = 40;
+    const ground = Bodies.rectangle(W / 2, H + wallSize / 2, W + wallSize * 2, wallSize, {
       isStatic: true,
       render: { opacity: 0 }
     });
-    const top    = Bodies.rectangle(W / 2, 0, W, 1, {
+    const top    = Bodies.rectangle(W / 2, -wallSize / 2, W + wallSize * 2, wallSize, {
       isStatic: true,
       render: { opacity: 0 }
     });
-    const left   = Bodies.rectangle(0, H / 2, 1, H, {
+    const left   = Bodies.rectangle(-wallSize / 2, H / 2, wallSize, H + wallSize * 2, {
       isStatic: true,
       render: { opacity: 0 }
     });
-    const right  = Bodies.rectangle(W, H / 2, 1, H, {
+    const right  = Bodies.rectangle(W + wallSize / 2, H / 2, wallSize, H + wallSize * 2, {
       isStatic: true,
       render: { opacity: 0 }
     });
@@ -174,6 +145,13 @@ function initMatterForStage(stageEl) {
   Render.run(render);
 
   const mouse = Mouse.create(render.canvas);
+
+  // Matter.Mouse registers wheel handlers that call preventDefault().
+  // The wheel is not needed for dragging bodies, so detach only those
+  // handlers and let the browser scroll the page normally over the canvas.
+  for (const eventName of ['wheel', 'mousewheel', 'DOMMouseScroll']) {
+    render.canvas.removeEventListener(eventName, mouse.mousewheel);
+  }
   const mouseConstraint = MouseConstraint.create(engine, {
     mouse,
     constraint: {
@@ -183,6 +161,41 @@ function initMatterForStage(stageEl) {
   });
   Composite.add(engine.world, mouseConstraint);
   render.mouse = mouse;
+
+  // Matter's canvas overlays the visible HTML chips, so :hover on chips
+  // cannot fire. Detect which physics body lies under the pointer and add
+  // a CSS class to its corresponding HTML element. Dragging still works.
+  let chipsAndBodies = [];
+  let chipBodies = [];
+  function syncChipBodies() {
+    chipsAndBodies = [
+      ...elemBodies.map((body, i) => ({ body, el: matterElems[i] })),
+      ...elemCircles.map((body, i) => ({ body, el: matterCircles[i] })),
+      ...elemPills.map((body, i) => ({ body, el: matterPills[i] }))
+    ];
+    chipBodies = chipsAndBodies.map(item => item.body);
+  }
+  syncChipBodies();
+  let hoveredChip = null;
+  function clearChipHover() {
+    if (hoveredChip) hoveredChip.classList.remove('skill-is-hovered');
+    hoveredChip = null;
+  }
+  render.canvas.addEventListener('pointermove', (event) => {
+    const rect = render.canvas.getBoundingClientRect();
+    const point = {
+      x: (event.clientX - rect.left) * (render.options.width / rect.width),
+      y: (event.clientY - rect.top) * (render.options.height / rect.height)
+    };
+    const hits = Query.point(chipBodies, point);
+    const match = hits.length ? chipsAndBodies.find(item => item.body === hits[hits.length - 1]) : null;
+    const next = match?.el || null;
+    if (next === hoveredChip) return;
+    clearChipHover();
+    hoveredChip = next;
+    if (hoveredChip) hoveredChip.classList.add('skill-is-hovered');
+  });
+  render.canvas.addEventListener('pointerleave', clearChipHover);
 
   Events.on(engine, 'afterUpdate', () => {
     elemBodies.forEach((body, i) => {
@@ -211,11 +224,13 @@ function initMatterForStage(stageEl) {
   });
 
   function handleResize() {
+    clearChipHover();
     Composite.clear(engine.world, false);
     createBoundaries();
     elemBodies  = createRectangles();
     elemCircles = createCircles();
     elemPills   = createPills();
+    syncChipBodies();
 
     render.options.width  = matterBox.clientWidth;
     render.options.height = matterBox.clientHeight;
@@ -223,7 +238,7 @@ function initMatterForStage(stageEl) {
 
   window.addEventListener('resize', handleResize);
 
-  return { engine, render, runner, mouseConstraint };
+  return { engine, render, runner, mouseConstraint, handleResize };
 }
 
 
@@ -240,7 +255,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function destroyPhysics() {
     if (!currentPhysics) return;
-    const { engine, render, runner } = currentPhysics;
+    const { engine, render, runner, handleResize } = currentPhysics;
+    window.removeEventListener('resize', handleResize);
     Matter.Runner.stop(runner);
     Matter.Render.stop(render);
     Matter.World.clear(engine.world, false);
@@ -272,14 +288,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       el.textContent = skill.label;
 
-      const margin = 40;
-      const x = margin + Math.random() * (W - margin * 2);
-      const y = 20 + idx * 10;
-
+      // Measure each label before placing it: larger chips must start fully
+      // within the stage, otherwise they could clip at the edges.
+      stage.appendChild(el);
+      const chipW = el.offsetWidth;
+      const chipH = el.offsetHeight;
+      const availableX = Math.max(0, W - chipW);
+      const x = Math.random() * availableX;
+      // A small stagger keeps the satisfying falling / piling behaviour.
+      const y = Math.min(Math.max(8, H - chipH - 8), 8 + idx * 12);
       el.style.left = x + 'px';
       el.style.top  = y + 'px';
-
-      stage.appendChild(el);
     });
 
     currentPhysics = initMatterForStage(stage);
