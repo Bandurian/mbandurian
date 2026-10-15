@@ -7070,3 +7070,284 @@ html.projects-restoring-scroll body.page-projects {
     font-size: 13.2vw;
   }
 }
+
+
+/* Portfolio button refinements — 2026-10-14 */
+/* Keep primary CTAs compact without changing their colors or hover behavior. */
+.page-about .about-hero-cv.submit-button,
+.page-contact .submit-button[type="submit"] {
+  font-size: .84rem;
+  line-height: 1.35;
+  letter-spacing: normal;
+  padding: .95rem 1.5rem;
+  white-space: nowrap;
+}
+/* Reserve space for the longest submit-state label (Envoi..., Envoyer). */
+.page-contact .submit-button[type="submit"] {
+  min-width: 10.5rem;
+  min-height: 3.05rem;
+  text-align: center;
+  justify-content: center;
+  gap: 0;
+}
+.page-contact .submit-button[type="submit"] .submit-arrow { display: none; }
+.page-contact .submit-button[type="submit"] span { white-space: nowrap; }
+.page-contact .form-status {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+/* Case-study return CTA: make text more readable. */
+:is(.page-clliic, .page-case-study) .clliic-all-projects:not(.case-external-link) {
+  font-size: .875rem;
+}
+/* Webtrends external CTA: less empty space, larger label and matching arrow. */
+.page-case-webtrends .clliic-all-projects.case-external-link {
+  font-size: .9rem;
+  padding: .8rem 1.2rem;
+  gap: .55rem;
+}
+.page-case-webtrends .clliic-all-projects.case-external-link .clliic-link-arrow {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Project preview typography stays legible against each cover, in both themes. */
+body.page-projects .projects-grid .project-card {
+  --project-card-ink: color-mix(in srgb, #F2F2F2 88%, #9F88F2 12%);
+  color: var(--project-card-ink);
+}
+body.page-projects .projects-grid .project-card[href="/projects/illomi/"] {
+  --project-card-ink: #0d0b11;
+}
+body.page-projects .projects-grid .project-card .project-title,
+body.page-projects .projects-grid .project-card .project-tags,
+body.page-projects .projects-grid .project-card .project-tags .tag,
+body.page-projects .projects-grid .project-card .project-card-arrow,
+body.page-projects .projects-grid .project-card:hover .project-card-arrow,
+body.page-projects .projects-grid .project-card:focus-visible .project-card-arrow {
+  color: var(--project-card-ink);
+}
+body.page-projects .projects-grid .project-card .project-tags::before {
+  background: color-mix(in srgb, var(--project-card-ink) 52%, transparent);
+}
+
+/* About — team within Ekstend experience, shown only when the entry expands. */
+/* Department is integrated with the standard experience metadata. */
+.page-about .career-entry-meta .timeline-team {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+.page-about .career-entry-meta .timeline-team .career-meta-icon {
+  flex: 0 0 1.15rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: .15rem 0 0;
+}
+.page-about .career-entry-meta .timeline-team .career-meta-copy {
+  min-width: 0;
+}
+/* The Bénévolat section shares the existing timeline and its vertical rule. */
+.page-about .career-volunteer-heading {
+  position: relative;
+  z-index: 1;
+  margin: .05rem 0 -.4rem 2rem;
+  color: var(--text-secondary);
+  font: 700 .8rem/1.4 'Inter', Arial, sans-serif;
+  letter-spacing: .035em;
+}
+.page-about .career-volunteer-content {
+  display: flex;
+  flex-direction: column;
+  gap: .22rem;
+}
+.page-about .career-volunteer-entry .career-entry-role { margin: 0; }
+.page-about .career-volunteer-entry .career-entry-company { margin: 0; }
+@media (max-width: 780px) {
+  .page-about .career-volunteer-heading { margin-left: 1.9rem; }
+}
+
+/* Keep contract labels readable on expanded experience cards in both themes. */
+.page-about .career-entry[open] .career-contract-badge {
+  color: #fff;
+  background: color-mix(in srgb, var(--color-accent) 35%, #21172f);
+}
+
+/* Case-study galleries: constrain both columns to the section width.
+   A minmax(0, ...) track prevents the images' intrinsic sizes from expanding
+   the grid beyond its parent. Both figures stretch to the same row height. */
+:is(.page-clliic, .page-case-study) .clliic-gallery-images {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+}
+:is(.page-clliic, .page-case-study) .clliic-gallery-pair-b .clliic-gallery-images {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+}
+:is(.page-clliic, .page-case-study) .clliic-gallery-image {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+:is(.page-clliic, .page-case-study) .clliic-gallery-image > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+@media (max-width: 48rem) {
+  :is(.page-clliic, .page-case-study) .clliic-gallery-images,
+  :is(.page-clliic, .page-case-study) .clliic-gallery-pair-b .clliic-gallery-images {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Allies Ark: the single mockup in “L’identité en situation” behaves
+   like the large introductory cover, not like a half-width gallery card. */
+.page-case-alliesark .clliic-gallery-images:has(> :only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-case-alliesark .clliic-gallery-images > .clliic-gallery-image:only-child {
+  width: 100%;
+  aspect-ratio: auto;
+}
+.page-case-alliesark .clliic-gallery-images > .clliic-gallery-image:only-child > img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* CLLIIC: smaller left mockup and wider right mockup in the first gallery pair. */
+.page-clliic .clliic-gallery-pair-a .clliic-gallery-images {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+}
+/* The final CLLIIC gallery has one full-width image, like a hero mockup. */
+.page-clliic .clliic-gallery-pair-c .clliic-gallery-images {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-clliic .clliic-gallery-pair-c .clliic-gallery-image {
+  aspect-ratio: auto;
+}
+.page-clliic .clliic-gallery-pair-c .clliic-gallery-image > img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (max-width: 48rem) {
+  .page-clliic .clliic-gallery-pair-a .clliic-gallery-images {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Multiself: present the last single mockup like the full-width final
+   images in CLLIIC and Allies Ark, preserving its natural aspect ratio. */
+.page-case-multiself .clliic-gallery-images:has(> .clliic-gallery-image:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-case-multiself .clliic-gallery-images > .clliic-gallery-image:only-child {
+  aspect-ratio: auto;
+}
+.page-case-multiself .clliic-gallery-images > .clliic-gallery-image:only-child > img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Webtrends: keep the last single gallery image full-width with its
+   natural aspect ratio, matching Multiself and CLLIIC. */
+.page-case-webtrends .clliic-gallery-pair:last-child .clliic-gallery-images {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-case-webtrends .clliic-gallery-pair:last-child .clliic-gallery-image {
+  width: 100%;
+  aspect-ratio: auto;
+}
+.page-case-webtrends .clliic-gallery-pair:last-child .clliic-gallery-image > img {
+  position: static;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+/* ERGOS: match the naturally-sized, full-width final gallery images in
+   Allies Ark, CLLIIC, Multiself and Webtrends. */
+.page-case-ergos .clliic-gallery-images:has(> .clliic-gallery-image:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-case-ergos .clliic-gallery-images > .clliic-gallery-image:only-child {
+  width: 100%;
+  aspect-ratio: auto;
+}
+.page-case-ergos .clliic-gallery-images > .clliic-gallery-image:only-child > img {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+/* Case study tags: a subtle upward motion on hover. */
+:is(.page-clliic, .page-case-study) .clliic-tags span {
+  display: inline-flex;
+  transition: transform 200ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  :is(.page-clliic, .page-case-study) .clliic-tags span:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Closing links: more readable project-list label, tighter external link. */
+:is(.page-clliic, .page-case-study) .clliic-all-projects:not(.case-external-link) {
+  font-size: .975rem;
+}
+.page-case-webtrends .clliic-all-projects.case-external-link {
+  gap: .25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.page-clliic, .page-case-study) .clliic-tags span {
+    transition: none;
+  }
+}
+
+/* Illomi: preserve the natural proportions of the final full-width image. */
+.page-case-illomi .clliic-gallery-pair:last-child .clliic-gallery-images {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-case-illomi .clliic-gallery-pair:last-child .clliic-gallery-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+.page-case-illomi .clliic-gallery-pair:last-child .clliic-gallery-image > img {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: cover;
+}

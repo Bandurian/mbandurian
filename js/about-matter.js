@@ -15,6 +15,8 @@ const SKILLS = {
     // { label: 'Design de produits',          type: 'pill'   },
     { label: 'Identité de marque',          type: 'rect'   },
     { label: 'Design graphique',            type: 'rect'   },
+    { label: 'Motion design',                type: 'pill'   },
+    { label: 'Montage vidéo',                type: 'rect'   },
     { label: 'Typographie',                 type: 'pill'   },
     { label: 'Design produits imprimés',    type: 'pill'   }
   ],
@@ -24,6 +26,7 @@ const SKILLS = {
     { label: 'Adobe Photoshop',   type: 'rect' },
     { label: 'Adobe InDesign',    type: 'pill' },
     { label: 'Adobe After Effects', type: 'pill' },
+    { label: 'Adobe Premiere Pro', type: 'pill' },
     { label: 'Blender',      type: 'circle' },
     { label: 'Unity',        type: 'pill'   }
   ]
